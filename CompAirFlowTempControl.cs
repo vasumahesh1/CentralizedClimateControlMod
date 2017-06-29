@@ -23,12 +23,17 @@ namespace EnhancedTemperature
         public float ConvertedTemperature = 0.0f;
         public float DeltaTemperature = 0.0f;
 
-
-        public float Efficiency = 1.0f;
-
         private const float DeltaSmooth = 4.0f;
 
         protected CompFlickable FlickableComp;
+
+        public float ThermalCapacity
+        {
+            get
+            {
+                return this.Props.thermalCapacity;
+            }
+        }
 
         public string DebugString
         {
@@ -91,9 +96,6 @@ namespace EnhancedTemperature
             TargetTemperature = compTempControl.targetTemperature;
             ConvertedTemperature = IntakeTemperature + DeltaTemperature;
 
-            // 3 Blower = 100% Efficiency
-            Efficiency = -0.16667f * AirFlowNet.Producers.Count + 1.5f;
-
             GenerateDelta(compTempControl);
         }
 
@@ -113,7 +115,7 @@ namespace EnhancedTemperature
             var deltaDelta = targetDelta - currentDelta;
 
             IsHeating = targetDelta > currentDelta;
-            DeltaTemperature += (float)(compTempControl.Props.energyPerSecond * Efficiency) / (DeltaSmooth * deltaDelta);
+            DeltaTemperature += (float)(compTempControl.Props.energyPerSecond * AirFlowNet.ThermalEfficiency) / (DeltaSmooth * deltaDelta);
         }
     }
 }

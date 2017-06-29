@@ -7,7 +7,7 @@ using Verse;
 
 namespace EnhancedTemperature
 {
-    public class PlaceWorker_Blower : PlaceWorker
+    public class PlaceWorker_AirVent : PlaceWorker
     {
         public override void DrawGhost(ThingDef def, IntVec3 center, Rot4 rot)
         {
@@ -16,9 +16,16 @@ namespace EnhancedTemperature
             GenDraw.DrawFieldEdges(new List<IntVec3>
             {
                 intVec
-            }, Color.white);
+            }, Color.yellow);
 
-            // GenDraw.DrawFieldEdges(WindTurbineUtility.CalculateWindCells(center, rot, def.size).ToList<IntVec3>());
+            RoomGroup roomGroup = intVec.GetRoomGroup(base.Map);
+            if (roomGroup != null)
+            {
+                if (!roomGroup.UsesOutdoorTemperature)
+                {
+                    GenDraw.DrawFieldEdges(roomGroup.Cells.ToList<IntVec3>(), Color.yellow);
+                }
+            }
         }
 
         public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 center, Rot4 rot, Thing thingToIgnore = null)
@@ -27,7 +34,7 @@ namespace EnhancedTemperature
 
             if (vec.Impassable(base.Map))
             {
-                return "EnhancedTemperature.Producer.BlowerPlaceError".Translate();
+                return "EnhancedTemperature.Consumer.AirVentPlaceError".Translate();
             }
 
             return true;

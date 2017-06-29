@@ -12,13 +12,17 @@ namespace EnhancedTemperature
         public List<AirFlowNet> CachedNets = new List<AirFlowNet>();
         public List<CompAirFlowProducer> CachedProducers = new List<CompAirFlowProducer>();
         public List<CompAirFlowTempControl> CachedTempControls = new List<CompAirFlowTempControl>();
+        public List<CompAirFlowConsumer> CachedConsumers = new List<CompAirFlowConsumer>();
         public List<CompAirFlow> CachedPipes = new List<CompAirFlow>();
 
         public int[,] PipeGrid;
         public bool[] DirtyPipeFlag;
+        public bool IsDirty;
 
         private const int RebuildValue = -2;
 
+        private List<AirFlowNet> _backupNets = new List<AirFlowNet>();
+        private int _pipeCount = 0;
         private int _masterId = 0;
 
         public AirFlowNetManager(Map map) : base(map)
@@ -27,11 +31,15 @@ namespace EnhancedTemperature
             int num = map.AllCells.Count<IntVec3>();
             this.PipeGrid = new int[length, num];
 
+            _pipeCount = length;
+
             this.DirtyPipeFlag = new bool[length];
             for (int i = 0; i < this.DirtyPipeFlag.Length; i++)
             {
                 this.DirtyPipeFlag[i] = true;
             }
+
+            IsDirty = true;
         }
 
         public void RegisterPipe(CompAirFlow pipe)
@@ -94,22 +102,37 @@ namespace EnhancedTemperature
             if (this.CachedProducers.Contains(pipe))
             {
                 this.CachedProducers.Remove(pipe);
-                GenList.Shuffle<CompAirFlowProducer>(this.CachedProducers);
+                GenList.Shuffle<CompAirFlowProducer>(CachedProducers);
             }
 
             this.DirtyPipeGrid(pipe.FlowType);
         }
 
-        public void DirtyPipeGrid(AirFlowType p)
+        public void RegisterConsumer(CompAirFlowConsumer device)
         {
-            if (p == AirFlowType.Any)
+            if (!CachedConsumers.Contains(device))
             {
-                this.DirtyPipeFlag[0] = true;
-                this.DirtyPipeFlag[1] = true;
-                return;
+                CachedConsumers.Add(device);
+                GenList.Shuffle<CompAirFlowConsumer>(CachedConsumers);
             }
 
-            this.DirtyPipeFlag[(int)p] = true;
+            this.DirtyPipeGrid(device.FlowType);
+        }
+
+        public void DeregisterConsumer(CompAirFlowConsumer device)
+        {
+            if (this.CachedConsumers.Contains(device))
+            {
+                this.CachedConsumers.Remove(device);
+                GenList.Shuffle<CompAirFlowConsumer>(this.CachedConsumers);
+            }
+
+            this.DirtyPipeGrid(device.FlowType);
+        }
+
+        public void DirtyPipeGrid(AirFlowType p)
+        {
+            IsDirty = true;
         }
 
         public bool ZoneAt(IntVec3 pos, AirFlowType flowType)
@@ -121,25 +144,46 @@ namespace EnhancedTemperature
         {
             base.MapComponentUpdate();
 
-            for (int i = 0; i < DirtyPipeFlag.Length; i++)
+            if (!IsDirty)
             {
-                if (!DirtyPipeFlag[i])
+                return;
+            }
+
+            foreach (var compAirFlow in CachedPipes)
+            {
+                compAirFlow.GridID = RebuildValue;
+            }
+
+            _backupNets.Clear();
+
+            for (int i = 0; i < _pipeCount; i++)
+            {
+                if ((AirFlowType) i == AirFlowType.Any)
                 {
                     continue;
                 }
 
                 RebuildPipeGrid(i);
             }
+
+            CachedNets = _backupNets;
+
+            IsDirty = false;
         }
 
         public override void MapComponentTick()
         {
-            base.MapComponentTick();
+            if (IsDirty)
+            {
+                return;
+            }
 
             foreach (var airFlowNet in CachedNets)
             {
                 airFlowNet.AirFlowNetTick();
             }
+
+            base.MapComponentTick();
         }
 
         private void ParseParentCell(CompAirFlow compAirFlow, int GridID, int flowIndex, AirFlowNet network)
@@ -161,7 +205,7 @@ namespace EnhancedTemperature
 
                 foreach (Building current in buildingList)
                 {
-                    var buildingAirComps = current.GetComps<CompAirFlow>().Where(item => item.FlowType == (AirFlowType)flowIndex || item.FlowType == AirFlowType.Any);
+                    var buildingAirComps = current.GetComps<CompAirFlow>().Where(item => item.FlowType == (AirFlowType)flowIndex || (item.FlowType == AirFlowType.Any && item.GridID == RebuildValue));
 
                     foreach (var buildingAirComp in buildingAirComps)
                     {
@@ -203,13 +247,10 @@ namespace EnhancedTemperature
                 this.PipeGrid[flowIndex, i] = RebuildValue;
             }
 
-            var cachedPipes = CachedPipes.Where((item) => item.FlowType == flowType || item.FlowType == AirFlowType.Any).ToList();
-            foreach (var compAirFlow in cachedPipes)
-            {
-                compAirFlow.GridID = RebuildValue;
-            }
-
             Debug.Log("--- Start Rebuilding --- For Index: " + flowIndex);
+
+            var cachedPipes = CachedPipes.Where((item) => item.FlowType == flowType).ToList();
+            PrintPipes(cachedPipes);
 
             var listCopy = new List<CompAirFlow>(cachedPipes);
 
@@ -219,6 +260,7 @@ namespace EnhancedTemperature
 
                 AirFlowNet network = new AirFlowNet();
                 network.GridID = compAirFlow.GridID;
+                network.FlowType = flowType;
                 _masterId++;
 
                 ValidateBuilding(compAirFlow, network);
@@ -244,13 +286,29 @@ namespace EnhancedTemperature
 
             DirtyPipeFlag[flowIndex] = false;
             Debug.Log("--- Done Rebuilding ---");
-            CachedNets = runtimeNets;
+
+            _backupNets.AddRange(runtimeNets);
         }
 
         private void ValidateBuilding(CompAirFlow compAirFlow, AirFlowNet network)
         {
             ValidateAsProducer(compAirFlow, network);
             ValidateAsTempControl(compAirFlow, network);
+            ValidateAsConsumer(compAirFlow, network);
+        }
+
+        private void ValidateAsConsumer(CompAirFlow compAirFlow, AirFlowNet network)
+        {
+            var consumer = compAirFlow as CompAirFlowConsumer;
+            if (consumer != null)
+            {
+                if (!network.Consumers.Contains(consumer))
+                {
+                    network.Consumers.Add(consumer);
+                }
+
+                consumer.AirFlowNet = network;
+            }
         }
 
         private void ValidateAsProducer(CompAirFlow compAirFlow, AirFlowNet network)
@@ -279,6 +337,18 @@ namespace EnhancedTemperature
 
                 tempControl.AirFlowNet = network;
             }
+        }
+
+        private void PrintPipes(List<CompAirFlow> comps)
+        {
+            string str = "\nPrinting CompAirFlows -"; 
+
+            foreach (var compAirFlow in comps)
+            {
+                str += ("\n  - " + compAirFlow.parent + " (GRID ID: " + compAirFlow.GridID + ") ");
+            }
+
+            Debug.Log(str);
         }
     }
 }

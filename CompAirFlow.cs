@@ -93,7 +93,7 @@ namespace EnhancedTemperature
             }
 
             res += "\n";
-            res += TotalNetworkAirKey.Translate(new object[] { AirFlowNet.CurrentAirFlow });
+            res += TotalNetworkAirKey.Translate(new object[] { AirFlowNet.CurrentIntakeAir });
 
             return res;
         }

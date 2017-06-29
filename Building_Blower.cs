@@ -30,6 +30,13 @@ namespace EnhancedTemperature
             }
 
             IntVec3 intVec = base.Position + IntVec3.South.RotatedBy(base.Rotation);
+
+            if (intVec.Impassable(this.Map))
+            {
+                this.CompAirProducer.CurrentAirFlow = 0;
+                return;
+            }
+
             CompAirProducer.IntakeTemperature = intVec.GetTemperature(base.Map);
 
             float flow = this.CompAirProducer.Props.baseAirFlow - windCellsBlocked * EfficiencyLossPerWindCubeBlocked;

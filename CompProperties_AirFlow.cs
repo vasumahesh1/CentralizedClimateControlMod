@@ -19,16 +19,10 @@ namespace EnhancedTemperature
 
         public float baseAirFlow;
 
-        public bool shortCircuitInRain = false;
-
-        public bool cached = false;
-
-        public SoundDef soundPowerOn;
-
-        public SoundDef soundPowerOff;
-
-        public SoundDef soundAmbientPowered;
-
         public AirFlowType flowType;
+
+        public float baseAirExhaust;
+
+        public float thermalCapacity;
     }
 }

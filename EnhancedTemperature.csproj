@@ -55,8 +55,10 @@
     <Compile Include="Building_AirFlowControl.cs" />
     <Compile Include="Building_AirHeater.cs" />
     <Compile Include="Building_AirPipe.cs" />
+    <Compile Include="Building_AirVent.cs" />
     <Compile Include="Building_Blower.cs" />
     <Compile Include="CompAirFlow.cs" />
+    <Compile Include="CompAirFlowConsumer.cs" />
     <Compile Include="CompAirFlowPipe.cs" />
     <Compile Include="CompAirFlowTank.cs" />
     <Compile Include="CompAirFlowProducer.cs" />
@@ -65,6 +67,7 @@
     <Compile Include="EnhancedTemperatureUtility.cs" />
     <Compile Include="GraphicPipe.cs" />
     <Compile Include="GraphicsLoader.cs" />
+    <Compile Include="PlaceWorker_AirVent.cs" />
     <Compile Include="PlaceWorker_Blower.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

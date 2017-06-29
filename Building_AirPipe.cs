@@ -29,7 +29,6 @@ namespace EnhancedTemperature
         {
             base.SpawnSetup(map, respawningAfterLoad);
             CompAirFlowPipe = base.GetComp<CompAirFlowPipe>();
-            FlowType = CompAirFlowPipe.FlowType;
         }
 
     }
