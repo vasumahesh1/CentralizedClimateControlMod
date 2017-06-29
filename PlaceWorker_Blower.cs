@@ -11,7 +11,7 @@ namespace EnhancedTemperature
     {
         public override void DrawGhost(ThingDef def, IntVec3 center, Rot4 rot)
         {
-            IntVec3 intVec = center + IntVec3.South.RotatedBy(rot);
+            IntVec3 intVec = center + IntVec3.North.RotatedBy(rot);
 
             GenDraw.DrawFieldEdges(new List<IntVec3>
             {
@@ -23,7 +23,7 @@ namespace EnhancedTemperature
 
         public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 center, Rot4 rot, Thing thingToIgnore = null)
         {
-            IntVec3 vec = center + IntVec3.South.RotatedBy(rot);
+            IntVec3 vec = center + IntVec3.North.RotatedBy(rot);
 
             if (vec.Impassable(base.Map))
             {

@@ -32,17 +32,17 @@ namespace EnhancedTemperature
 
             float insideTemp = intVec.GetTemperature(base.Map);
 
-            float tempDiff = outsideTemp - insideTemp;
-            if (outsideTemp - 40f > tempDiff)
-            {
-                tempDiff = outsideTemp - 40f;
-            }
+            float tempDiff = Mathf.Abs(outsideTemp - insideTemp);
+//            if (outsideTemp - 40f > tempDiff)
+//            {
+//                tempDiff = outsideTemp - 40f;
+//            }
 
             float num2 = 1f - tempDiff * 0.0076923077f;
-            if (num2 < 0f)
-            {
-                num2 = 0f;
-            }
+//            if (num2 < 0f)
+//            {
+//                num2 = 0f;
+//            }
 
             float energyLimit = 12f * num2 * 2.083333255f * CompAirFlowConsumer.FlowEfficiency;
             float tempChange = GenTemperature.ControlTemperatureTempChange(intVec, base.Map, energyLimit, outsideTemp);

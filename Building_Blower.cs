@@ -29,7 +29,7 @@ namespace EnhancedTemperature
                 return;
             }
 
-            IntVec3 intVec = base.Position + IntVec3.South.RotatedBy(base.Rotation);
+            IntVec3 intVec = base.Position + IntVec3.North.RotatedBy(base.Rotation);
 
             if (intVec.Impassable(this.Map))
             {
