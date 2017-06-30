@@ -140,6 +140,11 @@ namespace EnhancedTemperature
             return this.PipeGrid[(int)flowType, this.map.cellIndices.CellToIndex(pos)] >= -1;
         }
 
+        public bool PerfectMatch(IntVec3 pos, AirFlowType flowType, int id)
+        {
+            return this.PipeGrid[(int)flowType, this.map.cellIndices.CellToIndex(pos)] == id;
+        }
+
         public override void MapComponentUpdate()
         {
             base.MapComponentUpdate();
@@ -167,6 +172,8 @@ namespace EnhancedTemperature
             }
 
             CachedNets = _backupNets;
+
+            map.mapDrawer.WholeMapChanged(MapMeshFlag.Buildings);
 
             IsDirty = false;
         }

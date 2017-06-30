@@ -98,6 +98,11 @@ namespace EnhancedTemperature
             return res;
         }
 
+        public void PrintForGrid(SectionLayer layer)
+        {
+            GraphicsLoader.GraphicHotPipeOverlay.Print(layer, this.parent);
+        }
+
         protected string GetAirTypeString(AirFlowType type)
         {
             string res = "";

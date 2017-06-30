@@ -14,7 +14,9 @@ namespace EnhancedTemperature
 
         public static Graphic God = GraphicDatabase.Get<Graphic_Single>("God", ShaderDatabase.Transparent);
 
-        public static GraphicPipe GraphicHotPipe = new GraphicPipe(GraphicsLoader.HotPipeAtlas, AirFlowType.Hot);
+        public static GraphicPipe_Overlay GraphicHotPipe = new GraphicPipe_Overlay(GraphicsLoader.HotPipeAtlas, AirFlowType.Hot);
         public static GraphicPipe GraphicHotPipeClear = new GraphicPipe(GraphicsLoader.God, AirFlowType.Hot);
+
+        public static GraphicPipe_Overlay GraphicHotPipeOverlay = new GraphicPipe_Overlay(HotPipeOverlayAtlas, AirFlowType.Hot);
     }
 }
