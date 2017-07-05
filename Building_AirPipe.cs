@@ -12,18 +12,18 @@ namespace EnhancedTemperature
 
         public CompAirFlowPipe CompAirFlowPipe;
 
-        public override Graphic Graphic
-        {
-            get
-            {
-//                if (base.Position.GetTerrain(base.Map).layerable)
-//                {
-//                    return GraphicsLoader.GraphicHotPipeClear;
-//                }
-
-                return GraphicsLoader.GraphicHotPipe;
-            }
-        }
+//        public override Graphic Graphic
+//        {
+//            get
+//            {
+////                if (base.Position.GetTerrain(base.Map).layerable)
+////                {
+////                    return GraphicsLoader.GraphicHotPipeClear;
+////                }
+//
+//                return GraphicsLoader.GraphicHotPipe;
+//            }
+//        }
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {

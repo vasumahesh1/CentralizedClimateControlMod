@@ -44,7 +44,7 @@ namespace EnhancedTemperature
             Building building = thing as Building;
             if (building != null)
             {
-                CompAirFlow compAirFlow = building.GetComps<CompAirFlow>().FirstOrDefault((x) => x.FlowType == this.FlowType);
+                CompAirFlow compAirFlow = building.GetComps<CompAirFlow>().FirstOrDefault((x) => x.FlowType == this.FlowType || x.FlowType == AirFlowType.Any);
                 if (compAirFlow == null)
                 {
                     return;

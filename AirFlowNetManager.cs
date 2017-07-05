@@ -37,6 +37,11 @@ namespace EnhancedTemperature
             for (int i = 0; i < this.DirtyPipeFlag.Length; i++)
             {
                 this.DirtyPipeFlag[i] = true;
+
+                for (int j = 0; j < this.PipeGrid.GetLength(1); j++)
+                {
+                    this.PipeGrid[i, j] = RebuildValue;
+                }
             }
 
             IsDirty = true;
@@ -137,7 +142,7 @@ namespace EnhancedTemperature
 
         public bool ZoneAt(IntVec3 pos, AirFlowType flowType)
         {
-            return this.PipeGrid[(int)flowType, this.map.cellIndices.CellToIndex(pos)] >= -1;
+            return this.PipeGrid[(int)flowType, this.map.cellIndices.CellToIndex(pos)] != RebuildValue;
         }
 
         public bool PerfectMatch(IntVec3 pos, AirFlowType flowType, int id)

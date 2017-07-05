@@ -23,6 +23,16 @@ namespace EnhancedTemperature
 
         public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 center, Rot4 rot, Thing thingToIgnore = null)
         {
+            List<Thing> thingList = center.GetThingList(base.Map);
+
+            foreach (var thing in thingList)
+            {
+                if (thing is Building_AirPipe)
+                {
+                    return AcceptanceReport.WasRejected;
+                }
+            }
+
             IntVec3 vec = center + IntVec3.North.RotatedBy(rot);
 
             if (vec.Impassable(base.Map))

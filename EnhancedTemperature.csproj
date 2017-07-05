@@ -69,6 +69,7 @@
     <Compile Include="GraphicPipe_Overlay.cs" />
     <Compile Include="GraphicsLoader.cs" />
     <Compile Include="PlaceWorker_AirPipe.cs" />
+    <Compile Include="PlaceWorker_AirThermal.cs" />
     <Compile Include="PlaceWorker_AirVent.cs" />
     <Compile Include="PlaceWorker_Blower.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using RimWorld;
 using Verse;
 
 namespace EnhancedTemperature
@@ -10,16 +11,17 @@ namespace EnhancedTemperature
     {
         public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 loc, Rot4 rot, Thing thingToIgnore = null)
         {
-            CompProperties_AirFlow compProperties = (def as ThingDef).GetCompProperties<CompProperties_AirFlow>();
+            List<Thing> thingList = loc.GetThingList(base.Map);
 
-            var mapComponent = EnhancedTemperatureUtility.GetNetManager(base.Map);
-
-            if (mapComponent.ZoneAt(loc, compProperties.flowType) || mapComponent.ZoneAt(loc, AirFlowType.Any))
+            foreach (var thing in thingList)
             {
-                return false;
+                if (thing is Building_AirFlowControl)
+                {
+                    return AcceptanceReport.WasRejected;
+                }
             }
 
-            return true;
+            return AcceptanceReport.WasAccepted;
         }
     }
 }
