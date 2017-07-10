@@ -32,7 +32,17 @@ namespace CentralizedClimateControl
                 return;
             }
 
+            IntVec3 vec = Position + IntVec3.South.RotatedBy(Rotation);
+            if (vec.Impassable(Map))
+            {
+                return;
+            }
+
             CompAirFlowTempControl.TickRare(CompTempControl);
+
+            var tempDiff = CompAirFlowTempControl.TargetTemperature - CompAirFlowTempControl.ConvertedTemperature;
+            IntVec3 intVec = Position + IntVec3.South.RotatedBy(Rotation);
+            GenTemperature.PushHeat(intVec, base.Map, -tempDiff * 1.25f);
         }
 
     }

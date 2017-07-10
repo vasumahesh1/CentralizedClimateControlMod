@@ -11,14 +11,15 @@ namespace CentralizedClimateControl
     {
         public override void DrawGhost(ThingDef def, IntVec3 center, Rot4 rot)
         {
-            IntVec3 intVec = center + IntVec3.North.RotatedBy(rot);
+            var list = new List<IntVec3>();
 
-            GenDraw.DrawFieldEdges(new List<IntVec3>
+            for (int i = 0; i < 8; i++)
             {
-                intVec
-            }, Color.white);
+                IntVec3 intVec = center + GenAdj.AdjacentCellsAround[i];
+                list.Add(intVec);
+            }
 
-            // GenDraw.DrawFieldEdges(WindTurbineUtility.CalculateWindCells(center, rot, def.size).ToList<IntVec3>());
+            GenDraw.DrawFieldEdges(list, Color.white);
         }
 
         public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 center, Rot4 rot, Thing thingToIgnore = null)
@@ -33,11 +34,14 @@ namespace CentralizedClimateControl
                 }
             }
 
-            IntVec3 vec = center + IntVec3.North.RotatedBy(rot);
-
-            if (vec.Impassable(base.Map))
+            for (int i = 0; i < 8; i++)
             {
-                return "CentralizedClimateControl.Producer.BlowerPlaceError".Translate();
+                IntVec3 intVec = center + GenAdj.AdjacentCellsAround[i];
+
+                if (intVec.Impassable(base.Map))
+                {
+                    return "CentralizedClimateControl.Producer.IntakeFanPlaceError".Translate();
+                }
             }
 
             return true;

@@ -65,9 +65,10 @@ namespace CentralizedClimateControl
 
             if (IsOperating())
             {
+                var convertedTemp = IntakeTemperature.ToStringTemperature("F0");
                 str += AirFlowOutputKey.Translate(new object[] { this.AirFlowOutput.ToString("#####0") });
                 str += "\n";
-                str += IntakeTempKey.Translate(new object[] { IntakeTemperature });
+                str += IntakeTempKey.Translate(new object[] { convertedTemp });
             }
             else
             {
