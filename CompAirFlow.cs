@@ -4,20 +4,20 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace EnhancedTemperature
+namespace CentralizedClimateControl
 {
     public class CompAirFlow : ThingComp
     {
         private int _intGridId = -2;
         private AirFlowNet _airFlowNet;
 
-        public const string NotConnectedKey = "EnhancedTemperature.AirFlowNetDisconnected";
-        public const string ConnectedKey = "EnhancedTemperature.AirFlowNetConnected";
-        public const string AirTypeKey = "EnhancedTemperature.AirType";
-        public const string HotAirKey = "EnhancedTemperature.HotAir";
-        public const string ColdAirKey = "EnhancedTemperature.ColdAir";
-        public const string FrozenAirKey = "EnhancedTemperature.FrozenAir";
-        public const string TotalNetworkAirKey = "EnhancedTemperature.TotalNetworkAir";
+        public const string NotConnectedKey = "CentralizedClimateControl.AirFlowNetDisconnected";
+        public const string ConnectedKey = "CentralizedClimateControl.AirFlowNetConnected";
+        public const string AirTypeKey = "CentralizedClimateControl.AirType";
+        public const string HotAirKey = "CentralizedClimateControl.HotAir";
+        public const string ColdAirKey = "CentralizedClimateControl.ColdAir";
+        public const string FrozenAirKey = "CentralizedClimateControl.FrozenAir";
+        public const string TotalNetworkAirKey = "CentralizedClimateControl.TotalNetworkAir";
 
         public AirFlowType FlowType
         {
@@ -60,13 +60,13 @@ namespace EnhancedTemperature
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
-            EnhancedTemperatureUtility.GetNetManager(this.parent.Map).RegisterPipe(this);
+            CentralizedClimateControlUtility.GetNetManager(this.parent.Map).RegisterPipe(this);
             base.PostSpawnSetup(respawningAfterLoad);
         }
 
         public override void PostDeSpawn(Map map)
         {
-            EnhancedTemperatureUtility.GetNetManager(map).DeregisterPipe(this);
+            CentralizedClimateControlUtility.GetNetManager(map).DeregisterPipe(this);
             ResetFlowVariables();
 
             base.PostDeSpawn(map);

@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using RimWorld;
 using UnityEngine;
 using Verse;
 
 namespace CentralizedClimateControl
 {
-    public class CompAirFlowTank : CompAirFlow
+    public static class CentralizedClimateControlUtility
     {
-
+        public static AirFlowNetManager GetNetManager(Map map)
+        {
+            return map.GetComponent<AirFlowNetManager>();
+        }
     }
 }

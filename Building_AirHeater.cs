@@ -6,7 +6,7 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedTemperature
+namespace CentralizedClimateControl
 {
     public class Building_AirHeater : Building_AirFlowControl
     {

@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedTemperature
+namespace CentralizedClimateControl
 {
     public class PlaceWorker_AirVent : PlaceWorker
     {
@@ -64,7 +64,7 @@ namespace EnhancedTemperature
 
             if (vec.Impassable(base.Map))
             {
-                return "EnhancedTemperature.Consumer.AirVentPlaceError".Translate();
+                return "CentralizedClimateControl.Consumer.AirVentPlaceError".Translate();
             }
 
             return true;

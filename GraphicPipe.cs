@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedTemperature
+namespace CentralizedClimateControl
 {
     public class GraphicPipe : Graphic_Linked
     {
@@ -29,7 +29,7 @@ namespace EnhancedTemperature
 
         public override bool ShouldLinkWith(IntVec3 vec, Thing parent)
         {
-            return vec.InBounds(parent.Map) && EnhancedTemperatureUtility.GetNetManager(parent.Map).ZoneAt(vec, FlowType);
+            return vec.InBounds(parent.Map) && CentralizedClimateControlUtility.GetNetManager(parent.Map).ZoneAt(vec, FlowType);
         }
 
         private static bool CheckPipe(Thing obj)
@@ -46,7 +46,7 @@ namespace EnhancedTemperature
                 IntVec3 intVec = parent.Position + GenAdj.CardinalDirections[i];
             
                 if (intVec.InBounds(parent.Map) &&
-                    EnhancedTemperatureUtility.GetNetManager(parent.Map).ZoneAt(intVec, this.FlowType) &&
+                    CentralizedClimateControlUtility.GetNetManager(parent.Map).ZoneAt(intVec, this.FlowType) &&
                     !intVec.GetTerrain(parent.Map).layerable)
                 {
                     List<Thing> thingList = intVec.GetThingList(parent.Map);

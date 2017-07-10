@@ -5,7 +5,7 @@ using System.Text;
 using RimWorld;
 using Verse;
 
-namespace EnhancedTemperature
+namespace CentralizedClimateControl
 {
     class SectionLayer_FrozenAirPipe: SectionLayer_Things
     {

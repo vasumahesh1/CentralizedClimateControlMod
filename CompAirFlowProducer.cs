@@ -6,12 +6,12 @@ using RimWorld;
 using Verse;
 using Verse.Sound;
 
-namespace EnhancedTemperature
+namespace CentralizedClimateControl
 {
     public class CompAirFlowProducer : CompAirFlow
     {
-        public const string AirFlowOutputKey = "EnhancedTemperature.AirFlowOutput";
-        public const string IntakeTempKey = "EnhancedTemperature.Producer.IntakeTemperature";
+        public const string AirFlowOutputKey = "CentralizedClimateControl.AirFlowOutput";
+        public const string IntakeTempKey = "CentralizedClimateControl.Producer.IntakeTemperature";
 
         [Unsaved]
         public bool IsOperatingAtHighPower;
@@ -46,7 +46,7 @@ namespace EnhancedTemperature
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
-            EnhancedTemperatureUtility.GetNetManager(this.parent.Map).RegisterProducer(this);
+            CentralizedClimateControlUtility.GetNetManager(this.parent.Map).RegisterProducer(this);
             this.FlickableComp = this.parent.GetComp<CompFlickable>();
 
             base.PostSpawnSetup(respawningAfterLoad);
@@ -54,7 +54,7 @@ namespace EnhancedTemperature
 
         public override void PostDeSpawn(Map map)
         {
-            EnhancedTemperatureUtility.GetNetManager(map).DeregisterProducer(this);
+            CentralizedClimateControlUtility.GetNetManager(map).DeregisterProducer(this);
             ResetFlowVariables();
             base.PostDeSpawn(map);
         }

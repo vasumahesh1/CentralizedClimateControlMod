@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedTemperature
+namespace CentralizedClimateControl
 {
     public class GraphicPipe_Overlay: Graphic_Linked
     {
@@ -53,7 +53,7 @@ namespace EnhancedTemperature
 //                return false;
 //            }
 
-            return intVec.InBounds(parent.Map) && EnhancedTemperatureUtility.GetNetManager(parent.Map).ZoneAt(intVec, FlowType);
+            return intVec.InBounds(parent.Map) && CentralizedClimateControlUtility.GetNetManager(parent.Map).ZoneAt(intVec, FlowType);
         }
 
         public override void Print(SectionLayer layer, Thing parent)

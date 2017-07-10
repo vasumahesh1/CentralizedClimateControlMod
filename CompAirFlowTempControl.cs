@@ -6,12 +6,12 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedTemperature
+namespace CentralizedClimateControl
 {
     public class CompAirFlowTempControl: CompAirFlow
     {
-        public const string TemperatureArrowKey = "EnhancedTemperature.Producer.TemperatureArrow";
-        public const string TargetTemperatureKey = "EnhancedTemperature.Producer.TargetTemperature";
+        public const string TemperatureArrowKey = "CentralizedClimateControl.Producer.TemperatureArrow";
+        public const string TargetTemperatureKey = "CentralizedClimateControl.Producer.TargetTemperature";
 
         [Unsaved]
         public bool IsOperatingAtHighPower;
@@ -48,7 +48,7 @@ namespace EnhancedTemperature
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
-            EnhancedTemperatureUtility.GetNetManager(this.parent.Map).RegisterTempControl(this);
+            CentralizedClimateControlUtility.GetNetManager(this.parent.Map).RegisterTempControl(this);
             this.FlickableComp = this.parent.GetComp<CompFlickable>();
 
             base.PostSpawnSetup(respawningAfterLoad);
@@ -56,7 +56,7 @@ namespace EnhancedTemperature
 
         public override void PostDeSpawn(Map map)
         {
-            EnhancedTemperatureUtility.GetNetManager(map).DeregisterTempControl(this);
+            CentralizedClimateControlUtility.GetNetManager(map).DeregisterTempControl(this);
             ResetFlowVariables();
             base.PostDeSpawn(map);
         }

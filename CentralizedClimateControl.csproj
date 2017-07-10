@@ -7,8 +7,8 @@
     <ProjectGuid>{F770FEDC-6137-4456-9A90-98B19870D06A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EnhancedTemperature</RootNamespace>
-    <AssemblyName>EnhancedTemperature</AssemblyName>
+    <RootNamespace>CentralizedClimateControl</RootNamespace>
+    <AssemblyName>CentralizedClimateControl</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -67,7 +67,7 @@
     <Compile Include="CompAirFlowProducer.cs" />
     <Compile Include="CompAirFlowTempControl.cs" />
     <Compile Include="CompProperties_AirFlow.cs" />
-    <Compile Include="EnhancedTemperatureUtility.cs" />
+    <Compile Include="CentralizedClimateControlUtility.cs" />
     <Compile Include="GraphicPipe.cs" />
     <Compile Include="GraphicPipe_Overlay.cs" />
     <Compile Include="GraphicsLoader.cs" />

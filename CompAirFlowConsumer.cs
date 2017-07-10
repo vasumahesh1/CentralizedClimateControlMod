@@ -5,14 +5,14 @@ using System.Text;
 using RimWorld;
 using Verse;
 
-namespace EnhancedTemperature
+namespace CentralizedClimateControl
 {
     public class CompAirFlowConsumer : CompAirFlow
     {
-        public const string AirFlowOutputKey = "EnhancedTemperature.AirFlowOutput";
-        public const string IntakeTempKey = "EnhancedTemperature.Consumer.ConvertedTemperature";
-        public const string FlowEfficiencyKey = "EnhancedTemperature.Consumer.FlowEfficiencyKey";
-        public const string ThermalEfficiencyKey = "EnhancedTemperature.Consumer.ThermalEfficiencyKey";
+        public const string AirFlowOutputKey = "CentralizedClimateControl.AirFlowOutput";
+        public const string IntakeTempKey = "CentralizedClimateControl.Consumer.ConvertedTemperature";
+        public const string FlowEfficiencyKey = "CentralizedClimateControl.Consumer.FlowEfficiencyKey";
+        public const string ThermalEfficiencyKey = "CentralizedClimateControl.Consumer.ThermalEfficiencyKey";
 
         public float ConvertedTemperature = 0.0f;
         protected CompFlickable FlickableComp;
@@ -46,7 +46,7 @@ namespace EnhancedTemperature
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
-            EnhancedTemperatureUtility.GetNetManager(this.parent.Map).RegisterConsumer(this);
+            CentralizedClimateControlUtility.GetNetManager(this.parent.Map).RegisterConsumer(this);
             this.FlickableComp = this.parent.GetComp<CompFlickable>();
 
             base.PostSpawnSetup(respawningAfterLoad);
@@ -54,7 +54,7 @@ namespace EnhancedTemperature
 
         public override void PostDeSpawn(Map map)
         {
-            EnhancedTemperatureUtility.GetNetManager(map).DeregisterConsumer(this);
+            CentralizedClimateControlUtility.GetNetManager(map).DeregisterConsumer(this);
             ResetFlowVariables();
             base.PostDeSpawn(map);
         }

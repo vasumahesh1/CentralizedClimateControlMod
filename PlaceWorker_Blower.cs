@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedTemperature
+namespace CentralizedClimateControl
 {
     public class PlaceWorker_Blower : PlaceWorker
     {
@@ -37,7 +37,7 @@ namespace EnhancedTemperature
 
             if (vec.Impassable(base.Map))
             {
-                return "EnhancedTemperature.Producer.BlowerPlaceError".Translate();
+                return "CentralizedClimateControl.Producer.BlowerPlaceError".Translate();
             }
 
             return true;

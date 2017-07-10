@@ -6,7 +6,7 @@ using System.Threading;
 using RimWorld;
 using Verse;
 
-namespace EnhancedTemperature
+namespace CentralizedClimateControl
 {
     class SectionLayer_HotAirPipe : SectionLayer_Things
     {
