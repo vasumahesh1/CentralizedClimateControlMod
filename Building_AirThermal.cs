@@ -8,12 +8,10 @@ using Verse;
 
 namespace CentralizedClimateControl
 {
-    public class Building_AirHeater : Building_AirFlowControl
+    public class Building_AirThermal : Building_AirFlowControl
     {
         public CompTempControl CompTempControl;
         public CompAirFlowTempControl CompAirFlowTempControl;
-
-        private const float Smooth = 3.0f;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {

@@ -7,7 +7,7 @@ using Verse;
 
 namespace CentralizedClimateControl
 {
-    public class PlaceWorker_Blower : PlaceWorker
+    public class PlaceWorker_IntakeFan : PlaceWorker
     {
         public override void DrawGhost(ThingDef def, IntVec3 center, Rot4 rot)
         {

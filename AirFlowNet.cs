@@ -125,10 +125,10 @@ namespace CentralizedClimateControl
             {
                 ThermalEfficiency = ThermalCapacity / CurrentIntakeAir;
 
-                if (ThermalEfficiency > 1.0f)
-                {
-                    ThermalEfficiency = 1.0f;
-                }
+//                if (ThermalEfficiency > 1.0f)
+//                {
+//                    ThermalEfficiency = 1.0f;
+//                }
             }
             else
             {

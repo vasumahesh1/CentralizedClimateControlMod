@@ -7,7 +7,7 @@ using Verse;
 
 namespace CentralizedClimateControl
 {
-    public class Building_Blower : Building_AirFlowControl
+    public class Building_IntakeFan : Building_AirFlowControl
     {
         private int windCellsBlocked = 0;
         private const float EfficiencyLossPerWindCubeBlocked = 0.0076923077f;

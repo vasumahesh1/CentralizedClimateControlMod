@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace CentralizedClimateControl
@@ -61,20 +62,32 @@ namespace CentralizedClimateControl
 
         public override string CompInspectStringExtra()
         {
+            if (!IsOperating())
+            {
+                return base.CompInspectStringExtra();
+            }
+
             var convertedTemp = ConvertedTemperature.ToStringTemperature("F0");
             string str = IntakeTempKey.Translate(new object[] { convertedTemp });
 
+            var flowPercent = Mathf.FloorToInt(AirFlowNet.FlowEfficiency * 100) + "%";
             str += "\n";
-            str += FlowEfficiencyKey.Translate(new object[] { AirFlowNet.FlowEfficiency });
+            str += FlowEfficiencyKey.Translate(new object[] { flowPercent });
 
+            var thermalPercent = Mathf.FloorToInt(AirFlowNet.ThermalEfficiency * 100) + "%";
             str += "\n";
-            str += ThermalEfficiencyKey.Translate(new object[] { AirFlowNet.ThermalEfficiency });
+            str += ThermalEfficiencyKey.Translate(new object[] { thermalPercent });
 
             return str + "\n" + base.CompInspectStringExtra();
         }
 
         public void TickRare()
         {
+            if (!IsOperating())
+            {
+                return;
+            }
+
             ConvertedTemperature = AirFlowNet.AverageConvertedTemperature;
         }
 

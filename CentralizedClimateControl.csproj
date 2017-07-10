@@ -53,10 +53,10 @@
     <Compile Include="AirFlowNet.cs" />
     <Compile Include="AirFlowNetManager.cs" />
     <Compile Include="Building_AirFlowControl.cs" />
-    <Compile Include="Building_AirHeater.cs" />
+    <Compile Include="Building_AirThermal.cs" />
     <Compile Include="Building_AirPipe.cs" />
     <Compile Include="Building_AirVent.cs" />
-    <Compile Include="Building_Blower.cs" />
+    <Compile Include="Building_IntakeFan.cs" />
     <Compile Include="Building_ColdAirPipe.cs" />
     <Compile Include="Building_FrozenAirPipe.cs" />
     <Compile Include="Building_HotAirPipe.cs" />
@@ -74,7 +74,7 @@
     <Compile Include="PlaceWorker_AirPipe.cs" />
     <Compile Include="PlaceWorker_AirThermal.cs" />
     <Compile Include="PlaceWorker_AirVent.cs" />
-    <Compile Include="PlaceWorker_Blower.cs" />
+    <Compile Include="PlaceWorker_IntakeFan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SectionLayer_ColdAirPipe.cs" />
     <Compile Include="SectionLayer_FrozenAirPipe.cs" />
