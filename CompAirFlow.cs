@@ -16,6 +16,7 @@ namespace EnhancedTemperature
         public const string AirTypeKey = "EnhancedTemperature.AirType";
         public const string HotAirKey = "EnhancedTemperature.HotAir";
         public const string ColdAirKey = "EnhancedTemperature.ColdAir";
+        public const string FrozenAirKey = "EnhancedTemperature.FrozenAir";
         public const string TotalNetworkAirKey = "EnhancedTemperature.TotalNetworkAir";
 
         public AirFlowType FlowType
@@ -98,9 +99,25 @@ namespace EnhancedTemperature
             return res;
         }
 
-        public void PrintForGrid(SectionLayer layer)
+        public void PrintForGrid(SectionLayer layer, AirFlowType type)
         {
-            GraphicsLoader.GraphicHotPipeOverlay.Print(layer, this.parent);
+            switch (type)
+            {
+                case AirFlowType.Hot:
+                    GraphicsLoader.GraphicHotPipeOverlay.Print(layer, this.parent);
+                    break;
+
+                case AirFlowType.Cold:
+                    GraphicsLoader.GraphicColdPipeOverlay.Print(layer, this.parent);
+                    break;
+
+                case AirFlowType.Frozen:
+                    GraphicsLoader.GraphicFrozenPipeOverlay.Print(layer, this.parent);
+                    break;
+
+                case AirFlowType.Any:
+                    break;
+            }
         }
 
         protected string GetAirTypeString(AirFlowType type)
@@ -114,6 +131,10 @@ namespace EnhancedTemperature
 
                 case AirFlowType.Hot:
                     res += AirTypeKey.Translate(new object[] { HotAirKey.Translate() });
+                    break;
+
+                case AirFlowType.Frozen:
+                    res += AirTypeKey.Translate(new object[] { FrozenAirKey.Translate() });
                     break;
 
                 default:

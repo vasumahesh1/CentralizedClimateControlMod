@@ -2,21 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using RimWorld;
 using Verse;
 
 namespace EnhancedTemperature
 {
-    class SectionLayer_HotAirPipe : SectionLayer_Things
+    class SectionLayer_ColdAirPipe: SectionLayer_Things
     {
         public AirFlowType FlowType;
 
-        public SectionLayer_HotAirPipe(Section section) : base(section)
+        public SectionLayer_ColdAirPipe(Section section) : base(section)
         {
-            FlowType = AirFlowType.Hot;
+            FlowType = AirFlowType.Cold;
             requireAddToMapMesh = false;
-            relevantChangeTypes = (MapMeshFlag) 4;
+            relevantChangeTypes = (MapMeshFlag)4;
         }
 
         public override void DrawLayer()

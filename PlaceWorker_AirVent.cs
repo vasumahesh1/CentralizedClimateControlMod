@@ -11,19 +11,39 @@ namespace EnhancedTemperature
     {
         public override void DrawGhost(ThingDef def, IntVec3 center, Rot4 rot)
         {
-            IntVec3 intVec = center + IntVec3.South.RotatedBy(rot);
+            AirFlowType type = AirFlowType.Hot;
+
+            var list = center.GetThingList(Map);
+            foreach (var thing in list)
+            {
+                if (thing is Building_AirVent)
+                {
+                    var airVent = thing as Building_AirVent;
+
+                    if (airVent.CompAirFlowConsumer.AirFlowNet != null)
+                    {
+                        type = airVent.CompAirFlowConsumer.AirFlowNet.FlowType;
+                    }
+
+                    break;
+                }
+            }
+
+            IntVec3 intVec = center + IntVec3.North.RotatedBy(rot);
+
+            Color typeColor = type == AirFlowType.Hot ? Color.red : Color.blue;
 
             GenDraw.DrawFieldEdges(new List<IntVec3>
             {
                 intVec
-            }, Color.yellow);
+            }, typeColor);
 
             RoomGroup roomGroup = intVec.GetRoomGroup(base.Map);
             if (roomGroup != null)
             {
                 if (!roomGroup.UsesOutdoorTemperature)
                 {
-                    GenDraw.DrawFieldEdges(roomGroup.Cells.ToList<IntVec3>(), Color.yellow);
+                    GenDraw.DrawFieldEdges(roomGroup.Cells.ToList<IntVec3>(), typeColor);
                 }
             }
         }
@@ -40,7 +60,7 @@ namespace EnhancedTemperature
                 }
             }
 
-            IntVec3 vec = center + IntVec3.South.RotatedBy(rot);
+            IntVec3 vec = center + IntVec3.North.RotatedBy(rot);
 
             if (vec.Impassable(base.Map))
             {

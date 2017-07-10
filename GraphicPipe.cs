@@ -39,35 +39,35 @@ namespace EnhancedTemperature
 
         public override void Print(SectionLayer layer, Thing parent)
         {
-            //            Material material = this.LinkedDrawMatFrom(parent, parent.Position);
-            //            Printer_Plane.PrintPlane(layer, parent.TrueCenter(), Vector2.one, material, 0f, false, null, null, 0.01f);
-            //            for (int i = 0; i < 4; i++)
-            //            {
-            //                IntVec3 intVec = parent.Position + GenAdj.CardinalDirections[i];
-            //
-            //                if (intVec.InBounds(parent.Map) &&
-            //                    EnhancedTemperatureUtility.GetNetManager(parent.Map).ZoneAt(intVec, this.FlowType) &&
-            //                    !intVec.GetTerrain(parent.Map).layerable)
-            //                {
-            //                    List<Thing> thingList = intVec.GetThingList(parent.Map);
-            //
-            //                    Predicate<Thing> predicate = CheckPipe;
-            //                    if (!thingList.Any<Thing>(predicate))
-            //                    {
-            //                        Material material2 = this.LinkedDrawMatFrom(parent, intVec);
-            //                        Printer_Plane.PrintPlane(layer, intVec.ToVector3ShiftedWithAltitude(parent.def.Altitude), Vector2.one, material2, 0f, false, null, null, 0.01f);
-            //                    }
-            //                }
-            //            }
-
-            CellRect.CellRectIterator iterator = parent.OccupiedRect().GetIterator();
-            while (!iterator.Done())
+            Material material = this.LinkedDrawMatFrom(parent, parent.Position);
+            Printer_Plane.PrintPlane(layer, parent.TrueCenter(), Vector2.one, material, 0f, false, null, null, 0.01f);
+            for (int i = 0; i < 4; i++)
             {
-                IntVec3 current = iterator.Current;
-                Vector3 vector = current.ToVector3ShiftedWithAltitude(30);
-                Printer_Plane.PrintPlane(layer, vector, Vector2.one, base.LinkedDrawMatFrom(parent, current), 0f, false, null, null, 0.01f);
-                iterator.MoveNext();
+                IntVec3 intVec = parent.Position + GenAdj.CardinalDirections[i];
+            
+                if (intVec.InBounds(parent.Map) &&
+                    EnhancedTemperatureUtility.GetNetManager(parent.Map).ZoneAt(intVec, this.FlowType) &&
+                    !intVec.GetTerrain(parent.Map).layerable)
+                {
+                    List<Thing> thingList = intVec.GetThingList(parent.Map);
+            
+                    Predicate<Thing> predicate = CheckPipe;
+                    if (!thingList.Any<Thing>(predicate))
+                    {
+                        Material material2 = this.LinkedDrawMatFrom(parent, intVec);
+                        Printer_Plane.PrintPlane(layer, intVec.ToVector3ShiftedWithAltitude(parent.def.Altitude), Vector2.one, material2, 0f, false, null, null, 0.01f);
+                    }
+                }
             }
+
+//            CellRect.CellRectIterator iterator = parent.OccupiedRect().GetIterator();
+//            while (!iterator.Done())
+//            {
+//                IntVec3 current = iterator.Current;
+//                Vector3 vector = current.ToVector3ShiftedWithAltitude(30);
+//                Printer_Plane.PrintPlane(layer, vector, Vector2.one, base.LinkedDrawMatFrom(parent, current), 0f, false, null, null, 0.01f);
+//                iterator.MoveNext();
+//            }
         }
     }
 }

@@ -57,6 +57,9 @@
     <Compile Include="Building_AirPipe.cs" />
     <Compile Include="Building_AirVent.cs" />
     <Compile Include="Building_Blower.cs" />
+    <Compile Include="Building_ColdAirPipe.cs" />
+    <Compile Include="Building_FrozenAirPipe.cs" />
+    <Compile Include="Building_HotAirPipe.cs" />
     <Compile Include="CompAirFlow.cs" />
     <Compile Include="CompAirFlowConsumer.cs" />
     <Compile Include="CompAirFlowPipe.cs" />
@@ -73,6 +76,8 @@
     <Compile Include="PlaceWorker_AirVent.cs" />
     <Compile Include="PlaceWorker_Blower.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SectionLayer_ColdAirPipe.cs" />
+    <Compile Include="SectionLayer_FrozenAirPipe.cs" />
     <Compile Include="SectionLayer_HotAirPipe.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -23,7 +23,7 @@ namespace EnhancedTemperature
         public float ConvertedTemperature = 0.0f;
         public float DeltaTemperature = 0.0f;
 
-        private const float DeltaSmooth = 4.0f;
+        private const float DeltaSmooth = 64.0f;
 
         protected CompFlickable FlickableComp;
 
@@ -115,7 +115,10 @@ namespace EnhancedTemperature
             var deltaDelta = targetDelta - currentDelta;
 
             IsHeating = targetDelta > currentDelta;
-            DeltaTemperature += (float)(compTempControl.Props.energyPerSecond * AirFlowNet.ThermalEfficiency) / (DeltaSmooth * deltaDelta);
+//            DeltaTemperature += (float)(compTempControl.Props.energyPerSecond * AirFlowNet.ThermalEfficiency) / (DeltaSmooth * deltaDelta);
+
+            var deltaSmoothened = deltaDelta / DeltaSmooth;
+            DeltaTemperature += (float)(compTempControl.Props.energyPerSecond * AirFlowNet.ThermalEfficiency) * deltaSmoothened;
         }
     }
 }

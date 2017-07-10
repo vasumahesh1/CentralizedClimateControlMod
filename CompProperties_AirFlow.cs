@@ -10,7 +10,8 @@ namespace EnhancedTemperature
     {
         Hot = 0,
         Cold = 1,
-        Any = 2
+        Frozen = 2,
+        Any = 3
     }
 
     public class CompProperties_AirFlow : CompProperties

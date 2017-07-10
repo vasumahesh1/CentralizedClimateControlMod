@@ -62,6 +62,11 @@ namespace EnhancedTemperature
 
             AverageIntakeTemperature = (float) tempSum / Producers.Count;
             _currentIntakeAir = airFlow;
+
+            if (TempControls.Count == 0)
+            {
+                AverageConvertedTemperature = AverageIntakeTemperature;
+            }
         }
 
         private void TickConsumers()
@@ -88,8 +93,11 @@ namespace EnhancedTemperature
                 thermalCapacity += compAirFlowTempControl.ThermalCapacity;
             }
 
-            ThermalCapacity = thermalCapacity;
-            AverageConvertedTemperature = (float) tempSum / TempControls.Count;
+            if (TempControls.Count > 0)
+            {
+                ThermalCapacity = thermalCapacity;
+                AverageConvertedTemperature = (float) tempSum / TempControls.Count;
+            }
         }
 
         public void RegisterProducer(CompAirFlowProducer producer)

@@ -178,7 +178,9 @@ namespace EnhancedTemperature
 
             CachedNets = _backupNets;
 
+            // TODO: Not Optimized
             map.mapDrawer.WholeMapChanged(MapMeshFlag.Buildings);
+            map.mapDrawer.WholeMapChanged(MapMeshFlag.Things);
 
             IsDirty = false;
         }
