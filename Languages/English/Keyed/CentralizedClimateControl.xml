@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <TargetAirFlow>Airflow</TargetAirFlow>
+
+  <CentralizedClimateControl.PressuredAirStored>Pressured Air Stored</CentralizedClimateControl.PressuredAirStored>
+  <CentralizedClimateControl.AirFlowOutput>Air Flow: {0} cc/s</CentralizedClimateControl.AirFlowOutput>
+
+  <CentralizedClimateControl.Efficiency>Pressured Air Stored</CentralizedClimateControl.Efficiency>
+  <CentralizedClimateControl.AirFlowNetDisconnected>Not Connected to an Air Flow Network</CentralizedClimateControl.AirFlowNetDisconnected>
+  <CentralizedClimateControl.AirFlowNetConnected>Connected to an Air Flow Network</CentralizedClimateControl.AirFlowNetConnected>
+  <CentralizedClimateControl.AirType>Air Type: {0}</CentralizedClimateControl.AirType>
+  <CentralizedClimateControl.AirTemperature>Air Temperature: {0}</CentralizedClimateControl.AirTemperature>
+
+  <CentralizedClimateControl.HotAir>Hot Air</CentralizedClimateControl.HotAir>
+  <CentralizedClimateControl.ColdAir>Cold Air</CentralizedClimateControl.ColdAir>
+  <CentralizedClimateControl.FrozenAir>Refridgerated Air</CentralizedClimateControl.FrozenAir>
+  <CentralizedClimateControl.TotalNetworkAir>Total Network Air Flow: {0} cc/s</CentralizedClimateControl.TotalNetworkAir>
+
+  <CentralizedClimateControl.Producer.IntakeTemperature>Intake Temperature: {0}</CentralizedClimateControl.Producer.IntakeTemperature>
+  <CentralizedClimateControl.Producer.TargetTemperature>Target Temperature: {0}</CentralizedClimateControl.Producer.TargetTemperature>
+  <CentralizedClimateControl.Producer.ConvertedTemperature>Converted Temperature: {0}</CentralizedClimateControl.Producer.ConvertedTemperature>
+  <CentralizedClimateControl.Producer.TemperatureArrow>Converting: {0} (Intake)  ==>  {1} (Exhaust)</CentralizedClimateControl.Producer.TemperatureArrow>
+
+  <CentralizedClimateControl.Consumer.ConvertedTemperature>Converted Temperature: {0}</CentralizedClimateControl.Consumer.ConvertedTemperature>
+
+  <CentralizedClimateControl.Producer.IntakeFanPlaceError>Must Place Intake Fan with Empty Cells Surrounding</CentralizedClimateControl.Producer.IntakeFanPlaceError>
+  <CentralizedClimateControl.Consumer.AirVentPlaceError>Must Place Air Vent with Empty Cell at Front</CentralizedClimateControl.Consumer.AirVentPlaceError>
+  <CentralizedClimateControl.Consumer.AirThermalPlaceError>Must Place Air Climate Control with Empty Cell at Back</CentralizedClimateControl.Consumer.AirThermalPlaceError>
+  <CentralizedClimateControl.Consumer.FlowEfficiencyKey>Flow Efficiency: {0}</CentralizedClimateControl.Consumer.FlowEfficiencyKey>
+  <CentralizedClimateControl.Consumer.ThermalEfficiencyKey>Thermal Efficiency: {0}</CentralizedClimateControl.Consumer.ThermalEfficiencyKey>
+  
+</LanguageData>

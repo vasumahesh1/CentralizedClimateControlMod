@@ -1,0 +1,67 @@
+[center][img]http://i.imgur.com/w9rACpn.jpg[/img][/center]
+
+
+[color=orange][size=18pt]About the mod:[/size][/color]
+Hi, This is my first mod ever. This mod, like the title, adds central air cooling/heating. I know there are some competitor mods, but I wanted to put out my idea for the same central cooling concept. While there are many alternate mods for Central Heating. This mod adds a new network-like resource (like electricity) air (Which is generated and consumed). The heating/cooling system you will build depends on the number of rooms and the heating/cooling capacity of your air networks.
+
+
+[color=orange]Buildings & Other stuff added[/color]
+- Air Intake Fan: Fans to supply air to the system
+- Air Climate Control Unit: Heat or Cool air to a target temperature
+- Air Vents: Vent out the heated/cooled air
+- 3 Colored pipes so you can make different multiple networks
+
+
+[color=orange][size=18pt]Features[/size][/color]
+[b] Unified Heating/Cooling System [/b]
+Heating and Cooling is done by 1 unit, so reduces the need to build coolers and heaters.
+
+[b] Outside (and Far away) Heat Exhaust: [/b]
+The Heat Exhaust of the Climate Control units isn't located adjacent to rooms. They are located far away from your rooms, thus allowing you to make adjacent rooms to fridge rooms.
+
+[b] Air Network [/b]
+There is a network-like resource (like electricity) which is generated and consumed which is further dictated by Efficiency of the Network.
+1) Flow Efficiency
+The rate at which your rooms will cool/heat or maintain heat due to changes in the room temps.
+Value: 1 Intake Fan for 3 Rooms (for 100% Efficiency)
+
+2) Thermal Efficiency
+The rate at which your Climate Control units can heat the air. Sudden changes like Cold Snaps or Heat wave will inject very cold or very hot air into your system. Climate Control Units will take care that, but their rate is determined by this Efficiency unit.
+Value: 1 Climate Control Unit for 3 Intake Fan (for 100% Efficiency)
+
+You can always check efficiency of each network at the Vents.
+
+[b] Air Temperature inside Pipes [/b]
+This mod also deals with the temperature of the air in the Pipe Network.
+
+[b] Can share air without Climate Control units [/b]
+Intakes take note of the Air Temperature the take in. We can practically make Climate Control-less networks that share the same temperature.
+For example:
+Multiple Frigdes can be connected together, but only 1 is getting the cooling. The rest just share the air.
+
+[color=orange][size=18pt]Author[/size][/color]
+- [url=http://steamcommunity.com/id/vasumahesh/] vasumahesh	[/url]
+
+
+[color=orange][size=18pt]Credits & Inspiration:[/size][/color]
+- [url=https://ludeon.com/forums/index.php?action=profile;u=19514] carlgraves for "Central Heating" [/url]
+- [url=https://ludeon.com/forums/index.php?topic=21770.0] Redist Heat [/url]
+- [url=https://ludeon.com/forums/index.php?topic=29043.msg341113#msg341113] Dubs Hygiene Mod [/url]
+
+
+[color=orange][size=18pt]How to install:[/size][/color]
+Subscribe on Steam:
+[url=http://steamcommunity.com/sharedfiles/filedetails/?id=973091113]Steam Workshop Link[/url]
+
+Manual way:
+- Download [url=https://drive.google.com/file/d/0B08U3R0FGDNCTXFfX21YcW40c3M/view?usp=sharing]from here[/url]
+- Unzip the contents and place them in your RimWorld/Mods folder.
+- Activate the mod in the mod menu in the game.
+
+
+[color=orange][size=18pt]License[/size][/color]
+Free to use/modify wherever you want.
+
+
+[color=orange][size=18pt]Feedback[/size][/color]
+Well, This is my first mod. Any feedback (positive/negative) is welcomed!

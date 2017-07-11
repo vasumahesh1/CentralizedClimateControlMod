@@ -1,0 +1,58 @@
+A Mod which allows centralized air cooling/heating. Build large ACs in your map away from your rooms.
+
+While there are many alternate mods for Central Heating. This mod adds a new network-like resource (like electricity) Air. The heating/cooling system you will build depends on the number of rooms and the heating/cooling capacity of your air networks.
+
+There are 3 colored pipes available. All can carry any type of air.
+
+There are 3 buildings added:
+- Air Intake Fan: Fans to supply air to the system
+- Air Climate Control System: Heat or Cool air to a target temperature
+- Air Vents: Vent out the heated/cooled air
+
+[h1] Features & Differences (from other mods): [/h1]
+
+[b] Unified Heating/Cooling System [/b]
+Heating and Cooling is done by 1 unit, so reduces the need to build coolers and heaters.
+
+[b] Outside (and Far away) Heat Exhaust: [/b]
+The Heat Exhaust of the Climate Control units isn't located adjacent to rooms. They are located far away from your rooms, thus allowing you to make adjacent rooms to fridge rooms.
+
+[b] Air Network [/b]
+There is a network-like resource (like electricity) which is generated and consumed which is further dictated by Efficiency of the Network.
+1) Flow Efficiency
+The rate at which your rooms will cool/heat or maintain heat due to changes in the room temps.
+Value: 1 Intake Fan for 3 Rooms
+
+2) Thermal Efficiency
+The rate at which your Climate Control units can heat the air. Sudden changes like Cold Snaps or Heat wave will inject very cold or very hot air into your system. Climate Control Units will take care that, but their rate is determined by this Efficiency unit.
+Value: 1 Climate Control Unit for 3 Intake Fan
+
+You can always check efficiency of each network at the Vents.
+
+[b] Air Temperature inside Pipes [/b]
+This mod also deals with the temperature of the air in the Pipe Network.
+
+[b] Can share air without Climate Control units [/b]
+Intakes take note of the Air Temperature the take in. We can practically make Climate Control-less networks that share the same temperature.
+For example:
+Multiple Frigdes can be connected together, but only 1 is getting the cooling. The rest just share the air.
+
+[h1] Planned Things: [/h1]
+- Attenuate temperature per distance
+- Heating exhaust of Climate Control needs some adjustment
+
+[h1] Note: [/h1]
+This is my first mod for any game ever. There might be some issues. I wanted to see how the community responds to my mod, and want to work more on it! :)
+
+Thanks if you are trying my mod out!
+
+[h1] Authors: [/h1]
+- [url=http://steamcommunity.com/id/vasumahesh/] vasumahesh	[/url]
+
+[h1] Credits: [/h1]
+- [url=https://ludeon.com/forums/index.php?action=profile;u=19514] carlgraves for "Central Heating" [/url]
+- [url=https://ludeon.com/forums/index.php?topic=21770.0] Redist Heat [/url]
+- [url=https://ludeon.com/forums/index.php?topic=29043.msg341113#msg341113] Dubs Hygiene Mod [/url]
+
+[h1] License: [/h1]
+Free to use/mod anywhere you want.
