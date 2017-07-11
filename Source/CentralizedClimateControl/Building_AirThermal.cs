@@ -38,6 +38,11 @@ namespace CentralizedClimateControl
                 return;
             }
 
+            if (!CompAirFlowTempControl.IsActive())
+            {
+                return;
+            }
+
             CompAirFlowTempControl.TickRare(CompTempControl);
 
             var tempDiff = CompAirFlowTempControl.TargetTemperature - CompAirFlowTempControl.ConvertedTemperature;

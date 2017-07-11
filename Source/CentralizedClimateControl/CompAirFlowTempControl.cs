@@ -99,6 +99,16 @@ namespace CentralizedClimateControl
             GenerateDelta(compTempControl);
         }
 
+        public bool IsActive()
+        {
+            if (AirFlowNet.Producers.Count == 0)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         private void GenerateDelta(CompTempControl compTempControl)
         {
             var targetDelta = TargetTemperature - IntakeTemperature;
