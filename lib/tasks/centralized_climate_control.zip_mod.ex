@@ -2,8 +2,10 @@ defmodule Mix.Tasks.ZipMod do
   use Mix.Task
 
   @shortdoc "Zips the Mod for Upload."
-  @modname "release/CentralizedClimateControl"
+  @release_dir "release/"
+  @modname "CentralizedClimateControl"
   @version "1.0.1"
+  @game_version "A17"
 
   def run(_) do
     path = "./"
@@ -30,7 +32,7 @@ defmodule Mix.Tasks.ZipMod do
     IO.puts "Following Directories will be put in the Mod:"
     IO.inspect files
 
-    filename = Enum.join([@modname , "_", @version , ".zip"]) |> String.to_charlist
+    filename = Enum.join([@release_dir, "[", @game_version, "]", "[", @version, "]", @modname , ".zip"]) |> String.to_charlist
     :zip.create(filename, files)
 
     IO.puts ["Created File: ", filename]

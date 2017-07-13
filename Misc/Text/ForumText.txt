@@ -60,7 +60,10 @@ Subscribe on Steam:
 [url=http://steamcommunity.com/sharedfiles/filedetails/?id=973091113]Steam Workshop Link[/url]
 
 Manual way:
-- Download [url=https://drive.google.com/file/d/0B08U3R0FGDNCTXFfX21YcW40c3M/view?usp=sharing]from here[/url]
+- Download from:
+  - [url=https://github.com/vasumahesh1/CentralizedClimateControlMod/releases]Github Releases[/url]
+  - [url=https://drive.google.com/drive/folders/0B08U3R0FGDNCaWowSC1wNDg1ZW8?usp=sharing]Google Drive[/url]
+  - [url=http://www.nexusmods.com/rimworld/mods/196/]Nexus Mods[/url]
 - Unzip the contents and place them in your RimWorld/Mods folder.
 - Activate the mod in the mod menu in the game (Load HugsLib Before this Mod).
 
