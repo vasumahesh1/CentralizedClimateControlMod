@@ -39,6 +39,9 @@ Intakes take note of the Air Temperature the take in. We can practically make Cl
 For example:
 Multiple Frigdes can be connected together, but only 1 is getting the cooling. The rest just share the air.
 
+[b] Bigger buildings for late game [/b]
+Build larger Intakes and Climate Units which have about 5x more power than a regular machine.
+
 [color=orange][size=18pt]Author[/size][/color]
 - [url=http://steamcommunity.com/id/vasumahesh/] vasumahesh	[/url]
 
@@ -69,4 +72,9 @@ Free to use/modify wherever you want.
 [color=orange][size=18pt]Feedback[/size][/color]
 Well, This is my first mod. Any feedback (positive/negative) is welcomed!
 
+[color=orange][size=18pt]Known Issues[/size][/color]
+- For some Reason Reinstall doesn't work (Uninstall and Install work fine) on the machines
+- The Climate Units don't release much heated air
+
 [url=http://imgur.com/a/MnULI]More Images (imgur)[/url]
+[url=https://github.com/vasumahesh1/CentralizedClimateControlMod]Github Source Code[/url]
