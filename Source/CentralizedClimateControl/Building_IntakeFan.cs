@@ -31,20 +31,25 @@ namespace CentralizedClimateControl
 
 
             float sumTemp = 0f;
-            for (int i = 0; i < 8; i++)
-            {
-                IntVec3 vec = Position + GenAdj.AdjacentCellsAround[i];
 
-                if (vec.Impassable(base.Map))
+            var size = def.Size;
+            var list = GenAdj.CellsAdjacent8Way(Position, Rotation, size).ToList();
+
+            foreach (var intVec in list)
+            {
+                if (intVec.Impassable(base.Map))
                 {
                     this.CompAirProducer.CurrentAirFlow = 0;
+                    CompAirProducer.IsBlocked = true;
                     return;
                 }
 
-                sumTemp += vec.GetTemperature(Map);
+                sumTemp += intVec.GetTemperature(Map);
             }
 
-            float intake = (float) sumTemp / 8;
+            CompAirProducer.IsBlocked = false;
+
+            float intake = (float) sumTemp / list.Count;
             CompAirProducer.IntakeTemperature = intake;
 
             float flow = this.CompAirProducer.Props.baseAirFlow - windCellsBlocked * EfficiencyLossPerWindCubeBlocked;

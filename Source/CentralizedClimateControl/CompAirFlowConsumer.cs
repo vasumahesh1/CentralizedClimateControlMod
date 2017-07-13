@@ -14,6 +14,7 @@ namespace CentralizedClimateControl
         public const string IntakeTempKey = "CentralizedClimateControl.Consumer.ConvertedTemperature";
         public const string FlowEfficiencyKey = "CentralizedClimateControl.Consumer.FlowEfficiencyKey";
         public const string ThermalEfficiencyKey = "CentralizedClimateControl.Consumer.ThermalEfficiencyKey";
+        public const string DisconnectedKey = "CentralizedClimateControl.Consumer.Disconnected";
 
         public float ConvertedTemperature = 0.0f;
         protected CompFlickable FlickableComp;
@@ -67,6 +68,11 @@ namespace CentralizedClimateControl
                 return base.CompInspectStringExtra();
             }
 
+            if (!IsActive())
+            {
+                return DisconnectedKey.Translate() + "\n" + base.CompInspectStringExtra();
+            }
+
             var convertedTemp = ConvertedTemperature.ToStringTemperature("F0");
             string str = IntakeTempKey.Translate(new object[] { convertedTemp });
 
@@ -95,6 +101,21 @@ namespace CentralizedClimateControl
         {
             ConvertedTemperature = 0.0f;
             base.ResetFlowVariables();
+        }
+
+        public bool IsActive()
+        {
+            if (AirFlowNet == null)
+            {
+                return false;
+            }
+
+            if (AirFlowNet.Producers.Count == 0 || AirFlowNet.Consumers.Count == 0)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

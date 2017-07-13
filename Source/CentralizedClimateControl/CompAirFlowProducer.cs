@@ -12,9 +12,11 @@ namespace CentralizedClimateControl
     {
         public const string AirFlowOutputKey = "CentralizedClimateControl.AirFlowOutput";
         public const string IntakeTempKey = "CentralizedClimateControl.Producer.IntakeTemperature";
+        public const string IntakeBlockedKey = "CentralizedClimateControl.Producer.IntakeBlocked";
 
         [Unsaved]
         public bool IsOperatingAtHighPower;
+        public bool IsBlocked = false;
         public float CurrentAirFlow = 0.0f;
         public float IntakeTemperature = 0.0f;
         protected CompFlickable FlickableComp;
@@ -63,19 +65,23 @@ namespace CentralizedClimateControl
         {
             string str = "";
 
+            if (IsBlocked)
+            {
+                str += IntakeBlockedKey.Translate();
+                return str;
+            }
+
             if (IsOperating())
             {
                 var convertedTemp = IntakeTemperature.ToStringTemperature("F0");
                 str += AirFlowOutputKey.Translate(new object[] { this.AirFlowOutput.ToString("#####0") });
                 str += "\n";
+
                 str += IntakeTempKey.Translate(new object[] { convertedTemp });
-            }
-            else
-            {
-                str = "PowerNeeded".Translate();
+                str += "\n";
             }
 
-            return str + "\n" + base.CompInspectStringExtra();
+            return str + base.CompInspectStringExtra();
         }
 
         public override void ResetFlowVariables()

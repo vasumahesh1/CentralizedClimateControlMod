@@ -32,11 +32,24 @@ namespace CentralizedClimateControl
                 return;
             }
 
-            IntVec3 vec = Position + IntVec3.South.RotatedBy(Rotation);
-            if (vec.Impassable(Map))
+            var size = def.Size;
+
+            IntVec3 iterator = new IntVec3(Position.x, Position.y, Position.z);
+
+            for (int dx = 0; dx < size.x; dx++)
             {
-                return;
+                IntVec3 currentPos = iterator + IntVec3.South.RotatedBy(Rotation);
+
+                if (currentPos.Impassable(Map))
+                {
+                    CompAirFlowTempControl.IsBlocked = true;
+                    return;
+                }
+
+                iterator += IntVec3.East.RotatedBy(Rotation);
             }
+
+            CompAirFlowTempControl.IsBlocked = false;
 
             if (!CompAirFlowTempControl.IsActive())
             {

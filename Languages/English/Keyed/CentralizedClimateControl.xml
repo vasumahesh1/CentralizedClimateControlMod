@@ -21,8 +21,11 @@
   <CentralizedClimateControl.Producer.TargetTemperature>Target Temperature: {0}</CentralizedClimateControl.Producer.TargetTemperature>
   <CentralizedClimateControl.Producer.ConvertedTemperature>Converted Temperature: {0}</CentralizedClimateControl.Producer.ConvertedTemperature>
   <CentralizedClimateControl.Producer.TemperatureArrow>Converting: {0} (Intake)  ==>  {1} (Exhaust)</CentralizedClimateControl.Producer.TemperatureArrow>
+  <CentralizedClimateControl.Producer.ExhaustBlocked>Device Exhaust Blocked</CentralizedClimateControl.Producer.ExhaustBlocked>
+  <CentralizedClimateControl.Producer.IntakeBlocked>Device Intake Blocked</CentralizedClimateControl.Producer.IntakeBlocked>
 
   <CentralizedClimateControl.Consumer.ConvertedTemperature>Converted Temperature: {0}</CentralizedClimateControl.Consumer.ConvertedTemperature>
+  <CentralizedClimateControl.Consumer.Disconnected>Vent is Disconnected</CentralizedClimateControl.Consumer.Disconnected>
 
   <CentralizedClimateControl.Producer.IntakeFanPlaceError>Must Place Intake Fan with Empty Cells Surrounding</CentralizedClimateControl.Producer.IntakeFanPlaceError>
   <CentralizedClimateControl.Consumer.AirVentPlaceError>Must Place Air Vent with Empty Cell at Front</CentralizedClimateControl.Consumer.AirVentPlaceError>

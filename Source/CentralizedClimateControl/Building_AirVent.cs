@@ -26,6 +26,11 @@ namespace CentralizedClimateControl
                 return;
             }
 
+            if (!CompAirFlowConsumer.IsActive())
+            {
+                return;
+            }
+
             var outsideTemp = CompAirFlowConsumer.ConvertedTemperature;
 
             IntVec3 intVec = base.Position + IntVec3.North.RotatedBy(base.Rotation);

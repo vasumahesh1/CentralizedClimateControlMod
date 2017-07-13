@@ -7,19 +7,19 @@ using Verse;
 
 namespace CentralizedClimateControl
 {
-    public class PlaceWorker_IntakeFan : PlaceWorker
+    class PlaceWorker_IntakeFan : PlaceWorker
     {
         public override void DrawGhost(ThingDef def, IntVec3 center, Rot4 rot)
         {
-            var list = new List<IntVec3>();
-
-            for (int i = 0; i < 8; i++)
+            if (def == null)
             {
-                IntVec3 intVec = center + GenAdj.AdjacentCellsAround[i];
-                list.Add(intVec);
+                return;
             }
 
-            GenDraw.DrawFieldEdges(list, Color.white);
+            var size = def.size;
+
+            var list = GenAdj.CellsAdjacent8Way(center, rot, size);
+            GenDraw.DrawFieldEdges(list.ToList(), Color.white);
         }
 
         public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 center, Rot4 rot, Thing thingToIgnore = null)
@@ -34,10 +34,16 @@ namespace CentralizedClimateControl
                 }
             }
 
-            for (int i = 0; i < 8; i++)
+            if (def == null)
             {
-                IntVec3 intVec = center + GenAdj.AdjacentCellsAround[i];
+                return AcceptanceReport.WasRejected;
+            }
 
+            var size = def.Size;
+            var list = GenAdj.CellsAdjacent8Way(center, rot, size);
+
+            foreach (var intVec in list)
+            {
                 if (intVec.Impassable(base.Map))
                 {
                     return "CentralizedClimateControl.Producer.IntakeFanPlaceError".Translate();
@@ -46,5 +52,6 @@ namespace CentralizedClimateControl
 
             return true;
         }
+       
     }
 }

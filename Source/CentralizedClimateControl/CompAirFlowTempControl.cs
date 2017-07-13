@@ -12,10 +12,12 @@ namespace CentralizedClimateControl
     {
         public const string TemperatureArrowKey = "CentralizedClimateControl.Producer.TemperatureArrow";
         public const string TargetTemperatureKey = "CentralizedClimateControl.Producer.TargetTemperature";
+        public const string ExhaustBlockedKey = "CentralizedClimateControl.Producer.ExhaustBlocked";
 
         [Unsaved]
         public bool IsOperatingAtHighPower;
         public bool IsHeating;
+        public bool IsBlocked = false;
         public bool IsStable;
 
         public float IntakeTemperature = 0.0f;
@@ -65,16 +67,17 @@ namespace CentralizedClimateControl
         {
             string str = "";
 
+            if (IsBlocked)
+            {
+                str += ExhaustBlockedKey.Translate();
+                return str;
+            }
+
             if (IsOperating())
             {
                 var intake = IntakeTemperature.ToStringTemperature("F0");
                 var converted = ConvertedTemperature.ToStringTemperature("F0");
-                str += TemperatureArrowKey.Translate(new object[] { intake, converted }) + "\n";
-                str += DeltaTemperature.ToStringTemperature("F0");
-            }
-            else
-            {
-                str = "PowerNeeded".Translate();
+                str += TemperatureArrowKey.Translate(new object[] { intake, converted });
             }
 
             return str;
@@ -87,6 +90,7 @@ namespace CentralizedClimateControl
             ConvertedTemperature = 0.0f;
             IntakeTemperature = 0.0f;
             IsOperatingAtHighPower = false;
+            IsBlocked = false;
             base.ResetFlowVariables();
         }
 
@@ -101,7 +105,7 @@ namespace CentralizedClimateControl
 
         public bool IsActive()
         {
-            if (AirFlowNet.Producers.Count == 0)
+            if (AirFlowNet.Producers.Count == 0 || IsBlocked)
             {
                 return false;
             }

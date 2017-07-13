@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HugsLib.UpdateFeatureDef Abstract="true" Name="CCCUpdateFeatureBase">
+		<modNameReadable>Centralized Climate Control</modNameReadable>
+		<modIdentifier>CentralizedClimateControl</modIdentifier>
+		<linkUrl>https://ludeon.com/forums/index.php?topic=34346</linkUrl>
+	</HugsLib.UpdateFeatureDef>
+	
+	<HugsLib.UpdateFeatureDef ParentName="CCCUpdateFeatureBase">
+		<defName>CentralizedClimateControl_1_0_1</defName>
+		<assemblyVersion>1.0.1</assemblyVersion>
+		<content>Added Large Air Climate Units and Large Intake Fans|img:Things/Updates/101</content>
+	</HugsLib.UpdateFeatureDef>
+</Defs>

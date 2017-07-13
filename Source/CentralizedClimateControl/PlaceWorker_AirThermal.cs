@@ -12,11 +12,26 @@ namespace CentralizedClimateControl
 
         public override void DrawGhost(ThingDef def, IntVec3 center, Rot4 rot)
         {
-            IntVec3 intVec = center + IntVec3.South.RotatedBy(rot);
-            GenDraw.DrawFieldEdges(new List<IntVec3>
+            if (def == null)
             {
-                intVec
-            }, Color.red);
+                return;
+            }
+
+            var size = def.size;
+
+            List<IntVec3> list = new List<IntVec3>();
+
+            IntVec3 iterator = new IntVec3(center.x, center.y, center.z);
+
+            for (int dx = 0; dx < size.x; dx++)
+            {
+                IntVec3 intVec = iterator + IntVec3.South.RotatedBy(rot);
+                list.Add(intVec);
+
+                iterator += IntVec3.East.RotatedBy(rot);
+            }
+
+            GenDraw.DrawFieldEdges(list, Color.red);
         }
 
         public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 center, Rot4 rot, Thing thingToIgnore = null)
@@ -31,11 +46,25 @@ namespace CentralizedClimateControl
                 }
             }
 
-            IntVec3 vec = center + IntVec3.South.RotatedBy(rot);
-
-            if (vec.Impassable(base.Map))
+            if (def == null)
             {
-                return "CentralizedClimateControl.Consumer.AirThermalPlaceError".Translate();
+                return AcceptanceReport.WasRejected;
+            }
+
+            var size = def.Size;
+
+            IntVec3 iterator = new IntVec3(center.x, center.y, center.z);
+
+            for (int dx = 0; dx < size.x; dx++)
+            {
+                IntVec3 intVec = iterator + IntVec3.South.RotatedBy(rot);
+
+                if (intVec.Impassable(base.Map))
+                {
+                    return "CentralizedClimateControl.Consumer.AirThermalPlaceError".Translate();
+                }
+
+                iterator += IntVec3.East.RotatedBy(rot);
             }
 
             return true;
