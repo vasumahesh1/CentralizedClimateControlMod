@@ -48,6 +48,9 @@ Multiple Frigdes can be connected together, but only 1 is getting the cooling. T
 - [url=https://ludeon.com/forums/index.php?topic=21770.0] Redist Heat [/url]
 - [url=https://ludeon.com/forums/index.php?topic=29043.msg341113#msg341113] Dubs Hygiene Mod [/url]
 
+[color=orange][size=18pt]Requirements:[/size][/color]
+- Hugs Lib
+[url=https://ludeon.com/forums/index.php?topic=28066][img]http://i.imgur.com/9L4f8u7.png[/img][/url]
 
 [color=orange][size=18pt]How to install:[/size][/color]
 Subscribe on Steam:
@@ -56,7 +59,7 @@ Subscribe on Steam:
 Manual way:
 - Download [url=https://drive.google.com/file/d/0B08U3R0FGDNCTXFfX21YcW40c3M/view?usp=sharing]from here[/url]
 - Unzip the contents and place them in your RimWorld/Mods folder.
-- Activate the mod in the mod menu in the game.
+- Activate the mod in the mod menu in the game (Load HugsLib Before this Mod).
 
 
 [color=orange][size=18pt]License[/size][/color]
@@ -65,3 +68,5 @@ Free to use/modify wherever you want.
 
 [color=orange][size=18pt]Feedback[/size][/color]
 Well, This is my first mod. Any feedback (positive/negative) is welcomed!
+
+[url=http://imgur.com/a/MnULI]More Images (imgur)[/url]

@@ -9,6 +9,14 @@
 	<HugsLib.UpdateFeatureDef ParentName="CCCUpdateFeatureBase">
 		<defName>CentralizedClimateControl_1_0_1</defName>
 		<assemblyVersion>1.0.1</assemblyVersion>
-		<content>Added Large Air Climate Units and Large Intake Fans|img:Things/Updates/101</content>
+		<content>|img:Things/Updates/101|
+Your saves wont be affected by this update.
+| &lt;b&gt;Features:&lt;/b&gt;
+- Added Large Intake Fans
+- Added Large Air Climate Units
+- Improved Vent Placing (Can Place over Pipes)
+| &lt;b&gt;Bug Fixes:&lt;/b&gt;
+- Fixed an Issue with Solo Vent Network
+- Removed Debug Logs (oops)</content>
 	</HugsLib.UpdateFeatureDef>
 </Defs>

@@ -49,10 +49,10 @@ namespace CentralizedClimateControl
 
         public void RegisterPipe(CompAirFlow pipe)
         {
-            if (!this.CachedPipes.Contains(pipe))
+            if (!CachedPipes.Contains(pipe))
             {
-                this.CachedPipes.Add(pipe);
-                GenList.Shuffle<CompAirFlow>(this.CachedPipes);
+                CachedPipes.Add(pipe);
+                CachedPipes.Shuffle();
             }
 
             this.DirtyPipeGrid(pipe.FlowType);
@@ -60,10 +60,10 @@ namespace CentralizedClimateControl
 
         public void DeregisterPipe(CompAirFlow pipe)
         {
-            if (this.CachedPipes.Contains(pipe))
+            if (CachedPipes.Contains(pipe))
             {
-                this.CachedPipes.Remove(pipe);
-                GenList.Shuffle<CompAirFlow>(this.CachedPipes);
+                CachedPipes.Remove(pipe);
+                CachedPipes.Shuffle();
             }
 
             this.DirtyPipeGrid(pipe.FlowType);
@@ -74,7 +74,7 @@ namespace CentralizedClimateControl
             if (!CachedTempControls.Contains(device))
             {
                 CachedTempControls.Add(device);
-                GenList.Shuffle<CompAirFlowTempControl>(CachedTempControls);
+                CachedTempControls.Shuffle();
             }
 
             this.DirtyPipeGrid(device.FlowType);
@@ -82,10 +82,10 @@ namespace CentralizedClimateControl
 
         public void DeregisterTempControl(CompAirFlowTempControl device)
         {
-            if (this.CachedTempControls.Contains(device))
+            if (CachedTempControls.Contains(device))
             {
-                this.CachedTempControls.Remove(device);
-                GenList.Shuffle<CompAirFlowTempControl>(CachedTempControls);
+                CachedTempControls.Remove(device);
+                CachedTempControls.Shuffle();
             }
 
             this.DirtyPipeGrid(device.FlowType);
@@ -93,10 +93,10 @@ namespace CentralizedClimateControl
 
         public void RegisterProducer(CompAirFlowProducer pipe)
         {
-            if (!this.CachedProducers.Contains(pipe))
+            if (!CachedProducers.Contains(pipe))
             {
-                this.CachedProducers.Add(pipe);
-                GenList.Shuffle<CompAirFlowProducer>(this.CachedProducers);
+                CachedProducers.Add(pipe);
+                CachedProducers.Shuffle();
             }
 
             this.DirtyPipeGrid(pipe.FlowType);
@@ -107,7 +107,7 @@ namespace CentralizedClimateControl
             if (this.CachedProducers.Contains(pipe))
             {
                 this.CachedProducers.Remove(pipe);
-                GenList.Shuffle<CompAirFlowProducer>(CachedProducers);
+                CachedProducers.Shuffle();
             }
 
             this.DirtyPipeGrid(pipe.FlowType);
@@ -118,7 +118,7 @@ namespace CentralizedClimateControl
             if (!CachedConsumers.Contains(device))
             {
                 CachedConsumers.Add(device);
-                GenList.Shuffle<CompAirFlowConsumer>(CachedConsumers);
+                CachedConsumers.Shuffle();
             }
 
             this.DirtyPipeGrid(device.FlowType);
@@ -126,10 +126,10 @@ namespace CentralizedClimateControl
 
         public void DeregisterConsumer(CompAirFlowConsumer device)
         {
-            if (this.CachedConsumers.Contains(device))
+            if (CachedConsumers.Contains(device))
             {
-                this.CachedConsumers.Remove(device);
-                GenList.Shuffle<CompAirFlowConsumer>(this.CachedConsumers);
+                CachedConsumers.Remove(device);
+                CachedConsumers.Shuffle();
             }
 
             this.DirtyPipeGrid(device.FlowType);
@@ -178,7 +178,7 @@ namespace CentralizedClimateControl
 
             CachedNets = _backupNets;
 
-            // TODO: Not Optimized
+//             TODO: Not Optimized
             map.mapDrawer.WholeMapChanged(MapMeshFlag.Buildings);
             map.mapDrawer.WholeMapChanged(MapMeshFlag.Things);
 
@@ -261,10 +261,12 @@ namespace CentralizedClimateControl
                 this.PipeGrid[flowIndex, i] = RebuildValue;
             }
 
-            Debug.Log("--- Start Rebuilding --- For Index: " + flowIndex);
+//             TODO: Add Debug Mode Check
+//            Debug.Log("--- Start Rebuilding --- For Index: " + flowIndex);
 
             var cachedPipes = CachedPipes.Where((item) => item.FlowType == flowType).ToList();
-            PrintPipes(cachedPipes);
+//            TODO: Add Debug Mode Check
+//            PrintPipes(cachedPipes);
 
             var listCopy = new List<CompAirFlow>(cachedPipes);
 
@@ -277,7 +279,16 @@ namespace CentralizedClimateControl
                 network.FlowType = flowType;
                 _masterId++;
 
+                var thingList = compAirFlow.parent.Position.GetThingList(this.map);
+                var buildingList = thingList.OfType<Building>();
+
                 ValidateBuilding(compAirFlow, network);
+
+                foreach (Building current in buildingList)
+                {
+                    var comp = current.GetComp<CompAirFlow>();
+                    ValidateBuilding(comp, network);
+                }
 
                 // Assign the Occipied Area to the same grid id
                 CellRect.CellRectIterator iterator = compAirFlow.parent.OccupiedRect().GetIterator();
@@ -293,13 +304,15 @@ namespace CentralizedClimateControl
                 listCopy.RemoveAll(item => item.GridID != RebuildValue);
 
                 network.AirFlowNetTick();
-                Debug.Log(network.DebugString());
+//                 TODO: Add Debug Mode Check
+//                 Debug.Log(network.DebugString());
 
                 runtimeNets.Add(network);
             }
 
             DirtyPipeFlag[flowIndex] = false;
-            Debug.Log("--- Done Rebuilding ---");
+//             TODO: Add Debug Mode Check
+//             Debug.Log("--- Done Rebuilding ---");
 
             _backupNets.AddRange(runtimeNets);
         }

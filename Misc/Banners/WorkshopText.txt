@@ -1,5 +1,7 @@
 A Mod which allows centralized air cooling/heating. Build large ACs in your map away from your rooms.
 
+[url=https://ludeon.com/forums/index.php?topic=34346.0]Forum Link[/url]
+
 While there are many alternate mods for Central Heating. This mod adds a new network-like resource (like electricity) Air. The heating/cooling system you will build depends on the number of rooms and the heating/cooling capacity of your air networks.
 
 There are 3 colored pipes available. All can carry any type of air.
@@ -37,9 +39,16 @@ Intakes take note of the Air Temperature the take in. We can practically make Cl
 For example:
 Multiple Frigdes can be connected together, but only 1 is getting the cooling. The rest just share the air.
 
-[h1] Planned Things: [/h1]
-- Attenuate temperature per distance
+[h1] Requires: [/h1]
+[url=https://ludeon.com/forums/index.php?topic=28066][img]http://i.imgur.com/9L4f8u7.png[/img][/url]
+
+[h1] Installation: [/h1]
+1) Make sure you enable HugsLib first and before this Mod
+2) Enable the Mod in the Mod List
+
+[h1] Known Issues: [/h1]
 - Heating exhaust of Climate Control needs some adjustment
+- Reinstall doesn't work properly (Install and Uninstall works fine.)
 
 [h1] Note: [/h1]
 This is my first mod for any game ever. There might be some issues. I wanted to see how the community responds to my mod, and want to work more on it! :)
