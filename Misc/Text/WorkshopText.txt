@@ -39,6 +39,9 @@ Intakes take note of the Air Temperature the take in. We can practically make Cl
 For example:
 Multiple Frigdes can be connected together, but only 1 is getting the cooling. The rest just share the air.
 
+[b] Bigger buildings for late game [/b]
+Build larger Intakes and Climate Units which have about 5x more power than a regular machine.
+
 [h1] Requires: [/h1]
 [url=https://ludeon.com/forums/index.php?topic=28066][img]http://i.imgur.com/9L4f8u7.png[/img][/url]
 
