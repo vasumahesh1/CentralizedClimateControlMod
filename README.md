@@ -13,7 +13,7 @@ This mod works by adding a few buildings namely:
 - Air Climate Unit
 - Air Vents
 
-We connect these machines through Pipes. The Mod also manages various Pipe Networks that the user can create. It also maintains air as a form of currency/electricity by generating it at intakes and exhausting it at Vents.
+We connect these machines through Pipes. The Mod also manages various Pipe Networks that the user can create. It also maintains air just like electricity by generating it at Intakes and exhausting it at Vents.
 
 The Mod calculates two Efficiencies which are:
 - Thermal Efficiency

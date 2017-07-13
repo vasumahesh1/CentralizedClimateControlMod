@@ -17,4 +17,16 @@
   <AirVent_Blueprint.label>Air Exhaust Vent (Blueprint)</AirVent_Blueprint.label>
   <AirVent_Frame.label>Air Exhaust Vent (Building)</AirVent_Frame.label>
   <AirVent_Frame.description>Exhausts the air in a Pipe Network.</AirVent_Frame.description>
+
+  <LargeIntakeFan.label>Large Intake Fan</LargeIntakeFan.label>
+  <LargeIntakeFan.description>This device takes air from its environment like a room or outside. It channels this air to a Pipe network.</LargeIntakeFan.description>
+  <LargeIntakeFan_Blueprint.label>Large Intake Fan (Blueprint)</LargeIntakeFan_Blueprint.label>
+  <LargeIntakeFan_Frame.label>Large Intake Fan (Building)</LargeIntakeFan_Frame.label>
+  <LargeIntakeFan_Frame.description>Channels air from its surrondings to a Pipe Network.</LargeIntakeFan_Frame.description>
+
+  <LargeAirThermal.label>Large Air Climate Control</LargeAirThermal.label>
+  <LargeAirThermal.description>This device takes air from a Pipe Network and cools or heats it depending on the Target temperature.</LargeAirThermal.description>
+  <LargeAirThermal_Blueprint.label>Large Air Climate Control (Blueprint)</LargeAirThermal_Blueprint.label>
+  <LargeAirThermal_Frame.label>Large Air Climate Control (Building)</LargeAirThermal_Frame.label>
+  <LargeAirThermal_Frame.description>Converts air in a Pipe Network to its target temperature.</LargeAirThermal_Frame.description>
 </LanguageData>

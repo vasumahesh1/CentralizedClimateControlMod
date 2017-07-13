@@ -78,6 +78,7 @@ Well, This is my first mod. Any feedback (positive/negative) is welcomed!
 [color=orange][size=18pt]Known Issues[/size][/color]
 - For some Reason Reinstall doesn't work (Uninstall and Install work fine) on the machines
 - The Climate Units don't release much heated air
+- Compatibility Issues with Redist.Heat Mod
 
 [url=http://imgur.com/a/MnULI]More Images (imgur)[/url]
 [url=https://github.com/vasumahesh1/CentralizedClimateControlMod]Github Source Code[/url]

@@ -50,6 +50,7 @@ Build larger Intakes and Climate Units which have about 5x more power than a reg
 2) Enable the Mod in the Mod List
 
 [h1] Known Issues: [/h1]
+- Compatibility Issues with Redist.Heat Mod
 - Heating exhaust of Climate Control needs some adjustment
 - Reinstall doesn't work properly (Install and Uninstall works fine.)
 
