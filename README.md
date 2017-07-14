@@ -29,7 +29,9 @@ These two efficiencies ultimately dictate the rate and amount of change in tempe
 There are some larger intakes and climate units available in the late game for larger maps.
 
 ### Suggestion List
-- [ ] Wall mounted Vents
+- [ ] Fix Temperature Change & Optimize a bit more
+- [ ] Switch to change pipes at Vent
+- [x] Wall mounted Vents
 - [x] Larger Machines for Big maps
 
 ### Working with the Code
