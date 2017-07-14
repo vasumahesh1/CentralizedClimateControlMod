@@ -62,7 +62,7 @@ namespace CentralizedClimateControl
             while (!iterator.Done())
             {
                 IntVec3 current = iterator.Current;
-                Vector3 vector = current.ToVector3ShiftedWithAltitude(29);
+                Vector3 vector = current.ToVector3ShiftedWithAltitude(AltitudeLayer.WorldDataOverlay);
 
                 var building = parent as Building;
                 if (building == null)
