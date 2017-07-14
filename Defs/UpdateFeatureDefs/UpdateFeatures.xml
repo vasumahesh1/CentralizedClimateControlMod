@@ -19,4 +19,13 @@ Your saves wont be affected by this update.
 - Fixed an Issue with Solo Vent Network
 - Removed Debug Logs (oops)</content>
 	</HugsLib.UpdateFeatureDef>
+
+	<HugsLib.UpdateFeatureDef ParentName="CCCUpdateFeatureBase">
+		<defName>CentralizedClimateControl_1_1_0</defName>
+		<assemblyVersion>1.1.0</assemblyVersion>
+		<content>|img:Things/Updates/110Update|
+Your saves wont be affected by this update.
+| &lt;b&gt;Features:&lt;/b&gt;
+- Added Wallmounted Vents</content>
+	</HugsLib.UpdateFeatureDef>
 </Defs>

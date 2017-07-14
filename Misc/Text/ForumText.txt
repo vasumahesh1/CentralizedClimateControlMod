@@ -7,9 +7,10 @@ Hi, This is my first mod ever. This mod, like the title, adds central air coolin
 
 [color=orange]Buildings & Other stuff added[/color]
 - Air Intake Fan: Fans to supply air to the system
-- Air Climate Control Unit: Heat or Cool air to a target temperature
+- Air Climate Control System: Heat or Cool air to a target temperature
 - Air Vents: Vent out the heated/cooled air
-- 3 Colored pipes so you can make different multiple networks
+- Wall Mounted Air Vents
+- Large Intakes & Air Climate Units
 
 
 [color=orange][size=18pt]Features[/size][/color]

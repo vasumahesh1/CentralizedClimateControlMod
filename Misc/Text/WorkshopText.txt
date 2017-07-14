@@ -1,15 +1,19 @@
 A Mod which allows centralized air cooling/heating. Build large ACs in your map away from your rooms.
 
+Version: 1.1.0
+
 [url=https://ludeon.com/forums/index.php?topic=34346.0]Forum Link[/url]
 
 While there are many alternate mods for Central Heating. This mod adds a new network-like resource (like electricity) Air. The heating/cooling system you will build depends on the number of rooms and the heating/cooling capacity of your air networks.
 
 There are 3 colored pipes available. All can carry any type of air.
 
-There are 3 buildings added:
+Following buildings are added:
 - Air Intake Fan: Fans to supply air to the system
 - Air Climate Control System: Heat or Cool air to a target temperature
 - Air Vents: Vent out the heated/cooled air
+- Wall Mounted Air Vents
+- Large Intakes & Air Climate Units
 
 [h1] Features & Differences (from other mods): [/h1]
 
