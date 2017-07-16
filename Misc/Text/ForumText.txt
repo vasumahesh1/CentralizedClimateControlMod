@@ -45,30 +45,31 @@ Build larger Intakes and Climate Units which have about 5x more power than a reg
 
 [color=orange][size=18pt]More Details[/size][/color]
 
-[color=blue]Air Climate Unit:[/color]
+[color=orange][size=14pt]Air Climate Unit:[/size][/color]
 [img]https://raw.githubusercontent.com/vasumahesh1/CentralizedClimateControlMod/master/Misc/Images/air_climate_control.jpg[/img]
 - Responsible for Changing the Temperature of the Air in a Pipe Network.
 - Capacity of holding 3 Regular Intake Fans (Beyond that Thermal Efficiency reduces below 100%)
 
-[color=blue]Air Intake Fans:[/color]
+[color=orange][size=14pt]Air Intake Fans:[/size][/color]
 [img]https://raw.githubusercontent.com/vasumahesh1/CentralizedClimateControlMod/master/Misc/Images/intake_fans.jpg[/img]
 - Takes in Outside Air (Average Temperature of each Outside Cell Highlighted)
 - Defines the Intake Temperature of the System
 - Capacity of holding 3 Vents (Beyond that Flow Efficiency reduces below 100%)
+- Having Flow Efficiency reduce to below 100% doesnt affect much. However when it reaches below 30% you'll get some significant changes.
 
-[color=blue]Air Vents:[/color]
+[color=orange][size=14pt]Air Vents:[/size][/color]
 [img]https://raw.githubusercontent.com/vasumahesh1/CentralizedClimateControlMod/master/Misc/Images/air_vents.jpg[/img]
 - Takes the final Temperature of the Pipe System and dumps it into the room/environment.
 
-[color=blue]Wallmounted Air Vents:[/color]
+[color=orange][size=14pt]Wallmounted Air Vents:[/size][/color]
 [img]https://raw.githubusercontent.com/vasumahesh1/CentralizedClimateControlMod/master/Misc/Images/wall_mounted_vents.jpg[/img]
 - Same as Regular Vents but they don't occupy a full Wall Space (useful for your forts & defences)
 
-[color=blue]Large Air Climate Unit:[/color]
+[color=orange][size=14pt]Large Air Climate Unit:[/size][/color]
 [img]https://raw.githubusercontent.com/vasumahesh1/CentralizedClimateControlMod/master/Misc/Images/large_air_climate_units.jpg[/img]
 - 5x more power than the Regular Unit
 
-[color=blue]Large Air Intake Fans:[/color]
+[color=orange][size=14pt]Large Air Intake Fans:[/size][/color]
 [img]https://raw.githubusercontent.com/vasumahesh1/CentralizedClimateControlMod/master/Misc/Images/large_intake_fans.jpg[/img]
 - 5x more power than the Regular Unit
 
