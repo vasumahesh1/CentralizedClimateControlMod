@@ -1,4 +1,4 @@
-A Mod which allows centralized air cooling/heating. Build large ACs in your map away from your rooms.
+A Mod which allows centralized air cooling/heating. Build Large Piped Air Climate Systems away from your buildings.
 
 Version: 1.1.0
 
