@@ -3,6 +3,7 @@ A Mod which allows centralized air cooling/heating. Build Large Piped Air Climat
 Version: 1.1.0
 
 [url=https://ludeon.com/forums/index.php?topic=34346.0]Forum Link[/url]
+[url=http://steamcommunity.com/workshop/filedetails/discussion/973091113/2217311444330045460/]Recommended: Basic Mod Overview[/url]
 
 While there are many alternate mods for Central Heating. This mod adds a new network-like resource (like electricity) Air. The heating/cooling system you will build depends on the number of rooms and the heating/cooling capacity of your air networks.
 
