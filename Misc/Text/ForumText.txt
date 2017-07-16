@@ -43,6 +43,36 @@ Multiple Frigdes can be connected together, but only 1 is getting the cooling. T
 [b] Bigger buildings for late game [/b]
 Build larger Intakes and Climate Units which have about 5x more power than a regular machine.
 
+[color=orange][size=18pt]More Details[/size][/color]
+
+[color=blue]Air Climate Unit:[/color]
+[img]https://raw.githubusercontent.com/vasumahesh1/CentralizedClimateControlMod/master/Misc/Images/air_climate_control.jpg[/img]
+- Responsible for Changing the Temperature of the Air in a Pipe Network.
+- Capacity of holding 3 Regular Intake Fans (Beyond that Thermal Efficiency reduces below 100%)
+
+[color=blue]Air Intake Fans:[/color]
+[img]https://raw.githubusercontent.com/vasumahesh1/CentralizedClimateControlMod/master/Misc/Images/intake_fans.jpg[/img]
+- Takes in Outside Air (Average Temperature of each Outside Cell Highlighted)
+- Defines the Intake Temperature of the System
+- Capacity of holding 3 Vents (Beyond that Flow Efficiency reduces below 100%)
+
+[color=blue]Air Vents:[/color]
+[img]https://raw.githubusercontent.com/vasumahesh1/CentralizedClimateControlMod/master/Misc/Images/air_vents.jpg[/img]
+- Takes the final Temperature of the Pipe System and dumps it into the room/environment.
+
+[color=blue]Wallmounted Air Vents:[/color]
+[img]https://raw.githubusercontent.com/vasumahesh1/CentralizedClimateControlMod/master/Misc/Images/wall_mounted_vents.jpg[/img]
+- Same as Regular Vents but they don't occupy a full Wall Space (useful for your forts & defences)
+
+[color=blue]Large Air Climate Unit:[/color]
+[img]https://raw.githubusercontent.com/vasumahesh1/CentralizedClimateControlMod/master/Misc/Images/large_air_climate_units.jpg[/img]
+- 5x more power than the Regular Unit
+
+[color=blue]Large Air Intake Fans:[/color]
+[img]https://raw.githubusercontent.com/vasumahesh1/CentralizedClimateControlMod/master/Misc/Images/large_intake_fans.jpg[/img]
+- 5x more power than the Regular Unit
+
+
 [color=orange][size=18pt]Author[/size][/color]
 - [url=http://steamcommunity.com/id/vasumahesh/] vasumahesh	[/url]
 
