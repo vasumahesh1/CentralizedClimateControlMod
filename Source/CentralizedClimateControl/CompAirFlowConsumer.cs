@@ -19,6 +19,9 @@ namespace CentralizedClimateControl
         public float ConvertedTemperature = 0.0f;
         protected CompFlickable FlickableComp;
 
+        private bool _alertChange = false;
+        public AirTypePriority AirTypePriority = AirTypePriority.Auto;
+
         public float ExhaustAirFlow
         {
             get
@@ -54,6 +57,15 @@ namespace CentralizedClimateControl
             base.PostSpawnSetup(respawningAfterLoad);
         }
 
+        public override void PostExposeData()
+        {
+            base.PostExposeData();
+
+            Scribe_Values.Look(ref this.AirTypePriority, "airTypePriority", AirTypePriority.Auto);
+//            Debug.Log(this.parent + " - Air Priority Loaded: " + AirTypePriority);
+            _alertChange = true;
+        }
+
         public override void PostDeSpawn(Map map)
         {
             CentralizedClimateControlUtility.GetNetManager(map).DeregisterConsumer(this);
@@ -87,8 +99,23 @@ namespace CentralizedClimateControl
             return str + "\n" + base.CompInspectStringExtra();
         }
 
+        public void SetPriority(AirTypePriority priority)
+        {
+            _alertChange = true;
+            AirTypePriority = priority;
+            AirFlowNet = null;
+//            Debug.Log("Setting Priority to: " + AirTypePriority);
+        }
+
         public void TickRare()
         {
+            if (_alertChange)
+            {
+                var manager = CentralizedClimateControlUtility.GetNetManager(this.parent.Map);
+                manager.DirtyPipeWholeGrid();
+                _alertChange = false;
+            }
+
             if (!IsOperating())
             {
                 return;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -15,6 +16,19 @@ namespace CentralizedClimateControl
         {
             base.SpawnSetup(map, respawningAfterLoad);
             CompAirFlowConsumer = base.GetComp<CompAirFlowConsumer>();
+        }
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (Gizmo g in base.GetGizmos())
+            {
+                yield return g;
+            }
+
+            if (CompAirFlowConsumer != null)
+            {
+                yield return CentralizedClimateControlUtility.GetPipeSwitchToggle(CompAirFlowConsumer);
+            }
         }
 
         public override void TickRare()
@@ -40,9 +54,15 @@ namespace CentralizedClimateControl
                 return;
             }
 
-            float insideTemp = intVec.GetTemperature(base.Map);
-            float tempDiff = outsideTemp - insideTemp;
-            float magnitudeChange = Mathf.Abs(tempDiff);
+            var insideTemp = intVec.GetTemperature(base.Map);
+            var tempDiff = outsideTemp - insideTemp;
+            var magnitudeChange = Mathf.Abs(tempDiff);
+
+            // Cap change at 10.0f
+            if (magnitudeChange > 10.0f)
+            {
+                magnitudeChange = 10.0f;
+            }
 
             float signChanger = 1;
 
@@ -51,9 +71,12 @@ namespace CentralizedClimateControl
                 signChanger = -1;
             }
 
-            float smoothMagnitude =  magnitudeChange * 0.25f;
-            float energyLimit = smoothMagnitude * CompAirFlowConsumer.FlowEfficiency * 4.16666651f * 12f * signChanger;
-            float tempChange = GenTemperature.ControlTemperatureTempChange(intVec, base.Map, energyLimit, outsideTemp);
+            // Flow Efficiency is capped at 1.0f. Squaring will only keep it less than or equal to 1.0f. Smaller the number more drastic the square.
+            var efficiencyImpact = CompAirFlowConsumer.FlowEfficiency * CompAirFlowConsumer.FlowEfficiency;
+
+            var smoothMagnitude =  magnitudeChange * 0.25f * (CompAirFlowConsumer.Props.baseAirExhaust / 100.0f);
+            var energyLimit = smoothMagnitude * efficiencyImpact * 4.16666651f * 12f * signChanger;
+            var tempChange = GenTemperature.ControlTemperatureTempChange(intVec, base.Map, energyLimit, outsideTemp);
             
             bool flag = !Mathf.Approximately(tempChange, 0f);
             if (flag)

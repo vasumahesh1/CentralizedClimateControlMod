@@ -43,6 +43,9 @@ Multiple Frigdes can be connected together, but only 1 is getting the cooling. T
 [b] Bigger buildings for late game [/b]
 Build larger Intakes and Climate Units which have about 5x more power than a regular machine.
 
+[b] Pipe Switches at Vents [/b]
+If you have multiple pipes near your vent, You can force it to connect to a specific pipe.
+
 [color=orange][size=18pt]More Details[/size][/color]
 
 [color=orange][size=14pt]Air Climate Unit:[/size][/color]

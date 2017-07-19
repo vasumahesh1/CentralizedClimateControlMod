@@ -7,6 +7,7 @@ using Verse;
 
 namespace CentralizedClimateControl
 {
+    [StaticConstructorOnStartup]
     public class GraphicsLoader
     {
         // Actual Atlas

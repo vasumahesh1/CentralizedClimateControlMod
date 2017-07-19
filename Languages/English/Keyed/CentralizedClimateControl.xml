@@ -32,5 +32,11 @@
   <CentralizedClimateControl.Consumer.AirThermalPlaceError>Must Place Air Climate Control with Empty Cell at Back</CentralizedClimateControl.Consumer.AirThermalPlaceError>
   <CentralizedClimateControl.Consumer.FlowEfficiencyKey>Flow Efficiency: {0}</CentralizedClimateControl.Consumer.FlowEfficiencyKey>
   <CentralizedClimateControl.Consumer.ThermalEfficiencyKey>Thermal Efficiency: {0}</CentralizedClimateControl.Consumer.ThermalEfficiencyKey>
-  
+
+  <CentralizedClimateControl.Command.SwitchPipe.Desc>Force the Building to Connect to a Pipe of a specific Color</CentralizedClimateControl.Command.SwitchPipe.Desc>  
+  <CentralizedClimateControl.Command.SwitchPipe.Auto>Auto</CentralizedClimateControl.Command.SwitchPipe.Auto>
+  <CentralizedClimateControl.Command.SwitchPipe.Red>Red Pipe Only</CentralizedClimateControl.Command.SwitchPipe.Red>
+  <CentralizedClimateControl.Command.SwitchPipe.Blue>Blue Pipe Only</CentralizedClimateControl.Command.SwitchPipe.Blue>
+  <CentralizedClimateControl.Command.SwitchPipe.Cyan>Cyan Pipe Only</CentralizedClimateControl.Command.SwitchPipe.Cyan>
+
 </LanguageData>

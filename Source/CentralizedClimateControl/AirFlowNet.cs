@@ -72,7 +72,6 @@ namespace CentralizedClimateControl
         private void TickConsumers()
         {
             float airFlow = 0.0f;
-            int rooms = 0;
 
             foreach (var consumer in Consumers)
             {

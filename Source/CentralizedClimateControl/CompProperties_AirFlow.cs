@@ -14,6 +14,14 @@ namespace CentralizedClimateControl
         Any = 3
     }
 
+    public enum AirTypePriority
+    {
+        Hot = 0,
+        Cold = 1,
+        Frozen = 2,
+        Auto = 3
+    }
+
     public class CompProperties_AirFlow : CompProperties
     {
         public bool transmitsAir;

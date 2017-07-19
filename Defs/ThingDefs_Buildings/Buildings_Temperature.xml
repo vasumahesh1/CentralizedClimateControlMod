@@ -57,7 +57,7 @@
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
-        <basePowerConsumption>50</basePowerConsumption>
+        <basePowerConsumption>150</basePowerConsumption>
       </li>
       <li Class="CentralizedClimateControl.CompProperties_AirFlow">
         <compClass>CentralizedClimateControl.CompAirFlowProducer</compClass>
@@ -372,7 +372,7 @@
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
-        <basePowerConsumption>150</basePowerConsumption>
+        <basePowerConsumption>450</basePowerConsumption>
       </li>
       <li Class="CentralizedClimateControl.CompProperties_AirFlow">
         <compClass>CentralizedClimateControl.CompAirFlowProducer</compClass>
@@ -492,7 +492,7 @@
       <li Class="CentralizedClimateControl.CompProperties_AirFlow">
         <compClass>CentralizedClimateControl.CompAirFlowConsumer</compClass>
         <flowType>Any</flowType>
-        <baseAirExhaust>100</baseAirExhaust>
+        <baseAirExhaust>75</baseAirExhaust>
       </li>
       <li Class="CompProperties_Flickable"/>
     </comps>

@@ -28,4 +28,24 @@ Your saves wont be affected by this update.
 | &lt;b&gt;Features:&lt;/b&gt;
 - Added Wallmounted Vents</content>
 	</HugsLib.UpdateFeatureDef>
+
+	<HugsLib.UpdateFeatureDef ParentName="CCCUpdateFeatureBase">
+		<defName>CentralizedClimateControl_1_2_0</defName>
+		<assemblyVersion>1.2.0</assemblyVersion>
+		<content>|img:Things/Updates/120Update|
+Your saves wont be affected by this update. All Vent Pipe Connections are by default set to Auto.
+| &lt;b&gt;Features:&lt;/b&gt;
+- Switches for Pipes at Vents for forcing Pipe connection
+|img:Things/Updates/120_AutoButton|caption:Auto - Default Connection Priority - Red, Blue then Cyan.
+|img:Things/Updates/120_RedButton|caption:Red Pipe Only - Only Connects to Red Pipe Networks.
+|img:Things/Updates/120_BlueButton|caption:Blue Pipe Only - Only Connects to Blue Pipe Networks.
+|img:Things/Updates/120_CyanButton|caption:Cyan Pipe Only - Only Connects to Cyan Pipe Networks.
+| &lt;b&gt;Balance Changes:&lt;/b&gt;
+- Decreased performance of Wall mounted Vents to 75% when compared to Full Size Vents
+- Intake Power Consumption increased for both Buildings to 150W and 450W
+- Flow Efficiency and Thermal Efficiency now have a greater impact
+| &lt;b&gt;Bug Fixes:&lt;/b&gt;
+- Fix Vent Highlight color to Cyan when connected to Cyan Pipe
+- "GraphicsLoader probably needs a StaticConstructorOnStartup attribute" Warning</content>
+	</HugsLib.UpdateFeatureDef>
 </Defs>

@@ -31,7 +31,7 @@ namespace CentralizedClimateControl
 
             IntVec3 intVec = center + IntVec3.North.RotatedBy(rot);
 
-            Color typeColor = type == AirFlowType.Hot ? Color.red : Color.blue;
+            Color typeColor = type == AirFlowType.Hot ? Color.red : type == AirFlowType.Cold ? Color.blue : Color.cyan;
 
             GenDraw.DrawFieldEdges(new List<IntVec3>
             {
