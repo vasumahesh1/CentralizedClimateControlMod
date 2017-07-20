@@ -213,6 +213,9 @@ namespace CentralizedClimateControl
 
         /// <summary>
         /// Update Map Event
+        /// - Check if Dirty
+        /// - If it is Dirty then Reconstruct Pipe Grids
+        /// - Reset Dirty Flags and Update the Cached Variables storing info on the Networks
         /// </summary>
         public override void MapComponentUpdate()
         {

@@ -59,15 +59,6 @@ namespace CentralizedClimateControl
                     }
                 }
             }
-
-//            CellRect.CellRectIterator iterator = parent.OccupiedRect().GetIterator();
-//            while (!iterator.Done())
-//            {
-//                IntVec3 current = iterator.Current;
-//                Vector3 vector = current.ToVector3ShiftedWithAltitude(30);
-//                Printer_Plane.PrintPlane(layer, vector, Vector2.one, base.LinkedDrawMatFrom(parent, current), 0f, false, null, null, 0.01f);
-//                iterator.MoveNext();
-//            }
         }
     }
 }

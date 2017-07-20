@@ -9,12 +9,12 @@
   <CentralizedClimateControl.Efficiency>Pressured Air Stored</CentralizedClimateControl.Efficiency>
   <CentralizedClimateControl.AirFlowNetDisconnected>Not Connected to an Air Flow Network</CentralizedClimateControl.AirFlowNetDisconnected>
   <CentralizedClimateControl.AirFlowNetConnected>Connected to an Air Flow Network</CentralizedClimateControl.AirFlowNetConnected>
-  <CentralizedClimateControl.AirType>Air Type: {0}</CentralizedClimateControl.AirType>
+  <CentralizedClimateControl.AirType>Air Carrying: {0}</CentralizedClimateControl.AirType>
   <CentralizedClimateControl.AirTemperature>Air Temperature: {0}</CentralizedClimateControl.AirTemperature>
 
-  <CentralizedClimateControl.HotAir>Hot Air</CentralizedClimateControl.HotAir>
-  <CentralizedClimateControl.ColdAir>Cold Air</CentralizedClimateControl.ColdAir>
-  <CentralizedClimateControl.FrozenAir>Refridgerated Air</CentralizedClimateControl.FrozenAir>
+  <CentralizedClimateControl.HotAir>Red Pipe Air</CentralizedClimateControl.HotAir>
+  <CentralizedClimateControl.ColdAir>Blue Pipe Air</CentralizedClimateControl.ColdAir>
+  <CentralizedClimateControl.FrozenAir>Cyan Pipe Air</CentralizedClimateControl.FrozenAir>
   <CentralizedClimateControl.TotalNetworkAir>Total Network Air Flow: {0} cc/s</CentralizedClimateControl.TotalNetworkAir>
 
   <CentralizedClimateControl.Producer.IntakeTemperature>Intake Temperature: {0}</CentralizedClimateControl.Producer.IntakeTemperature>

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 using RimWorld;
 using Verse;
-using Verse.Sound;
 
 namespace CentralizedClimateControl
 {
@@ -17,8 +13,8 @@ namespace CentralizedClimateControl
         [Unsaved]
         public bool IsOperatingAtHighPower;
         public bool IsBlocked = false;
-        public float CurrentAirFlow = 0.0f;
-        public float IntakeTemperature = 0.0f;
+        public float CurrentAirFlow;
+        public float IntakeTemperature;
         protected CompFlickable FlickableComp;
 
         public float AirFlowOutput
@@ -27,33 +23,45 @@ namespace CentralizedClimateControl
             {
                 if (IsOperating())
                 {
-                    return this.CurrentAirFlow;
+                    return CurrentAirFlow;
                 }
 
                 return 0.0f;
             }
         }
 
+        /// <summary>
+        /// Debug String for a Air Flow Producer
+        /// Shows info about Air Flow etc.
+        /// </summary>
         public string DebugString
         {
             get
             {
                 StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.AppendLine(this.parent.LabelCap + " CompAirFlow:");
+                stringBuilder.AppendLine(parent.LabelCap + " CompAirFlow:");
                 stringBuilder.AppendLine("   AirFlow IsOperating: " + IsOperating());
-                stringBuilder.AppendLine("   AirFlow Output: " + this.AirFlowOutput);
+                stringBuilder.AppendLine("   AirFlow Output: " + AirFlowOutput);
                 return stringBuilder.ToString();
             }
         }
 
+        /// <summary>
+        /// Post Spawn for Component
+        /// </summary>
+        /// <param name="respawningAfterLoad">Unused Flag</param>
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
-            CentralizedClimateControlUtility.GetNetManager(this.parent.Map).RegisterProducer(this);
-            this.FlickableComp = this.parent.GetComp<CompFlickable>();
+            CentralizedClimateControlUtility.GetNetManager(parent.Map).RegisterProducer(this);
+            FlickableComp = parent.GetComp<CompFlickable>();
 
             base.PostSpawnSetup(respawningAfterLoad);
         }
 
+        /// <summary>
+        /// Despawn Event for a Producer Component
+        /// </summary>
+        /// <param name="map">RimWorld Map</param>
         public override void PostDeSpawn(Map map)
         {
             CentralizedClimateControlUtility.GetNetManager(map).DeregisterProducer(this);
@@ -61,6 +69,10 @@ namespace CentralizedClimateControl
             base.PostDeSpawn(map);
         }
 
+        /// <summary>
+        /// Extra Component Inspection string
+        /// </summary>
+        /// <returns>String Containing information for Producers</returns>
         public override string CompInspectStringExtra()
         {
             string str = "";
@@ -74,16 +86,19 @@ namespace CentralizedClimateControl
             if (IsOperating())
             {
                 var convertedTemp = IntakeTemperature.ToStringTemperature("F0");
-                str += AirFlowOutputKey.Translate(new object[] { this.AirFlowOutput.ToString("#####0") });
+                str += AirFlowOutputKey.Translate(AirFlowOutput.ToString("#####0"));
                 str += "\n";
 
-                str += IntakeTempKey.Translate(new object[] { convertedTemp });
+                str += IntakeTempKey.Translate(convertedTemp);
                 str += "\n";
             }
 
             return str + base.CompInspectStringExtra();
         }
 
+        /// <summary>
+        /// Reset the Flow Variables for Producers and Forward the Control to Base class for more reset.
+        /// </summary>
         public override void ResetFlowVariables()
         {
             CurrentAirFlow = 0.0f;

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -17,13 +14,13 @@ namespace CentralizedClimateControl
         [Unsaved]
         public bool IsOperatingAtHighPower;
         public bool IsHeating;
-        public bool IsBlocked = false;
+        public bool IsBlocked;
         public bool IsStable;
 
-        public float IntakeTemperature = 0.0f;
+        public float IntakeTemperature;
         public float TargetTemperature = 21.0f;
-        public float ConvertedTemperature = 0.0f;
-        public float DeltaTemperature = 0.0f;
+        public float ConvertedTemperature;
+        public float DeltaTemperature;
 
         private const float DeltaSmooth = 96.0f;
 
@@ -33,29 +30,41 @@ namespace CentralizedClimateControl
         {
             get
             {
-                return this.Props.thermalCapacity;
+                return Props.thermalCapacity;
             }
         }
 
+        /// <summary>
+        /// Debug String for a Air Flow Climate Control
+        /// Shows info about Air Flow etc.
+        /// </summary>
         public string DebugString
         {
             get
             {
                 StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.AppendLine(this.parent.LabelCap + " CompAirFlow:");
+                stringBuilder.AppendLine(parent.LabelCap + " CompAirFlow:");
                 stringBuilder.AppendLine("   AirFlow IsOperating: " + IsOperating());
                 return stringBuilder.ToString();
             }
         }
 
+        /// <summary>
+        /// Post Spawn for Component
+        /// </summary>
+        /// <param name="respawningAfterLoad">Unused Flag</param>
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
-            CentralizedClimateControlUtility.GetNetManager(this.parent.Map).RegisterTempControl(this);
-            this.FlickableComp = this.parent.GetComp<CompFlickable>();
+            CentralizedClimateControlUtility.GetNetManager(parent.Map).RegisterTempControl(this);
+            FlickableComp = parent.GetComp<CompFlickable>();
 
             base.PostSpawnSetup(respawningAfterLoad);
         }
 
+        /// <summary>
+        /// Despawn Event for a Air Climate Control Component
+        /// </summary>
+        /// <param name="map">RimWorld Map</param>
         public override void PostDeSpawn(Map map)
         {
             CentralizedClimateControlUtility.GetNetManager(map).DeregisterTempControl(this);
@@ -63,14 +72,21 @@ namespace CentralizedClimateControl
             base.PostDeSpawn(map);
         }
 
+        /// <summary>
+        /// Game Save/Load Event. Here we save or restore the temperature changes in the network.
+        /// </summary>
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Values.Look(ref this.DeltaTemperature, "deltaTemperature", 0);
-            Scribe_Values.Look(ref this.IntakeTemperature, "intakeTemperature", 0);
-            Scribe_Values.Look(ref this.ConvertedTemperature, "convertedTemperature", 0);
+            Scribe_Values.Look(ref DeltaTemperature, "deltaTemperature", 0);
+            Scribe_Values.Look(ref IntakeTemperature, "intakeTemperature", 0);
+            Scribe_Values.Look(ref ConvertedTemperature, "convertedTemperature", 0);
         }
 
+        /// <summary>
+        /// Extra Component Inspection string
+        /// </summary>
+        /// <returns>String Containing information for Climate Control</returns>
         public override string CompInspectStringExtra()
         {
             string str = "";
@@ -85,12 +101,15 @@ namespace CentralizedClimateControl
             {
                 var intake = IntakeTemperature.ToStringTemperature("F0");
                 var converted = ConvertedTemperature.ToStringTemperature("F0");
-                str += TemperatureArrowKey.Translate(new object[] { intake, converted });
+                str += TemperatureArrowKey.Translate(intake, converted);
             }
 
             return str;
         }
 
+        /// <summary>
+        /// Reset the Flow Variables for Producers and Forward the Control to Base class for more reset.
+        /// </summary>
         public override void ResetFlowVariables()
         {
             DeltaTemperature = 0.0f;
@@ -102,6 +121,11 @@ namespace CentralizedClimateControl
             base.ResetFlowVariables();
         }
 
+        /// <summary>
+        /// Tick for Climate Control
+        /// Here we calculate the growth of Delta Temperature which is increased or decrased based on Intake and Target Temperature.
+        /// </summary>
+        /// <param name="compTempControl">Current Temperature Control Component of the Building</param>
         public void TickRare(CompTempControl compTempControl)
         {
             IntakeTemperature = AirFlowNet.AverageIntakeTemperature;
@@ -111,6 +135,10 @@ namespace CentralizedClimateControl
             GenerateDelta(compTempControl);
         }
 
+        /// <summary>
+        /// Check if Temperature Control is active or not. Needs Consumers and shouldn't be Blocked
+        /// </summary>
+        /// <returns>Boolean Active State</returns>
         public bool IsActive()
         {
             if (AirFlowNet.Producers.Count == 0 || IsBlocked)
@@ -121,6 +149,10 @@ namespace CentralizedClimateControl
             return true;
         }
 
+        /// <summary>
+        /// Calculate the Temperature Delta for the Tick.
+        /// </summary>
+        /// <param name="compTempControl">Temperature Control Component</param>
         private void GenerateDelta(CompTempControl compTempControl)
         {
             var targetDelta = TargetTemperature - IntakeTemperature;
@@ -139,7 +171,7 @@ namespace CentralizedClimateControl
             IsHeating = targetDelta > currentDelta;
 
             var deltaSmoothened = deltaDelta / DeltaSmooth;
-            DeltaTemperature += (float)(compTempControl.Props.energyPerSecond * AirFlowNet.ThermalEfficiency) * deltaSmoothened;
+            DeltaTemperature += (compTempControl.Props.energyPerSecond * AirFlowNet.ThermalEfficiency) * deltaSmoothened;
         }
     }
 }

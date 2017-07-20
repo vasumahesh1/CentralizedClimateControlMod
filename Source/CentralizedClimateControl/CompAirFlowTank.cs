@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using RimWorld;
-using UnityEngine;
-using Verse;
+﻿/**
+ * 
+ * Future Class for Making Air Tanks - Storing Pressurized Air.
+ * Never made it currently to the mod as there wasn't much use of it.
+ * 
+ */
 
 namespace CentralizedClimateControl
 {

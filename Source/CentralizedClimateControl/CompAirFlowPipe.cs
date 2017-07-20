@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Verse;
-
-namespace CentralizedClimateControl
+﻿namespace CentralizedClimateControl
 {
     public class CompAirFlowPipe : CompAirFlow
     {
+        /// <summary>
+        /// Component Inspection for Pipes
+        /// </summary>
+        /// <returns>String to Display for Pipes</returns>
         public override string CompInspectStringExtra()
         {
-            return GetAirTypeString(this.Props.flowType);
+            return GetAirTypeString(Props.flowType);
         }
     }
 }
