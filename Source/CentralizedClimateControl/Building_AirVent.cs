@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using RimWorld;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
@@ -12,12 +8,22 @@ namespace CentralizedClimateControl
     {
         public CompAirFlowConsumer CompAirFlowConsumer;
 
+        /// <summary>
+        /// Building spawned on the map
+        /// </summary>
+        /// <param name="map">RimWorld Map</param>
+        /// <param name="respawningAfterLoad">Unused flag</param>
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            CompAirFlowConsumer = base.GetComp<CompAirFlowConsumer>();
+            CompAirFlowConsumer = GetComp<CompAirFlowConsumer>();
         }
 
+        /// <summary>
+        /// Get the Gizmos for AirVent
+        /// Here, we generate the Gizmo for Chaning Pipe Priority
+        /// </summary>
+        /// <returns>List of Gizmos</returns>
         public override IEnumerable<Gizmo> GetGizmos()
         {
             foreach (Gizmo g in base.GetGizmos())
@@ -31,6 +37,10 @@ namespace CentralizedClimateControl
             }
         }
 
+        /// <summary>
+        /// Tick function for Air Vents
+        /// Main code for chaning temperature at the Rooms. We take the Converted Temperature from the Air Network.
+        /// </summary>
         public override void TickRare()
         {
             CompAirFlowConsumer.TickRare();
@@ -47,14 +57,14 @@ namespace CentralizedClimateControl
 
             var outsideTemp = CompAirFlowConsumer.ConvertedTemperature;
 
-            IntVec3 intVec = base.Position + IntVec3.North.RotatedBy(base.Rotation);
+            IntVec3 intVec = Position + IntVec3.North.RotatedBy(Rotation);
 
-            if (intVec.Impassable(base.Map))
+            if (intVec.Impassable(Map))
             {
                 return;
             }
 
-            var insideTemp = intVec.GetTemperature(base.Map);
+            var insideTemp = intVec.GetTemperature(Map);
             var tempDiff = outsideTemp - insideTemp;
             var magnitudeChange = Mathf.Abs(tempDiff);
 
@@ -76,12 +86,12 @@ namespace CentralizedClimateControl
 
             var smoothMagnitude =  magnitudeChange * 0.25f * (CompAirFlowConsumer.Props.baseAirExhaust / 100.0f);
             var energyLimit = smoothMagnitude * efficiencyImpact * 4.16666651f * 12f * signChanger;
-            var tempChange = GenTemperature.ControlTemperatureTempChange(intVec, base.Map, energyLimit, outsideTemp);
+            var tempChange = GenTemperature.ControlTemperatureTempChange(intVec, Map, energyLimit, outsideTemp);
             
-            bool flag = !Mathf.Approximately(tempChange, 0f);
+            var flag = !Mathf.Approximately(tempChange, 0f);
             if (flag)
             {
-                intVec.GetRoomGroup(base.Map).Temperature += tempChange;
+                intVec.GetRoomGroup(Map).Temperature += tempChange;
             }
         }
     }

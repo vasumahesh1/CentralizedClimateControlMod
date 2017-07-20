@@ -1,45 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using RimWorld;
+﻿using System.Linq;
 using Verse;
 
 namespace CentralizedClimateControl
 {
     public class Building_IntakeFan : Building_AirFlowControl
     {
-        private int windCellsBlocked = 0;
+        private int _windCellsBlocked = 0;
         private const float EfficiencyLossPerWindCubeBlocked = 0.0076923077f;
 
         public CompAirFlowProducer CompAirProducer;
 
+        /// <summary>
+        /// Building spawned on the map
+        /// </summary>
+        /// <param name="map">RimWorld Map</param>
+        /// <param name="respawningAfterLoad">Unused flag</param>
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            this.CompAirProducer = base.GetComp<CompAirFlowProducer>();
-            this.CompAirProducer.Props.flowType = AirFlowType.Any;
+            CompAirProducer = GetComp<CompAirFlowProducer>();
+            CompAirProducer.Props.flowType = AirFlowType.Any;
         }
 
+        /// <summary>
+        /// Tick Intake Fan. Check the surrondings and generate Air Flow if all clear.
+        /// </summary>
         public override void TickRare()
         {
-            if (!this.CompPowerTrader.PowerOn)
+            if (!CompPowerTrader.PowerOn)
             {
-                this.CompAirProducer.CurrentAirFlow = 0;
+                CompAirProducer.CurrentAirFlow = 0;
                 return;
             }
 
-
-            float sumTemp = 0f;
+            var sumTemp = 0f;
 
             var size = def.Size;
             var list = GenAdj.CellsAdjacent8Way(Position, Rotation, size).ToList();
 
             foreach (var intVec in list)
             {
-                if (intVec.Impassable(base.Map))
+                if (intVec.Impassable(Map))
                 {
-                    this.CompAirProducer.CurrentAirFlow = 0;
+                    CompAirProducer.CurrentAirFlow = 0;
                     CompAirProducer.IsBlocked = true;
                     return;
                 }
@@ -49,10 +52,10 @@ namespace CentralizedClimateControl
 
             CompAirProducer.IsBlocked = false;
 
-            float intake = (float) sumTemp / list.Count;
+            var intake = sumTemp / list.Count;
             CompAirProducer.IntakeTemperature = intake;
 
-            float flow = this.CompAirProducer.Props.baseAirFlow - windCellsBlocked * EfficiencyLossPerWindCubeBlocked;
+            var flow = CompAirProducer.Props.baseAirFlow - _windCellsBlocked * EfficiencyLossPerWindCubeBlocked;
             CompAirProducer.CurrentAirFlow = flow;
         }
     }

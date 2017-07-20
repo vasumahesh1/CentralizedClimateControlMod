@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Verse;
+﻿using Verse;
 
 namespace CentralizedClimateControl
 {
@@ -23,14 +19,14 @@ namespace CentralizedClimateControl
         {
             get
             {
-                return this.Props.flowType;
+                return Props.flowType;
             }
         }
 
         public int GridID
         {
-            get { return this._intGridId; }
-            set { this._intGridId = value; }
+            get { return _intGridId; }
+            set { _intGridId = value; }
         }
 
         public AirFlowNet AirFlowNet
@@ -43,27 +39,33 @@ namespace CentralizedClimateControl
         {
             get
             {
-                return (CompProperties_AirFlow)this.props;
+                return (CompProperties_AirFlow)props;
             }
         }
 
+        /// <summary>
+        /// Reset the AirFlow Variables
+        /// </summary>
         public virtual void ResetFlowVariables()
         {
-            this.AirFlowNet = null;
-            this.GridID = -1;
+            AirFlowNet = null;
+            GridID = -1;
         }
 
-        public override void PostExposeData()
-        {
-            base.PostExposeData();
-        }
-
+        /// <summary>
+        /// Component spawned on the map
+        /// </summary>
+        /// <param name="respawningAfterLoad">Unused flag</param>
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
-            CentralizedClimateControlUtility.GetNetManager(this.parent.Map).RegisterPipe(this);
+            CentralizedClimateControlUtility.GetNetManager(parent.Map).RegisterPipe(this);
             base.PostSpawnSetup(respawningAfterLoad);
         }
 
+        /// <summary>
+        /// Building de-spawned from the map
+        /// </summary>
+        /// <param name="map">RimWorld Map</param>
         public override void PostDeSpawn(Map map)
         {
             CentralizedClimateControlUtility.GetNetManager(map).DeregisterPipe(this);
@@ -72,12 +74,21 @@ namespace CentralizedClimateControl
             base.PostDeSpawn(map);
         }
 
+        /// <summary>
+        /// Check if Air Flow Component is Working.
+        /// Must be connected to an AirFlow Network.
+        /// </summary>
+        /// <returns></returns>
         public bool IsOperating()
         {
-            bool isConnected = this.AirFlowNet != null;
+            bool isConnected = AirFlowNet != null;
             return isConnected;
         }
 
+        /// <summary>
+        /// Inspect Component String
+        /// </summary>
+        /// <returns>String to be Displayed on the Component window</returns>
         public override string CompInspectStringExtra()
         {
             if (!IsOperating())
@@ -99,20 +110,25 @@ namespace CentralizedClimateControl
             return res;
         }
 
+        /// <summary>
+        /// Print the Component for Overlay Grid
+        /// </summary>
+        /// <param name="layer">Section Layer that is being Printed</param>
+        /// <param name="type">AirFlow Type</param>
         public void PrintForGrid(SectionLayer layer, AirFlowType type)
         {
             switch (type)
             {
                 case AirFlowType.Hot:
-                    GraphicsLoader.GraphicHotPipeOverlay.Print(layer, this.parent);
+                    GraphicsLoader.GraphicHotPipeOverlay.Print(layer, parent);
                     break;
 
                 case AirFlowType.Cold:
-                    GraphicsLoader.GraphicColdPipeOverlay.Print(layer, this.parent);
+                    GraphicsLoader.GraphicColdPipeOverlay.Print(layer, parent);
                     break;
 
                 case AirFlowType.Frozen:
-                    GraphicsLoader.GraphicFrozenPipeOverlay.Print(layer, this.parent);
+                    GraphicsLoader.GraphicFrozenPipeOverlay.Print(layer, parent);
                     break;
 
                 case AirFlowType.Any:
@@ -120,25 +136,30 @@ namespace CentralizedClimateControl
             }
         }
 
+        /// <summary>
+        /// Get the Type of Air as String. Hot Cold Frozen etc.
+        /// </summary>
+        /// <param name="type">Enum for AirFlow Type</param>
+        /// <returns>Translated String</returns>
         protected string GetAirTypeString(AirFlowType type)
         {
             string res = "";
             switch (type)
             {
                 case AirFlowType.Cold:
-                    res += AirTypeKey.Translate(new object[] { ColdAirKey.Translate() });
+                    res += AirTypeKey.Translate(ColdAirKey.Translate());
                     break;
 
                 case AirFlowType.Hot:
-                    res += AirTypeKey.Translate(new object[] { HotAirKey.Translate() });
+                    res += AirTypeKey.Translate(HotAirKey.Translate());
                     break;
 
                 case AirFlowType.Frozen:
-                    res += AirTypeKey.Translate(new object[] { FrozenAirKey.Translate() });
+                    res += AirTypeKey.Translate(FrozenAirKey.Translate());
                     break;
 
                 default:
-                    res += AirTypeKey.Translate(new object[] { "Unknown" });
+                    res += AirTypeKey.Translate("Unknown");
                     break;
             }
 

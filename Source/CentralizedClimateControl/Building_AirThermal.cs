@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using RimWorld;
+﻿using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -13,13 +9,22 @@ namespace CentralizedClimateControl
         public CompTempControl CompTempControl;
         public CompAirFlowTempControl CompAirFlowTempControl;
 
+        /// <summary>
+        /// Building spawned on the map
+        /// </summary>
+        /// <param name="map">RimWorld Map</param>
+        /// <param name="respawningAfterLoad">Unused flag</param>
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
-            CompTempControl = base.GetComp<CompTempControl>();
-            CompAirFlowTempControl = base.GetComp<CompAirFlowTempControl>();
+            CompTempControl = GetComp<CompTempControl>();
+            CompAirFlowTempControl = GetComp<CompAirFlowTempControl>();
             base.SpawnSetup(map, respawningAfterLoad);
         }
 
+        /// <summary>
+        /// Tick Function for Climate Buildings - Here we calculate the Temperature growth from Intake to Target Temperature
+        /// Plus, we exhaust a certain amount of Heat to the South of the Building.
+        /// </summary>
         public override void TickRare()
         {
             if (!CompPowerTrader.PowerOn)
@@ -61,6 +66,12 @@ namespace CentralizedClimateControl
             var tempDiff = CompAirFlowTempControl.TargetTemperature - CompAirFlowTempControl.ConvertedTemperature;
             IntVec3 intVec = Position + IntVec3.South.RotatedBy(Rotation);
 
+            if (CompAirFlowTempControl.IsHeating)
+            {
+                return;
+            }
+
+            // Push Heat when Cooling Only
             var magnitudeChange = Mathf.Abs(tempDiff);
             var baseHeat = 25.0f;
 
@@ -72,7 +83,7 @@ namespace CentralizedClimateControl
 
             baseHeat += magnitudeChange;
 
-            GenTemperature.PushHeat(intVec, base.Map, baseHeat * 1.25f);
+            GenTemperature.PushHeat(intVec, Map, baseHeat * 1.25f);
         }
 
     }

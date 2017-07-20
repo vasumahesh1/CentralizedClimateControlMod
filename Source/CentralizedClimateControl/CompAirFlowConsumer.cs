@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -16,17 +13,17 @@ namespace CentralizedClimateControl
         public const string ThermalEfficiencyKey = "CentralizedClimateControl.Consumer.ThermalEfficiencyKey";
         public const string DisconnectedKey = "CentralizedClimateControl.Consumer.Disconnected";
 
-        public float ConvertedTemperature = 0.0f;
+        public float ConvertedTemperature;
         protected CompFlickable FlickableComp;
 
-        private bool _alertChange = false;
+        private bool _alertChange;
         public AirTypePriority AirTypePriority = AirTypePriority.Auto;
 
         public float ExhaustAirFlow
         {
             get
             {
-                return this.Props.baseAirExhaust;
+                return Props.baseAirExhaust;
             }
         }
 
@@ -38,34 +35,50 @@ namespace CentralizedClimateControl
             }
         }
 
+        /// <summary>
+        /// Debug String for AirFlow Consumer
+        /// </summary>
         public string DebugString
         {
             get
             {
                 StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.AppendLine(this.parent.LabelCap + " CompAirFlowConsumer:");
+                stringBuilder.AppendLine(parent.LabelCap + " CompAirFlowConsumer:");
                 stringBuilder.AppendLine("   ConvertedTemperature: " + ConvertedTemperature);
                 return stringBuilder.ToString();
             }
         }
 
+        /// <summary>
+        /// Post Spawn for Component
+        /// </summary>
+        /// <param name="respawningAfterLoad">Unused Flag</param>
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
-            CentralizedClimateControlUtility.GetNetManager(this.parent.Map).RegisterConsumer(this);
-            this.FlickableComp = this.parent.GetComp<CompFlickable>();
+            CentralizedClimateControlUtility.GetNetManager(parent.Map).RegisterConsumer(this);
+            FlickableComp = parent.GetComp<CompFlickable>();
 
             base.PostSpawnSetup(respawningAfterLoad);
         }
 
+        /// <summary>
+        /// Method called during Game Save/Load
+        /// </summary>
         public override void PostExposeData()
         {
             base.PostExposeData();
 
-            Scribe_Values.Look(ref this.AirTypePriority, "airTypePriority", AirTypePriority.Auto);
-//            Debug.Log(this.parent + " - Air Priority Loaded: " + AirTypePriority);
+            Scribe_Values.Look(ref AirTypePriority, "airTypePriority", AirTypePriority.Auto);
+#if DEBUG
+            Debug.Log(parent + " - Air Priority Loaded: " + AirTypePriority);
+#endif
             _alertChange = true;
         }
 
+        /// <summary>
+        /// Component De-spawned from Map
+        /// </summary>
+        /// <param name="map">RimWorld Map</param>
         public override void PostDeSpawn(Map map)
         {
             CentralizedClimateControlUtility.GetNetManager(map).DeregisterConsumer(this);
@@ -73,6 +86,10 @@ namespace CentralizedClimateControl
             base.PostDeSpawn(map);
         }
 
+        /// <summary>
+        /// Extra Component Inspection string
+        /// </summary>
+        /// <returns>String Containing information for Consumers</returns>
         public override string CompInspectStringExtra()
         {
             if (!IsOperating())
@@ -86,32 +103,43 @@ namespace CentralizedClimateControl
             }
 
             var convertedTemp = ConvertedTemperature.ToStringTemperature("F0");
-            string str = IntakeTempKey.Translate(new object[] { convertedTemp });
+            var str = IntakeTempKey.Translate(convertedTemp);
 
             var flowPercent = Mathf.FloorToInt(AirFlowNet.FlowEfficiency * 100) + "%";
             str += "\n";
-            str += FlowEfficiencyKey.Translate(new object[] { flowPercent });
+            str += FlowEfficiencyKey.Translate(flowPercent);
 
             var thermalPercent = Mathf.FloorToInt(AirFlowNet.ThermalEfficiency * 100) + "%";
             str += "\n";
-            str += ThermalEfficiencyKey.Translate(new object[] { thermalPercent });
+            str += ThermalEfficiencyKey.Translate(thermalPercent);
 
             return str + "\n" + base.CompInspectStringExtra();
         }
 
+        /// <summary>
+        /// Set the Pipe Priority for Consumers
+        /// </summary>
+        /// <param name="priority">Priority to Switch to.</param>
         public void SetPriority(AirTypePriority priority)
         {
             _alertChange = true;
             AirTypePriority = priority;
             AirFlowNet = null;
-//            Debug.Log("Setting Priority to: " + AirTypePriority);
+#if DEBUG
+            Debug.Log("Setting Priority to: " + AirTypePriority);
+#endif
         }
 
+        /// <summary>
+        /// Tick for Consumers. Here:
+        /// - We Rebuild if Priority is Changed
+        /// - We take the Converted Temperature from Climate Units
+        /// </summary>
         public void TickRare()
         {
             if (_alertChange)
             {
-                var manager = CentralizedClimateControlUtility.GetNetManager(this.parent.Map);
+                var manager = CentralizedClimateControlUtility.GetNetManager(parent.Map);
                 manager.DirtyPipeWholeGrid();
                 _alertChange = false;
             }
@@ -124,12 +152,20 @@ namespace CentralizedClimateControl
             ConvertedTemperature = AirFlowNet.AverageConvertedTemperature;
         }
 
+        /// <summary>
+        /// Reset the Flow Variables and Forward the Control to Base class for more reset.
+        /// </summary>
         public override void ResetFlowVariables()
         {
             ConvertedTemperature = 0.0f;
             base.ResetFlowVariables();
         }
 
+        /// <summary>
+        /// Check if Consumer Can work.
+        /// This check is used after checking for Power.
+        /// </summary>
+        /// <returns>Boolean flag to show if Active</returns>
         public bool IsActive()
         {
             if (AirFlowNet == null)
@@ -137,12 +173,7 @@ namespace CentralizedClimateControl
                 return false;
             }
 
-            if (AirFlowNet.Producers.Count == 0 || AirFlowNet.Consumers.Count == 0)
-            {
-                return false;
-            }
-
-            return true;
+            return AirFlowNet.Producers.Count != 0 && AirFlowNet.Consumers.Count != 0;
         }
     }
 }

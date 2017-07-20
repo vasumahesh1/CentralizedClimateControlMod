@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using RimWorld;
+﻿using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -16,40 +11,50 @@ namespace CentralizedClimateControl
         private const string SwitchPipeBlueKey = "CentralizedClimateControl.Command.SwitchPipe.Blue";
         private const string SwitchPipeCyanKey = "CentralizedClimateControl.Command.SwitchPipe.Cyan";
 
+        /// <summary>
+        /// Get the Network Manager of the Map
+        /// </summary>
+        /// <param name="map">RimWorld Map</param>
+        /// <returns>AirFlow Net Manager</returns>
         public static AirFlowNetManager GetNetManager(Map map)
         {
             return map.GetComponent<AirFlowNetManager>();
         }
 
+        /// <summary>
+        /// Gizmo for Changing Pipes
+        /// </summary>
+        /// <param name="compAirFlowConsumer">Component Asking for Gizmo</param>
+        /// <returns>Action Button Gizmo</returns>
         public static Command_Action GetPipeSwitchToggle(CompAirFlowConsumer compAirFlowConsumer)
         {
             var currentPriority = compAirFlowConsumer.AirTypePriority;
             Texture2D icon;
-            string label = "";
+            string label;
 
             switch (currentPriority)
             {
                 case AirTypePriority.Auto:
                     label = SwitchPipeAutoKey.Translate();
-                    icon = ContentFinder<Texture2D>.Get("UI/PipeSelect_Auto", true);
+                    icon = ContentFinder<Texture2D>.Get("UI/PipeSelect_Auto");
                     break;
 
                 case AirTypePriority.Hot:
                     label = SwitchPipeRedKey.Translate();
-                    icon = ContentFinder<Texture2D>.Get("UI/PipeSelect_Red", true);
+                    icon = ContentFinder<Texture2D>.Get("UI/PipeSelect_Red");
                     break;
                 case AirTypePriority.Cold:
                     label = SwitchPipeBlueKey.Translate();
-                    icon = ContentFinder<Texture2D>.Get("UI/PipeSelect_Blue", true);
+                    icon = ContentFinder<Texture2D>.Get("UI/PipeSelect_Blue");
                     break;
                 case AirTypePriority.Frozen:
                     label = SwitchPipeCyanKey.Translate();
-                    icon = ContentFinder<Texture2D>.Get("UI/PipeSelect_Cyan", true);
+                    icon = ContentFinder<Texture2D>.Get("UI/PipeSelect_Cyan");
                     break;
 
                 default:
                     label = SwitchPipeAutoKey.Translate();
-                    icon = ContentFinder<Texture2D>.Get("UI/PipeSelect_Auto", true);
+                    icon = ContentFinder<Texture2D>.Get("UI/PipeSelect_Auto");
                     break;
             }
 

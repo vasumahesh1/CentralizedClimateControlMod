@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using RimWorld;
+﻿using RimWorld;
 using Verse;
 
 namespace CentralizedClimateControl
@@ -11,10 +7,15 @@ namespace CentralizedClimateControl
     {
         public CompPowerTrader CompPowerTrader;
 
+        /// <summary>
+        /// Building spawned on the map
+        /// </summary>
+        /// <param name="map">RimWorld Map</param>
+        /// <param name="respawningAfterLoad">Unused flag</param>
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            this.CompPowerTrader = base.GetComp<CompPowerTrader>();
+            CompPowerTrader = GetComp<CompPowerTrader>();
         }
     }
 }
