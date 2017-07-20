@@ -3,8 +3,10 @@ Centralized Air Cooling/Heating System for RimWorld. Build Large Piped Air Clima
 Version: 1.2.1
 
 [url=https://ludeon.com/forums/index.php?topic=34346.0]Forum Link[/url]
-[url=http://steamcommunity.com/workshop/filedetails/discussion/973091113/2217311444330045460/]Recommended: Basic Mod Overview[/url]
 [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1078768280]Recommended: Steam Guide for Creating a Basic Setup[/url]
+
+Watch this video if you are having issues with the guides. It's a little old, but covers the basic usage of the mod!
+[url=https://www.youtube.com/watch?v=1tnF4kdAnxk]Youtube Video Link (BaRKy)[/url]
 
 While there are many alternate mods for Central Heating. This mod adds a new network-like resource (like electricity) Air. The heating/cooling system you will build depends on the number of rooms and the heating/cooling capacity of your air networks.
 

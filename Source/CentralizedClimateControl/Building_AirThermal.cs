@@ -60,7 +60,19 @@ namespace CentralizedClimateControl
 
             var tempDiff = CompAirFlowTempControl.TargetTemperature - CompAirFlowTempControl.ConvertedTemperature;
             IntVec3 intVec = Position + IntVec3.South.RotatedBy(Rotation);
-            GenTemperature.PushHeat(intVec, base.Map, -tempDiff * 1.25f);
+
+            var magnitudeChange = Mathf.Abs(tempDiff);
+            var baseHeat = 25.0f;
+
+            // Cap change at 20.0f
+            if (magnitudeChange > 20.0f)
+            {
+                magnitudeChange = 20.0f;
+            }
+
+            baseHeat += magnitudeChange;
+
+            GenTemperature.PushHeat(intVec, base.Map, baseHeat * 1.25f);
         }
 
     }

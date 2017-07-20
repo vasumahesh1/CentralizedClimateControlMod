@@ -4,6 +4,7 @@
 [color=orange][size=18pt]About the mod:[/size][/color]
 Hi, This is my first mod ever. This mod, like the title, adds central air cooling/heating. I know there are some competitor mods, but I wanted to put out my idea for the same central cooling concept. While there are many alternate mods for Central Heating. This mod adds a new network-like resource (like electricity) air (Which is generated and consumed). The heating/cooling system you will build depends on the number of rooms and the heating/cooling capacity of your air networks.
 
+[url=http://steamcommunity.com/sharedfiles/filedetails/?id=1078768280]Recommended: Steam Guide for Creating a Basic Setup[/url]
 
 [color=orange]Buildings & Other stuff added[/color]
 - Air Intake Fan: Fans to supply air to the system
