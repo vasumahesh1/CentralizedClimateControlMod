@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using UnityEngine;
 using Verse;
 
@@ -9,6 +6,14 @@ namespace CentralizedClimateControl
 {
     class PlaceWorker_IntakeFan : PlaceWorker
     {
+        /// <summary>
+        /// Draw Overlay when Selected or Placing.
+        /// 
+        /// We draw Air Cells surrounding the Parent Object.
+        /// </summary>
+        /// <param name="def">The Thing's Def</param>
+        /// <param name="center">Location</param>
+        /// <param name="rot">Rotation</param>
         public override void DrawGhost(ThingDef def, IntVec3 center, Rot4 rot)
         {
             if (def == null)
@@ -22,16 +27,25 @@ namespace CentralizedClimateControl
             GenDraw.DrawFieldEdges(list.ToList(), Color.white);
         }
 
+        /// <summary>
+        /// Place Worker for Air Intakes.
+        /// 
+        /// Checks:
+        /// - Current Cell shouldn't have an Air Flow Pipe (Since they already have a Pipe)
+        /// - Surrounding Cells from Center musn't be Impassable
+        /// </summary>
+        /// <param name="def">The Def Being Built</param>
+        /// <param name="center">Target Location</param>
+        /// <param name="rot">Rotation of the Object to be Placed</param>
+        /// <param name="thingToIgnore">Unused field</param>
+        /// <returns>Boolean/Acceptance Report if we can place the object of not.</returns>
         public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 center, Rot4 rot, Thing thingToIgnore = null)
         {
-            List<Thing> thingList = center.GetThingList(base.Map);
+            var thingList = center.GetThingList(Map);
 
-            foreach (var thing in thingList)
+            if (thingList.OfType<Building_AirPipe>().Any())
             {
-                if (thing is Building_AirPipe)
-                {
-                    return AcceptanceReport.WasRejected;
-                }
+                return AcceptanceReport.WasRejected;
             }
 
             if (def == null)
@@ -42,12 +56,9 @@ namespace CentralizedClimateControl
             var size = def.Size;
             var list = GenAdj.CellsAdjacent8Way(center, rot, size);
 
-            foreach (var intVec in list)
+            if (list.Any(intVec => intVec.Impassable(Map)))
             {
-                if (intVec.Impassable(base.Map))
-                {
-                    return "CentralizedClimateControl.Producer.IntakeFanPlaceError".Translate();
-                }
+                return "CentralizedClimateControl.Producer.IntakeFanPlaceError".Translate();
             }
 
             return true;

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using RimWorld;
 using Verse;
 
@@ -11,6 +8,10 @@ namespace CentralizedClimateControl
     {
         public AirFlowType FlowType;
 
+        /// <summary>
+        /// Cyan Pipe Overlay Section Layer
+        /// </summary>
+        /// <param name="section">Section of the Map</param>
         public SectionLayer_FrozenAirPipe(Section section) : base(section)
         {
             FlowType = AirFlowType.Frozen;
@@ -18,39 +19,37 @@ namespace CentralizedClimateControl
             relevantChangeTypes = (MapMeshFlag)4;
         }
 
+        /// <summary>
+        /// Function which Checks if we need to Draw the Layer or not. If we do, we call the Base DrawLayer();
+        /// 
+        /// We Check if the Pipe is a Cyan Pipe and thus start a DrawLayer request.
+        /// </summary>
         public override void DrawLayer()
         {
-            Designator_Build designatorBuild = Find.DesignatorManager.SelectedDesignator as Designator_Build;
-            if (designatorBuild == null)
-            {
-                return;
-            }
+            var designatorBuild = Find.DesignatorManager.SelectedDesignator as Designator_Build;
 
-            ThingDef thingDef = designatorBuild.PlacingDef as ThingDef;
-            if (thingDef == null)
-            {
-                return;
-            }
+            var thingDef = designatorBuild?.PlacingDef as ThingDef;
 
-            if (thingDef.comps.OfType<CompProperties_AirFlow>().FirstOrDefault((x) => x.flowType == this.FlowType) != null)
+            if (thingDef?.comps.OfType<CompProperties_AirFlow>().FirstOrDefault((x) => x.flowType == FlowType) != null)
             {
                 base.DrawLayer();
             }
         }
 
+        /// <summary>
+        /// Called when a Draw is initiated from DrawLayer.
+        /// </summary>
+        /// <param name="thing">Thing that triggered the Draw Call</param>
         protected override void TakePrintFrom(Thing thing)
         {
-            Building building = thing as Building;
-            if (building != null)
+            var building = thing as Building;
+            if (building == null)
             {
-                CompAirFlow compAirFlow = building.GetComps<CompAirFlow>().FirstOrDefault((x) => x.FlowType == this.FlowType || x.FlowType == AirFlowType.Any);
-                if (compAirFlow == null)
-                {
-                    return;
-                }
-
-                compAirFlow.PrintForGrid(this, FlowType);
+                return;
             }
+
+            var compAirFlow = building.GetComps<CompAirFlow>().FirstOrDefault((x) => x.FlowType == FlowType || x.FlowType == AirFlowType.Any);
+            compAirFlow?.PrintForGrid(this, FlowType);
         }
     }
 }

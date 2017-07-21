@@ -8,18 +8,21 @@ namespace CentralizedClimateControl
 {
     public class PlaceWorker_NeedsWall : PlaceWorker
     {
+        /// <summary>
+        /// Place Worker for Wall Mounted Air Vents. We check if a Wall must be present on the Target Cell.
+        /// </summary>
+        /// <param name="def">The Def Being Built</param>
+        /// <param name="center">Target Location</param>
+        /// <param name="rot">Rotation of the Object to be Placed</param>
+        /// <param name="thingToIgnore">Unused field</param>
+        /// <returns>Boolean/Acceptance Report if we can place the object of not.</returns>
         public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 center, Rot4 rot,
             Thing thingToIgnore = null)
         {
-            IntVec3 c = center;
-            Building wall = c.GetEdifice(this.Map);
+            var c = center;
+            var wall = c.GetEdifice(this.Map);
 
-            if (wall == null)
-            {
-                return false;
-            }
-
-            return true;
+            return wall != null;
         }
     }
 }
