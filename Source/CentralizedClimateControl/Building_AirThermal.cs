@@ -29,8 +29,12 @@ namespace CentralizedClimateControl
         {
             if (!CompPowerTrader.PowerOn)
             {
+                CompAirFlowTempControl.IsPoweredOff = true;
                 return;
             }
+
+            CompAirFlowTempControl.IsPoweredOff = false;
+            CompAirFlowTempControl.IsBrokenDown = this.IsBrokenDown();
 
             if (!CompAirFlowTempControl.IsOperating())
             {
@@ -39,11 +43,11 @@ namespace CentralizedClimateControl
 
             var size = def.Size;
 
-            IntVec3 iterator = new IntVec3(Position.x, Position.y, Position.z);
+            var iterator = new IntVec3(Position.x, Position.y, Position.z);
 
-            for (int dx = 0; dx < size.x; dx++)
+            for (var dx = 0; dx < size.x; dx++)
             {
-                IntVec3 currentPos = iterator + IntVec3.South.RotatedBy(Rotation);
+                var currentPos = iterator + IntVec3.South.RotatedBy(Rotation);
 
                 if (currentPos.Impassable(Map))
                 {
@@ -63,13 +67,13 @@ namespace CentralizedClimateControl
 
             CompAirFlowTempControl.TickRare(CompTempControl);
 
-            var tempDiff = CompAirFlowTempControl.TargetTemperature - CompAirFlowTempControl.ConvertedTemperature;
-            IntVec3 intVec = Position + IntVec3.South.RotatedBy(Rotation);
-
             if (CompAirFlowTempControl.IsHeating)
             {
                 return;
             }
+
+            var intVec = Position + IntVec3.South.RotatedBy(Rotation);
+            var tempDiff = CompAirFlowTempControl.ConvertedTemperature - CompAirFlowTempControl.IntakeTemperature;
 
             // Push Heat when Cooling Only
             var magnitudeChange = Mathf.Abs(tempDiff);

@@ -11,11 +11,13 @@ namespace CentralizedClimateControl
         public const string TargetTemperatureKey = "CentralizedClimateControl.Producer.TargetTemperature";
         public const string ExhaustBlockedKey = "CentralizedClimateControl.Producer.ExhaustBlocked";
 
-        [Unsaved]
         public bool IsOperatingAtHighPower;
         public bool IsHeating;
         public bool IsBlocked;
         public bool IsStable;
+
+        public bool IsBrokenDown = false;
+        public bool IsPoweredOff = false;
 
         public float IntakeTemperature;
         public float TargetTemperature = 21.0f;
@@ -91,6 +93,11 @@ namespace CentralizedClimateControl
         {
             string str = "";
 
+            if (IsPoweredOff || IsBrokenDown)
+            {
+                return null;
+            }
+
             if (IsBlocked)
             {
                 str += ExhaustBlockedKey.Translate();
@@ -118,6 +125,9 @@ namespace CentralizedClimateControl
             IntakeTemperature = 0.0f;
             IsOperatingAtHighPower = false;
             IsBlocked = false;
+            IsBrokenDown = false;
+            IsPoweredOff = false;
+
             base.ResetFlowVariables();
         }
 
@@ -141,12 +151,12 @@ namespace CentralizedClimateControl
         /// <returns>Boolean Active State</returns>
         public bool IsActive()
         {
-            if (AirFlowNet.Producers.Count == 0 || IsBlocked)
+            if (IsPoweredOff || IsBrokenDown)
             {
                 return false;
             }
 
-            return true;
+            return AirFlowNet.Producers.Count != 0 && !IsBlocked;
         }
 
         /// <summary>
@@ -158,6 +168,8 @@ namespace CentralizedClimateControl
             var targetDelta = TargetTemperature - IntakeTemperature;
             var currentDelta = ConvertedTemperature - IntakeTemperature;
 
+            IsHeating = TargetTemperature > IntakeTemperature;
+
             if (Mathf.Abs(targetDelta - currentDelta) < 1.0f)
             {
                 DeltaTemperature += (targetDelta - currentDelta);
@@ -167,8 +179,6 @@ namespace CentralizedClimateControl
 
             IsStable = false;
             var deltaDelta = targetDelta - currentDelta;
-
-            IsHeating = targetDelta > currentDelta;
 
             var deltaSmoothened = deltaDelta / DeltaSmooth;
             DeltaTemperature += (compTempControl.Props.energyPerSecond * AirFlowNet.ThermalEfficiency) * deltaSmoothened;

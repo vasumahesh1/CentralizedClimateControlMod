@@ -48,4 +48,16 @@ Your saves wont be affected by this update. All Vent Pipe Connections are by def
 - Fix Vent Highlight color to Cyan when connected to Cyan Pipe
 - "GraphicsLoader probably needs a StaticConstructorOnStartup attribute" Warning</content>
 	</HugsLib.UpdateFeatureDef>
+
+	<HugsLib.UpdateFeatureDef ParentName="CCCUpdateFeatureBase">
+		<defName>CentralizedClimateControl_1_2_2</defName>
+		<assemblyVersion>1.2.2</assemblyVersion>
+		<content>Your saves wont be affected by this update.
+| &lt;b&gt;Balance Changes:&lt;/b&gt;
+- Climate Control Unit now gives a significant heat exhaust (Only when Cooling Air). So Check your Climate Units for extra Heat.
+| &lt;b&gt;Bug Fixes:&lt;/b&gt;
+- Storing Temperature information for Climate Control Unit on Game Save
+- Fix the Display string when Power Component of the machines breakdown
+- Code optimized in some files</content>
+	</HugsLib.UpdateFeatureDef>
 </Defs>

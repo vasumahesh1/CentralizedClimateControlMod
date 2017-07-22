@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using RimWorld;
 using Verse;
 
 namespace CentralizedClimateControl
@@ -29,9 +30,13 @@ namespace CentralizedClimateControl
         {
             if (!CompPowerTrader.PowerOn)
             {
+                CompAirProducer.IsPoweredOff = true;
                 CompAirProducer.CurrentAirFlow = 0;
                 return;
             }
+
+            CompAirProducer.IsPoweredOff = false;
+            CompAirProducer.IsBrokenDown = this.IsBrokenDown();
 
             var sumTemp = 0f;
 
@@ -51,6 +56,11 @@ namespace CentralizedClimateControl
             }
 
             CompAirProducer.IsBlocked = false;
+
+            if (!CompAirProducer.IsActive())
+            {
+                return;
+            }
 
             var intake = sumTemp / list.Count;
             CompAirProducer.IntakeTemperature = intake;

@@ -13,6 +13,9 @@ namespace CentralizedClimateControl
         [Unsaved]
         public bool IsOperatingAtHighPower;
         public bool IsBlocked = false;
+        public bool IsBrokenDown = false;
+        public bool IsPoweredOff = false;
+
         public float CurrentAirFlow;
         public float IntakeTemperature;
         protected CompFlickable FlickableComp;
@@ -77,6 +80,11 @@ namespace CentralizedClimateControl
         {
             string str = "";
 
+            if (IsPoweredOff || IsBrokenDown)
+            {
+                return null;
+            }
+
             if (IsBlocked)
             {
                 str += IntakeBlockedKey.Translate();
@@ -94,6 +102,20 @@ namespace CentralizedClimateControl
             }
 
             return str + base.CompInspectStringExtra();
+        }
+
+        /// <summary>
+        /// Check if Temperature Control is active or not. Needs Consumers and shouldn't be Blocked
+        /// </summary>
+        /// <returns>Boolean Active State</returns>
+        public bool IsActive()
+        {
+            if (IsBlocked)
+            {
+                return false;
+            }
+
+            return !IsPoweredOff && !IsBrokenDown;
         }
 
         /// <summary>
