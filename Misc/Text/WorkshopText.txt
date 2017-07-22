@@ -1,6 +1,6 @@
 Centralized Air Cooling/Heating System for RimWorld. Build Large Piped Air Climate Systems away from your buildings.
 
-Version: 1.2.1
+Version: 1.2.2
 
 [url=https://ludeon.com/forums/index.php?topic=34346.0]Forum Link[/url]
 [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1078768280]Recommended: Steam Guide for Creating a Basic Setup[/url]
@@ -62,7 +62,6 @@ If you have multiple pipes near your vent, You can force it to connect to a spec
 
 [h1] Known Issues: [/h1]
 - Compatibility Issues with Redist.Heat Mod
-- Heating exhaust of Climate Control needs some adjustment
 - Reinstall doesn't work properly (Install and Uninstall works fine.)
 
 [h1] Note: [/h1]
