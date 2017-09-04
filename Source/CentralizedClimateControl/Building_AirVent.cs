@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -81,8 +82,15 @@ namespace CentralizedClimateControl
                 signChanger = -1;
             }
 
+            var thermalFlag = 1;
+
+            if (CompAirFlowConsumer.ThermalEfficiency <= 0)
+            {
+                thermalFlag = 0;
+            }
+
             // Flow Efficiency is capped at 1.0f. Squaring will only keep it less than or equal to 1.0f. Smaller the number more drastic the square.
-            var efficiencyImpact = CompAirFlowConsumer.FlowEfficiency * CompAirFlowConsumer.FlowEfficiency;
+            var efficiencyImpact = CompAirFlowConsumer.FlowEfficiency * CompAirFlowConsumer.FlowEfficiency * thermalFlag;
 
             var smoothMagnitude =  magnitudeChange * 0.25f * (CompAirFlowConsumer.Props.baseAirExhaust / 100.0f);
             var energyLimit = smoothMagnitude * efficiencyImpact * 4.16666651f * 12f * signChanger;

@@ -12,6 +12,7 @@ namespace CentralizedClimateControl
         public const string FlowEfficiencyKey = "CentralizedClimateControl.Consumer.FlowEfficiencyKey";
         public const string ThermalEfficiencyKey = "CentralizedClimateControl.Consumer.ThermalEfficiencyKey";
         public const string DisconnectedKey = "CentralizedClimateControl.Consumer.Disconnected";
+        public const string ClosedKey = "CentralizedClimateControl.Consumer.Closed";
 
         public float ConvertedTemperature;
         protected CompFlickable FlickableComp;
@@ -32,6 +33,14 @@ namespace CentralizedClimateControl
             get
             {
                 return AirFlowNet.FlowEfficiency;
+            }
+        }
+
+        public float ThermalEfficiency
+        {
+            get
+            {
+                return AirFlowNet.ThermalEfficiency;
             }
         }
 
@@ -92,6 +101,11 @@ namespace CentralizedClimateControl
         /// <returns>String Containing information for Consumers</returns>
         public override string CompInspectStringExtra()
         {
+            if (!FlickableComp.SwitchIsOn)
+            {
+                return ClosedKey.Translate() + "\n" + base.CompInspectStringExtra();
+            }
+
             if (!IsOperating())
             {
                 return base.CompInspectStringExtra();
@@ -150,6 +164,16 @@ namespace CentralizedClimateControl
             }
 
             ConvertedTemperature = AirFlowNet.AverageConvertedTemperature;
+        }
+
+        public override bool IsOperating()
+        {
+            if (!FlickableComp.SwitchIsOn)
+            {
+                return false;
+            }
+
+            return base.IsOperating();
         }
 
         /// <summary>

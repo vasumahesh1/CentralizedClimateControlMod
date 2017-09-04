@@ -79,7 +79,7 @@ namespace CentralizedClimateControl
         /// Must be connected to an AirFlow Network.
         /// </summary>
         /// <returns></returns>
-        public bool IsOperating()
+        public virtual bool IsOperating()
         {
             bool isConnected = AirFlowNet != null;
             return isConnected;

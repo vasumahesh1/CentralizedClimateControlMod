@@ -12,6 +12,9 @@
     <repairEffect>Repair</repairEffect>
     <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
     <filthLeaving>BuildingRubble</filthLeaving>
+    <statBases>
+      <Beauty>-10</Beauty>
+    </statBases>
   </ThingDef>
 
   <ThingDef ParentName="CentralizedClimateControlBuilding">
@@ -48,6 +51,7 @@
     <description>A IntakeFan.</description>
     <costList>
       <Steel>100</Steel>
+      <Component>1</Component>
     </costList>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
@@ -94,6 +98,7 @@
       <MaxHitPoints>80</MaxHitPoints>
       <WorkToBuild>35</WorkToBuild>
       <Flammability>1.0</Flammability>
+      <Beauty>-2</Beauty>
     </statBases>
     <drawerType>MapMeshAndRealTime</drawerType>
     <placingDraggableDimensions>1</placingDraggableDimensions>
@@ -113,7 +118,7 @@
 
   <ThingDef ParentName="AirPipe">
     <defName>redAirPipe</defName>
-    <label>Red Pipe</label>
+    <label>Red Air Pipe</label>
     <description>Red Pipes for carrying air.</description>
     <thingClass>CentralizedClimateControl.Building_HotAirPipe</thingClass>
     <uiIconPath>UI/RedAirPipe</uiIconPath>
@@ -145,7 +150,7 @@
 
   <ThingDef ParentName="AirPipe">
     <defName>blueAirPipe</defName>
-    <label>Blue Pipe</label>
+    <label>Blue Air Pipe</label>
     <description>Blue Pipes for carrying air.</description>
     <thingClass>CentralizedClimateControl.Building_ColdAirPipe</thingClass>
     <uiIconPath>UI/BlueAirPipe</uiIconPath>
@@ -316,8 +321,13 @@
         <flowType>Any</flowType>
         <baseAirExhaust>100</baseAirExhaust>
       </li>
-      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Flickable">
+        <commandTexture>UI/Commands/Vent</commandTexture>
+        <commandLabelKey>CommandDesignateOpenCloseVentLabel</commandLabelKey>
+        <commandDescKey>CommandDesignateOpenCloseVentDesc</commandDescKey>
+      </li>
     </comps>
+    <holdsRoof>true</holdsRoof>
     <designationCategory>Temperature</designationCategory>
     <designationHotKey>Misc4</designationHotKey>
     <researchPrerequisites>
@@ -355,14 +365,15 @@
     <castEdgeShadows>true</castEdgeShadows>
     <staticSunShadowHeight>1.0</staticSunShadowHeight>
     <statBases>
-      <WorkToBuild>1600</WorkToBuild>
-      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>4800</WorkToBuild>
+      <MaxHitPoints>300</MaxHitPoints>
       <Flammability>1.0</Flammability>
     </statBases>
     <tickerType>Rare</tickerType>
     <description>A Large IntakeFan.</description>
     <costList>
       <Steel>300</Steel>
+      <Component>3</Component>
     </costList>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
@@ -419,15 +430,15 @@
     <castEdgeShadows>true</castEdgeShadows>
     <staticSunShadowHeight>1.0</staticSunShadowHeight>
     <statBases>
-      <WorkToBuild>1600</WorkToBuild>
-      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>4800</WorkToBuild>
+      <MaxHitPoints>300</MaxHitPoints>
       <Flammability>1.0</Flammability>
     </statBases>
     <tickerType>Rare</tickerType>
     <description>A Air Heater for heating Air.</description>
     <costList>
-      <Steel>200</Steel>
-      <Component>3</Component>
+      <Steel>600</Steel>
+      <Component>9</Component>
     </costList>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
@@ -442,7 +453,7 @@
       <li Class="CentralizedClimateControl.CompProperties_AirFlow">
         <compClass>CentralizedClimateControl.CompAirFlowTempControl</compClass>
         <flowType>Any</flowType>
-        <thermalCapacity>3500</thermalCapacity>
+        <thermalCapacity>4500</thermalCapacity>
       </li>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_TempControl"/>
@@ -474,14 +485,14 @@
     </graphicData>
     <altitudeLayer>PawnUnused</altitudeLayer>
     <statBases>
-      <WorkToBuild>1600</WorkToBuild>
-      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>1200</WorkToBuild>
+      <MaxHitPoints>75</MaxHitPoints>
       <Flammability>1.0</Flammability>
     </statBases>
     <tickerType>Rare</tickerType>
     <description>A Wall Mounted Air Vent.</description>
     <costList>
-      <Steel>50</Steel>
+      <Steel>35</Steel>
     </costList>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
@@ -494,7 +505,11 @@
         <flowType>Any</flowType>
         <baseAirExhaust>75</baseAirExhaust>
       </li>
-      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Flickable">
+        <commandTexture>UI/Commands/Vent</commandTexture>
+        <commandLabelKey>CommandDesignateOpenCloseVentLabel</commandLabelKey>
+        <commandDescKey>CommandDesignateOpenCloseVentDesc</commandDescKey>
+      </li>
     </comps>
     <designationCategory>Temperature</designationCategory>
     <designationHotKey>Misc4</designationHotKey>

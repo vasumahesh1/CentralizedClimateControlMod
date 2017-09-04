@@ -79,6 +79,11 @@ namespace CentralizedClimateControl
 
             foreach (var consumer in Consumers)
             {
+                if (!consumer.IsOperating())
+                {
+                    continue;
+                }
+
                 airFlow += consumer.ExhaustAirFlow;
             }
 
@@ -96,6 +101,11 @@ namespace CentralizedClimateControl
 
             foreach (var compAirFlowTempControl in TempControls)
             {
+                if (!compAirFlowTempControl.IsOperating() || !compAirFlowTempControl.IsActive())
+                {
+                    continue;
+                }
+
                 tempSum += compAirFlowTempControl.ConvertedTemperature;
                 thermalCapacity += compAirFlowTempControl.ThermalCapacity;
             }

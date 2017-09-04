@@ -32,6 +32,7 @@
   <CentralizedClimateControl.Consumer.AirThermalPlaceError>Must Place Air Climate Control with Empty Cell at Back</CentralizedClimateControl.Consumer.AirThermalPlaceError>
   <CentralizedClimateControl.Consumer.FlowEfficiencyKey>Flow Efficiency: {0}</CentralizedClimateControl.Consumer.FlowEfficiencyKey>
   <CentralizedClimateControl.Consumer.ThermalEfficiencyKey>Thermal Efficiency: {0}</CentralizedClimateControl.Consumer.ThermalEfficiencyKey>
+  <CentralizedClimateControl.Consumer.Closed>Vent is Closed (Flicked)</CentralizedClimateControl.Consumer.Closed>
 
   <CentralizedClimateControl.Command.SwitchPipe.Desc>Force the Building to Connect to a Pipe of a specific Color</CentralizedClimateControl.Command.SwitchPipe.Desc>  
   <CentralizedClimateControl.Command.SwitchPipe.Auto>Auto</CentralizedClimateControl.Command.SwitchPipe.Auto>
