@@ -71,10 +71,11 @@
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
     </comps>
-    <designationCategory>Temperature</designationCategory>
+    <designationCategory>CentralClimateControl</designationCategory>
     <designationHotKey>Misc4</designationHotKey>
     <researchPrerequisites>
       <li>AirConditioning</li>
+      <li>BasicClimateControl</li>
     </researchPrerequisites>
     <placeWorkers>
       <li>CentralizedClimateControl.PlaceWorker_IntakeFan</li>
@@ -110,6 +111,7 @@
     <designationHotKey>Misc1</designationHotKey>
     <researchPrerequisites>
       <li>AirConditioning</li>
+      <li>BasicClimateControl</li>
     </researchPrerequisites>
     <placeWorkers>
       <li>CentralizedClimateControl.PlaceWorker_AirPipe</li>
@@ -139,7 +141,7 @@
     <blueprintGraphicData>
       <texPath>Things/Building/Hot_AirPipe_Blueprint_Atlas</texPath>
     </blueprintGraphicData>
-    <designationCategory>Temperature</designationCategory>
+    <designationCategory>CentralClimateControl</designationCategory>
     <comps>
       <li Class="CentralizedClimateControl.CompProperties_AirFlow">
         <compClass>CentralizedClimateControl.CompAirFlowPipe</compClass>
@@ -171,7 +173,7 @@
     <blueprintGraphicData>
       <texPath>Things/Building/Cold_AirPipe_Blueprint_Atlas</texPath>
     </blueprintGraphicData>
-    <designationCategory>Temperature</designationCategory>
+    <designationCategory>CentralClimateControl</designationCategory>
     <comps>
       <li Class="CentralizedClimateControl.CompProperties_AirFlow">
         <compClass>CentralizedClimateControl.CompAirFlowPipe</compClass>
@@ -203,7 +205,7 @@
     <blueprintGraphicData>
       <texPath>Things/Building/Frozen_AirPipe_Blueprint_Atlas</texPath>
     </blueprintGraphicData>
-    <designationCategory>Temperature</designationCategory>
+    <designationCategory>CentralClimateControl</designationCategory>
     <comps>
       <li Class="CentralizedClimateControl.CompProperties_AirFlow">
         <compClass>CentralizedClimateControl.CompAirFlowPipe</compClass>
@@ -267,74 +269,14 @@
       <li Class="CompProperties_TempControl"/>
       <li Class="CompProperties_Breakdownable"/>
     </comps>
-    <designationCategory>Temperature</designationCategory>
+    <designationCategory>CentralClimateControl</designationCategory>
     <designationHotKey>Misc4</designationHotKey>
     <researchPrerequisites>
       <li>AirConditioning</li>
+      <li>BasicClimateControl</li>
     </researchPrerequisites>
     <placeWorkers>
       <li>CentralizedClimateControl.PlaceWorker_AirThermal</li>
-    </placeWorkers>
-  </ThingDef>
-
-  <ThingDef ParentName="CentralizedClimateControlBuilding">
-    <defName>AirVent</defName>
-    <label>airVent</label>
-    <thingClass>CentralizedClimateControl.Building_AirVent</thingClass>
-    <graphicData>
-      <texPath>Things/Building/AirVent</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <damageData>
-        <cornerTL>Damage/Corner</cornerTL>
-        <cornerTR>Damage/Corner</cornerTR>
-        <cornerBL>Damage/Corner</cornerBL>
-        <cornerBR>Damage/Corner</cornerBR>
-      </damageData>
-    </graphicData>
-    <altitudeLayer>Building</altitudeLayer>
-    <passability>Impassable</passability>
-    <blockWind>true</blockWind>
-    <fillPercent>1</fillPercent>
-    <coversFloor>true</coversFloor>
-    <blockLight>true</blockLight>
-    <canOverlapZones>false</canOverlapZones>
-    <castEdgeShadows>true</castEdgeShadows>
-    <staticSunShadowHeight>1.0</staticSunShadowHeight>
-    <statBases>
-      <WorkToBuild>1600</WorkToBuild>
-      <MaxHitPoints>100</MaxHitPoints>
-      <Flammability>1.0</Flammability>
-    </statBases>
-    <tickerType>Rare</tickerType>
-    <description>An Air Vent.</description>
-    <costList>
-      <Steel>50</Steel>
-    </costList>
-    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
-    <building>
-      <canPlaceOverWall>true</canPlaceOverWall>
-    </building>
-    <comps>
-      <li Class="CentralizedClimateControl.CompProperties_AirFlow">
-        <compClass>CentralizedClimateControl.CompAirFlowConsumer</compClass>
-        <flowType>Any</flowType>
-        <baseAirExhaust>100</baseAirExhaust>
-      </li>
-      <li Class="CompProperties_Flickable">
-        <commandTexture>UI/Commands/Vent</commandTexture>
-        <commandLabelKey>CommandDesignateOpenCloseVentLabel</commandLabelKey>
-        <commandDescKey>CommandDesignateOpenCloseVentDesc</commandDescKey>
-      </li>
-    </comps>
-    <holdsRoof>true</holdsRoof>
-    <designationCategory>Temperature</designationCategory>
-    <designationHotKey>Misc4</designationHotKey>
-    <researchPrerequisites>
-      <li>AirConditioning</li>
-    </researchPrerequisites>
-    <placeWorkers>
-      <li>CentralizedClimateControl.PlaceWorker_AirVent</li>
     </placeWorkers>
   </ThingDef>
 
@@ -393,10 +335,11 @@
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
     </comps>
-    <designationCategory>Temperature</designationCategory>
+    <designationCategory>CentralClimateControl</designationCategory>
     <designationHotKey>Misc4</designationHotKey>
     <researchPrerequisites>
       <li>AirConditioning</li>
+      <li>IndustrialClimateControl</li>
     </researchPrerequisites>
     <placeWorkers>
       <li>CentralizedClimateControl.PlaceWorker_IntakeFan</li>
@@ -459,10 +402,11 @@
       <li Class="CompProperties_TempControl"/>
       <li Class="CompProperties_Breakdownable"/>
     </comps>
-    <designationCategory>Temperature</designationCategory>
+    <designationCategory>CentralClimateControl</designationCategory>
     <designationHotKey>Misc4</designationHotKey>
     <researchPrerequisites>
       <li>AirConditioning</li>
+      <li>IndustrialClimateControl</li>
     </researchPrerequisites>
     <placeWorkers>
       <li>CentralizedClimateControl.PlaceWorker_AirThermal</li>
@@ -511,10 +455,11 @@
         <commandDescKey>CommandDesignateOpenCloseVentDesc</commandDescKey>
       </li>
     </comps>
-    <designationCategory>Temperature</designationCategory>
+    <designationCategory>CentralClimateControl</designationCategory>
     <designationHotKey>Misc4</designationHotKey>
     <researchPrerequisites>
       <li>AirConditioning</li>
+      <li>BasicClimateControl</li>
     </researchPrerequisites>
     <placeWorkers>
       <li>CentralizedClimateControl.PlaceWorker_NeedsWall</li>
