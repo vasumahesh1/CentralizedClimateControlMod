@@ -60,4 +60,25 @@ Your saves wont be affected by this update. All Vent Pipe Connections are by def
 - Fix the Display string when Power Component of the machines breakdown
 - Code optimized in some files</content>
 	</HugsLib.UpdateFeatureDef>
+
+	<HugsLib.UpdateFeatureDef ParentName="CCCUpdateFeatureBase">
+		<defName>CentralizedClimateControl_1_3_0</defName>
+		<assemblyVersion>1.3.0</assemblyVersion>
+		<content>|img:Things/Updates/130/130_Update|
+Your saves wont be affected by this update. I have updated some art assets. Some are still left, will be updated in the next version.
+| &lt;b&gt;Features:&lt;/b&gt;
+- Research Tech
+|img:Things/Updates/130/130_ResearchTab|caption:New Research Tab - Use this to Unlock Climate Buildings
+|img:Things/Updates/130/130_Research1|caption:Basic Research - Unlocks the small buildings for Climate Control
+|img:Things/Updates/130/130_Research2|caption:Advanced Research - Unlocks the big buildings for Climate Control
+- Build Tab
+|img:Things/Updates/130/130_BuildTab|caption:New Build Tab - Use this to Build Central Climate Control Buildings
+|- Made Pipes easier to see with the new color for the Blue Pipe
+- Removed Full Size Vents
+| &lt;b&gt;Balance Changes:&lt;/b&gt;
+- Updated Costs of the Intakes and Thermals
+| &lt;b&gt;Bug Fixes:&lt;/b&gt;
+- Many Fixes!
+</content>
+	</HugsLib.UpdateFeatureDef>
 </Defs>

@@ -51,7 +51,7 @@ namespace CentralizedClimateControl
 
             foreach (var producer in Producers)
             {
-                if (!producer.IsOperating())
+                if (!producer.IsOperating() || !producer.IsActive())
                 {
                     continue;
                 }

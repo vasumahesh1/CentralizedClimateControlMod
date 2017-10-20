@@ -467,5 +467,65 @@
     </placeWorkers>
   </ThingDef>
 
+  <ThingDef ParentName="CentralizedClimateControlBuilding">
+    <defName>AirVent</defName>
+    <label>airVent</label>
+    <thingClass>CentralizedClimateControl.Building_AirVent</thingClass>
+    <graphicData>
+      <texPath>Things/Building/AirVent</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <blockWind>true</blockWind>
+    <fillPercent>1</fillPercent>
+    <coversFloor>true</coversFloor>
+    <blockLight>true</blockLight>
+    <canOverlapZones>false</canOverlapZones>
+    <castEdgeShadows>true</castEdgeShadows>
+    <staticSunShadowHeight>1.0</staticSunShadowHeight>
+    <statBases>
+      <WorkToBuild>1600</WorkToBuild>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <tickerType>Rare</tickerType>
+    <description>An Air Vent.</description>
+    <costList>
+      <Steel>50</Steel>
+    </costList>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <building>
+      <canPlaceOverWall>true</canPlaceOverWall>
+    </building>
+    <comps>
+      <li Class="CentralizedClimateControl.CompProperties_AirFlow">
+        <compClass>CentralizedClimateControl.CompAirFlowConsumer</compClass>
+        <flowType>Any</flowType>
+        <baseAirExhaust>100</baseAirExhaust>
+      </li>
+      <li Class="CompProperties_Flickable">
+        <commandTexture>UI/Commands/Vent</commandTexture>
+        <commandLabelKey>CommandDesignateOpenCloseVentLabel</commandLabelKey>
+        <commandDescKey>CommandDesignateOpenCloseVentDesc</commandDescKey>
+      </li>
+    </comps>
+    <holdsRoof>true</holdsRoof>
+    <researchPrerequisites>
+      <li>AirConditioning</li>
+      <li>BasicClimateControl</li>
+    </researchPrerequisites>
+    <placeWorkers>
+      <li>CentralizedClimateControl.PlaceWorker_AirVent</li>
+    </placeWorkers>
+  </ThingDef>
+
 </Defs>
  
