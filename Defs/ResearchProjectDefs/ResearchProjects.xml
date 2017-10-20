@@ -10,8 +10,7 @@
       <li>Electricity</li>
     </prerequisites>
     <researchViewX>2</researchViewX>
-    <researchViewY>2</researchViewY>
-    <tab>CentralizedClimateControl</tab>
+    <researchViewY>5</researchViewY>
   </ResearchProjectDef>
 
   <ResearchProjectDef>
@@ -25,7 +24,6 @@
       <li>Electricity</li>
     </prerequisites>
     <researchViewX>3</researchViewX>
-    <researchViewY>2</researchViewY>
-    <tab>CentralizedClimateControl</tab>
+    <researchViewY>5</researchViewY>
   </ResearchProjectDef>
 </Defs>
