@@ -465,6 +465,7 @@
       <li>CentralizedClimateControl.PlaceWorker_NeedsWall</li>
       <li>CentralizedClimateControl.PlaceWorker_AirVent</li>
     </placeWorkers>
+    <clearBuildingArea>false</clearBuildingArea>
   </ThingDef>
 
   <ThingDef ParentName="CentralizedClimateControlBuilding">
