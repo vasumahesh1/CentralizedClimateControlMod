@@ -19,7 +19,9 @@ namespace CentralizedClimateControl
         {
             var type = AirFlowType.Hot;
 
-            var list = center.GetThingList(Map);
+            Map map = Find.VisibleMap;
+
+            var list = center.GetThingList(map);
             foreach (var thing in list)
             {
                 if (!(thing is Building_AirVent))
@@ -46,7 +48,7 @@ namespace CentralizedClimateControl
                 intVec
             }, typeColor);
 
-            var roomGroup = intVec.GetRoomGroup(Map);
+            var roomGroup = intVec.GetRoomGroup(map);
             if (roomGroup == null)
             {
                 return;
@@ -69,11 +71,11 @@ namespace CentralizedClimateControl
         /// <param name="rot">Rotation of the Object to be Placed</param>
         /// <param name="thingToIgnore">Unused field</param>
         /// <returns>Boolean/Acceptance Report if we can place the object of not.</returns>
-        public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 center, Rot4 rot, Thing thingToIgnore = null)
+        public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 center, Rot4 rot, Map map, Thing thingToIgnore = null)
         {
             var vec = center + IntVec3.North.RotatedBy(rot);
 
-            if (vec.Impassable(Map))
+            if (vec.Impassable(map))
             {
                 return "CentralizedClimateControl.Consumer.AirVentPlaceError".Translate();
             }

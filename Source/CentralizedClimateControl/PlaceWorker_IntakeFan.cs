@@ -39,9 +39,9 @@ namespace CentralizedClimateControl
         /// <param name="rot">Rotation of the Object to be Placed</param>
         /// <param name="thingToIgnore">Unused field</param>
         /// <returns>Boolean/Acceptance Report if we can place the object of not.</returns>
-        public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 center, Rot4 rot, Thing thingToIgnore = null)
+        public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 center, Rot4 rot, Map map, Thing thingToIgnore = null)
         {
-            var thingList = center.GetThingList(Map);
+            var thingList = center.GetThingList(map);
 
             if (thingList.OfType<Building_AirPipe>().Any())
             {
@@ -56,7 +56,7 @@ namespace CentralizedClimateControl
             var size = def.Size;
             var list = GenAdj.CellsAdjacent8Way(center, rot, size);
 
-            if (list.Any(intVec => intVec.Impassable(Map)))
+            if (list.Any(intVec => intVec.Impassable(map)))
             {
                 return "CentralizedClimateControl.Producer.IntakeFanPlaceError".Translate();
             }

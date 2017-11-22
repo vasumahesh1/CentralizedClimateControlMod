@@ -89,7 +89,6 @@
     <category>Building</category>
     <building>
       <isInert>true</isInert>
-      <ignoreNeedsPower>true</ignoreNeedsPower>
       <isEdifice>false</isEdifice>
     </building>
     <altitudeLayer>FloorEmplacement</altitudeLayer>

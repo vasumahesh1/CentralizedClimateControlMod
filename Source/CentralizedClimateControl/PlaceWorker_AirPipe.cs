@@ -20,9 +20,9 @@ namespace CentralizedClimateControl
         /// <param name="rot">Rotation of the Object to be Placed</param>
         /// <param name="thingToIgnore">Unused field</param>
         /// <returns>Boolean/Acceptance Report if we can place the object of not.</returns>
-        public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 loc, Rot4 rot, Thing thingToIgnore = null)
+        public override AcceptanceReport AllowsPlacing(BuildableDef def, IntVec3 loc, Rot4 rot, Map map, Thing thingToIgnore = null)
         {
-            var thingList = loc.GetThingList(base.Map);
+            var thingList = loc.GetThingList(map);
             return thingList.OfType<Building_AirFlowControl>().Any() ? AcceptanceReport.WasRejected : AcceptanceReport.WasAccepted;
         }
     }

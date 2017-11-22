@@ -2,7 +2,7 @@
 <Defs>
 
   <DesignationCategoryDef>
-    <DefName>CentralClimateControl</DefName>
+    <defName>CentralClimateControl</defName>
     <label>Climate</label>
     <description>Things for central climate control.</description>
     <order>11</order>
