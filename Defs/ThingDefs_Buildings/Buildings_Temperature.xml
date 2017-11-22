@@ -115,6 +115,7 @@
     <placeWorkers>
       <li>CentralizedClimateControl.PlaceWorker_AirPipe</li>
     </placeWorkers>
+    <clearBuildingArea>false</clearBuildingArea>
   </ThingDef>
 
   <ThingDef ParentName="AirPipe">
