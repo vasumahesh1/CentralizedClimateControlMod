@@ -4,7 +4,7 @@ defmodule Mix.Tasks.ZipMod do
   @shortdoc "Zips the Mod for Upload."
   @release_dir "release/"
   @modname "CentralizedClimateControl"
-  @version "1.4.0"
+  @version "1.5.0"
   @game_version "B18"
 
   def run(_) do
