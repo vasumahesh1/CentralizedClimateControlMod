@@ -1,0 +1,4 @@
+C:\Users\Joshy\Documents\CentralizedClimateControlMod-1.5.0\Source\CentralizedClimateControl\obj\Debug\CentralizedClimateControl.csprojAssemblyReference.cache
+C:\Users\Joshy\Documents\CentralizedClimateControlMod-1.5.0\Source\CentralizedClimateControl\obj\Debug\CentralizedClimateControl.csproj.CoreCompileInputs.cache
+C:\Users\Joshy\Documents\CentralizedClimateControlMod-1.5.0\Assemblies\CentralizedClimateControl.dll
+C:\Users\Joshy\Documents\CentralizedClimateControlMod-1.5.0\Source\CentralizedClimateControl\obj\Debug\CentralizedClimateControl.dll

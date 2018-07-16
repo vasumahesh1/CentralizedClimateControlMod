@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- CentralizedClimateControl -->
+<Defs>
+  <ThingDef ParentName="AirPipe">
+    <defName>redAirPipe</defName>
+    <label>Red Air Pipe</label>
+    <description>Red Pipes for carrying air.</description>
+    <thingClass>CentralizedClimateControl.Building_HotAirPipe</thingClass>
+    <uiIconPath>UI/RedAirPipe</uiIconPath>
+    <costList>
+      <Steel>1</Steel>
+    </costList>
+    <graphicData>
+      <texPath>Things/Building/Hot_AirPipe_Atlas</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <linkType>Basic</linkType>
+      <linkFlags>
+        <li>Custom6</li>
+      </linkFlags>
+      <damageData>
+        <rect>(0,0.35,1,0.3)</rect>
+      </damageData>
+    </graphicData>
+	<building>
+    <blueprintGraphicData>
+      <texPath>Things/Building/Hot_AirPipe_Blueprint_Atlas</texPath>
+    </blueprintGraphicData>
+	</building>
+    <designationCategory>CentralClimateControl</designationCategory>
+    <comps>
+      <li Class="CentralizedClimateControl.CompProperties_AirFlow">
+        <compClass>CentralizedClimateControl.CompAirFlowPipe</compClass>
+        <flowType>Hot</flowType>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="AirPipe">
+    <defName>blueAirPipe</defName>
+    <label>Blue Air Pipe</label>
+    <description>Blue Pipes for carrying air.</description>
+    <thingClass>CentralizedClimateControl.Building_ColdAirPipe</thingClass>
+    <uiIconPath>UI/BlueAirPipe</uiIconPath>
+    <costList>
+      <Steel>1</Steel>
+    </costList>
+    <graphicData>
+      <texPath>Things/Building/Cold_AirPipe_Atlas</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <linkType>Basic</linkType>
+      <linkFlags>
+        <li>Custom6</li>
+      </linkFlags>
+      <damageData>
+        <rect>(0,0.35,1,0.3)</rect>
+      </damageData>
+    </graphicData>
+    <building>
+	<blueprintGraphicData>
+      <texPath>Things/Building/Cold_AirPipe_Blueprint_Atlas</texPath>
+    </blueprintGraphicData>
+	</building>
+    <designationCategory>CentralClimateControl</designationCategory>
+    <comps>
+      <li Class="CentralizedClimateControl.CompProperties_AirFlow">
+        <compClass>CentralizedClimateControl.CompAirFlowPipe</compClass>
+        <flowType>Cold</flowType>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="AirPipe">
+    <defName>cyanAirPipe</defName>
+    <label>Cyan Air Pipe</label>
+    <description>Cyan Air Pipes for carrying air.</description>
+    <thingClass>CentralizedClimateControl.Building_FrozenAirPipe</thingClass>
+    <uiIconPath>UI/CyanAirPipe</uiIconPath>
+    <costList>
+      <Steel>1</Steel>
+    </costList>
+    <graphicData>
+      <texPath>Things/Building/Frozen_AirPipe_Atlas</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <linkType>Basic</linkType>
+      <linkFlags>
+        <li>Custom6</li>
+      </linkFlags>
+      <damageData>
+        <rect>(0,0.35,1,0.3)</rect>
+      </damageData>
+    </graphicData>
+	<building>
+    <blueprintGraphicData>
+      <texPath>Things/Building/Frozen_AirPipe_Blueprint_Atlas</texPath>
+    </blueprintGraphicData>
+	</building>
+    <designationCategory>CentralClimateControl</designationCategory>
+    <comps>
+      <li Class="CentralizedClimateControl.CompProperties_AirFlow">
+        <compClass>CentralizedClimateControl.CompAirFlowPipe</compClass>
+        <flowType>Frozen</flowType>
+      </li>
+    </comps>
+  </ThingDef>
+</Defs>
