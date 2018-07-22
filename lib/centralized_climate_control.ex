@@ -1,2 +1,0 @@
-defmodule CentralizedClimateControl do
-end
