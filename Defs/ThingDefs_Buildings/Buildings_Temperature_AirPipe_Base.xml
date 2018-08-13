@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- CentralizedClimateControl -->
+<Defs>
+
+  <ThingDef Abstract="True" Name="AirPipe">
+    <label>airpipe</label>
+    <description>Air Pipes.</description>
+    <thingClass>CentralizedClimateControl.Building_AirPipe</thingClass>
+    <category>Building</category>
+    <building>
+      <isInert>true</isInert>
+      <isEdifice>false</isEdifice>
+    </building>
+    <altitudeLayer>FloorEmplacement</altitudeLayer>
+    <passability>Standable</passability>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <WorkToBuild>35</WorkToBuild>
+      <Flammability>1.0</Flammability>
+      <Beauty>-2</Beauty>
+    </statBases>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <placingDraggableDimensions>1</placingDraggableDimensions>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationHotKey>Misc1</designationHotKey>
+    <researchPrerequisites>
+      <li>AirConditioning</li>
+      <li>BasicClimateControl</li>
+    </researchPrerequisites>
+    <placeWorkers>
+      <li>CentralizedClimateControl.PlaceWorker_AirPipe</li>
+    </placeWorkers>
+    <clearBuildingArea>false</clearBuildingArea>
+  </ThingDef>
+</Defs>

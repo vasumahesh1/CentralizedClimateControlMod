@@ -15,11 +15,11 @@ namespace CentralizedClimateControl
         /// <param name="def">The Thing's Def</param>
         /// <param name="center">Location</param>
         /// <param name="rot">Rotation</param>
-        public override void DrawGhost(ThingDef def, IntVec3 center, Rot4 rot)
+        public override void DrawGhost(ThingDef def, IntVec3 center, Rot4 rot, Color ghostCol)
         {
             var type = AirFlowType.Hot;
 
-            Map map = Find.VisibleMap;
+            Map map = Find.CurrentMap;
 
             var list = center.GetThingList(map);
             foreach (var thing in list)

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- CentralizedClimateControl -->
+<Defs>
+  <ThingDef Abstract="True" Name="CentralizedClimateControlBuilding" ParentName="BuildingBase">
+    <category>Building</category>
+    <thingClass>Building</thingClass>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <repairEffect>Repair</repairEffect>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <statBases>
+      <Beauty>-10</Beauty>
+    </statBases>
+  </ThingDef>
+</Defs>

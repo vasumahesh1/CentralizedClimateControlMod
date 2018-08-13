@@ -1,0 +1,8 @@
+C:\Users\Joshy\Documents\CentralizedClimateControlMod-1.5.0\Source\CentralizedClimateControl\obj\Debug\CentralizedClimateControl.csprojAssemblyReference.cache
+C:\Users\Joshy\Documents\CentralizedClimateControlMod-1.5.0\Source\CentralizedClimateControl\obj\Debug\CentralizedClimateControl.csproj.CoreCompileInputs.cache
+C:\Users\Joshy\Documents\CentralizedClimateControlMod-1.5.0\Assemblies\CentralizedClimateControl.dll
+C:\Users\Joshy\Documents\CentralizedClimateControlMod-1.5.0\Source\CentralizedClimateControl\obj\Debug\CentralizedClimateControl.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\CentralizedClimateControlMod-1.5.0\Assemblies\CentralizedClimateControl.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\CentralizedClimateControlMod-1.5.0\Source\CentralizedClimateControl\obj\Debug\CentralizedClimateControl.csprojAssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\CentralizedClimateControlMod-1.5.0\Source\CentralizedClimateControl\obj\Debug\CentralizedClimateControl.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\CentralizedClimateControlMod-1.5.0\Source\CentralizedClimateControl\obj\Debug\CentralizedClimateControl.dll
