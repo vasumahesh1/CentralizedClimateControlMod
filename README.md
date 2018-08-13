@@ -4,7 +4,7 @@ A [RimWorld](http://store.steampowered.com/app/294100/RimWorld/) game mod for pr
 ### About the Mod
 This Mod allows centralized air cooling/heating. Build large Climate Systems in your map away from your buildings. This overcomes certain late game drawbacks like building excessive coolers and ramping up the electricity usage as we enter late game.
 
-![Banner](https://github.com/Jdalt40/CentralizedClimateControlMod/tree/Source/Misc/Banners/Banner1.jpg)
+![Banner](/Misc/Banners/Banner1.jpg)
 
 [More screenshots](https://github.com/Jdalt40/CentralizedClimateControlMod/tree/Source/Misc/Banners)
 
