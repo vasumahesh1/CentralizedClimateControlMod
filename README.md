@@ -6,7 +6,7 @@ This Mod allows centralized air cooling/heating. Build large Climate Systems in 
 
 ![Banner](/Misc/Banners/Banner1.jpg)
 
-[More screenshots](https://github.com/vasumahesh1/CentralizedClimateControlMod/tree/Source/Misc/Banners)
+[More screenshots](https://github.com/Jdalt40/CentralizedClimateControlMod/tree/Source/Misc/Banners)
 
 This mod works by adding a few buildings namely:
 - Air Intake Machine
