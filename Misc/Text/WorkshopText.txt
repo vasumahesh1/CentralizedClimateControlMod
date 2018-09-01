@@ -1,6 +1,6 @@
 Centralized Air Cooling/Heating System for RimWorld. Build Large Piped Air Climate Systems away from your buildings.
 
-Rimworld Version: B18 (Check Github releases for older versions)
+Rimworld Version: B19 (Check Github releases for older versions)
 Version: 1.4.0
 
 [url=https://ludeon.com/forums/index.php?topic=34346.0]Forum Link[/url]
@@ -72,6 +72,7 @@ Thanks if you are trying my mod out!
 
 [h1] Authors: [/h1]
 - [url=http://steamcommunity.com/id/vasumahesh/] vasumahesh	[/url]
+- [url=https://github.com/Jdalt40] [B19 changes] Jdalt40  [/url]
 
 [h1] Credits: [/h1]
 - [url=https://ludeon.com/forums/index.php?action=profile;u=19514] carlgraves for "Central Heating" [/url]

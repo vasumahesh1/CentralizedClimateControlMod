@@ -78,8 +78,9 @@ If you have multiple pipes near your vent, You can force it to connect to a spec
 - 5x more power than the Regular Unit
 
 
-[color=orange][size=18pt]Author[/size][/color]
-- [url=http://steamcommunity.com/id/vasumahesh/] vasumahesh	[/url]
+[color=orange][size=18pt]Authors & Contributors[/size][/color]
+- [url=http://steamcommunity.com/id/vasumahesh/] vasumahesh [/url]
+- [url=https://github.com/Jdalt40] [B19 changes] Jdalt40	[/url]
 
 
 [color=orange][size=18pt]Credits & Inspiration:[/size][/color]
