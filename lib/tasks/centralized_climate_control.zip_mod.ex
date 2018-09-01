@@ -5,7 +5,7 @@ defmodule Mix.Tasks.ZipMod do
   @release_dir "release/"
   @modname "CentralizedClimateControl"
   @version "1.5.0"
-  @game_version "B18"
+  @game_version "B19"
 
   def run(_) do
     path = "./"
