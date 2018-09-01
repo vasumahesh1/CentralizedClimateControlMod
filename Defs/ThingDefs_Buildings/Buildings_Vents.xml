@@ -5,12 +5,11 @@
 	<ThingDef Abstract="True" Name="CentralizedClimateControl_BaseVent" ParentName="BuildingBase">
 		<category>Building</category>
 		<thingClass>Building</thingClass>
-		<soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
 		<selectable>true</selectable>
 		<drawerType>MapMeshAndRealTime</drawerType>
 		<repairEffect>Repair</repairEffect>
 		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
-		<filthLeaving>BuildingRubble</filthLeaving>
 		<statBases>
 			<Beauty>-10</Beauty>
 		</statBases>

@@ -4,13 +4,12 @@
   <ThingDef Abstract="True" Name="CentralizedClimateControlBuilding" ParentName="BuildingBase">
     <category>Building</category>
     <thingClass>Building</thingClass>
-    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
     <selectable>true</selectable>
     <drawerType>MapMeshAndRealTime</drawerType>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <repairEffect>Repair</repairEffect>
     <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
-    <filthLeaving>BuildingRubble</filthLeaving>
     <statBases>
       <Beauty>-10</Beauty>
     </statBases>
@@ -30,7 +29,6 @@
         <cornerBR>Damage/Corner</cornerBR>
       </damageData>
     </graphicData>
-    <minifiedDef>MinifiedFurniture</minifiedDef>
     <size>(1,1)</size>
     <altitudeLayer>Building</altitudeLayer>
     <passability>Impassable</passability>
@@ -50,7 +48,7 @@
     <description>A IntakeFan.</description>
     <costList>
       <Steel>100</Steel>
-      <Component>1</Component>
+      <ComponentIndustrial>1</ComponentIndustrial>
     </costList>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
@@ -104,7 +102,7 @@
     <rotatable>false</rotatable>
     <selectable>true</selectable>
     <neverMultiSelect>true</neverMultiSelect>
-    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <designationHotKey>Misc1</designationHotKey>
     <researchPrerequisites>
@@ -137,9 +135,11 @@
         <rect>(0,0.35,1,0.3)</rect>
       </damageData>
     </graphicData>
-    <blueprintGraphicData>
-      <texPath>Things/Building/Hot_AirPipe_Blueprint_Atlas</texPath>
-    </blueprintGraphicData>
+    <building>
+      <blueprintGraphicData>
+        <texPath>Things/Building/Hot_AirPipe_Blueprint_Atlas</texPath>
+      </blueprintGraphicData>
+    </building>
     <designationCategory>CentralClimateControl</designationCategory>
     <comps>
       <li Class="CentralizedClimateControl.CompProperties_AirFlow">
@@ -169,9 +169,11 @@
         <rect>(0,0.35,1,0.3)</rect>
       </damageData>
     </graphicData>
-    <blueprintGraphicData>
-      <texPath>Things/Building/Cold_AirPipe_Blueprint_Atlas</texPath>
-    </blueprintGraphicData>
+    <building>
+      <blueprintGraphicData>
+        <texPath>Things/Building/Cold_AirPipe_Blueprint_Atlas</texPath>
+      </blueprintGraphicData>
+    </building>
     <designationCategory>CentralClimateControl</designationCategory>
     <comps>
       <li Class="CentralizedClimateControl.CompProperties_AirFlow">
@@ -201,9 +203,11 @@
         <rect>(0,0.35,1,0.3)</rect>
       </damageData>
     </graphicData>
-    <blueprintGraphicData>
-      <texPath>Things/Building/Frozen_AirPipe_Blueprint_Atlas</texPath>
-    </blueprintGraphicData>
+    <building>
+      <blueprintGraphicData>
+        <texPath>Things/Building/Frozen_AirPipe_Blueprint_Atlas</texPath>
+      </blueprintGraphicData>
+    </building>
     <designationCategory>CentralClimateControl</designationCategory>
     <comps>
       <li Class="CentralizedClimateControl.CompProperties_AirFlow">
@@ -227,7 +231,6 @@
         <cornerBR>Damage/Corner</cornerBR>
       </damageData>
     </graphicData>
-    <minifiedDef>MinifiedFurniture</minifiedDef>
     <size>(1,1)</size>
     <altitudeLayer>Building</altitudeLayer>
     <passability>Impassable</passability>
@@ -247,7 +250,7 @@
     <description>A Air Heater for heating Air.</description>
     <costList>
       <Steel>200</Steel>
-      <Component>3</Component>
+      <ComponentIndustrial>3</ComponentIndustrial>
     </costList>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
@@ -294,7 +297,6 @@
         <cornerBR>Damage/Corner</cornerBR>
       </damageData>
     </graphicData>
-    <minifiedDef>MinifiedFurniture</minifiedDef>
     <size>(2,2)</size>
     <altitudeLayer>Building</altitudeLayer>
     <passability>Impassable</passability>
@@ -314,7 +316,7 @@
     <description>A Large IntakeFan.</description>
     <costList>
       <Steel>300</Steel>
-      <Component>3</Component>
+      <ComponentIndustrial>3</ComponentIndustrial>
     </costList>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
@@ -360,7 +362,6 @@
         <cornerBR>Damage/Corner</cornerBR>
       </damageData>
     </graphicData>
-    <minifiedDef>MinifiedFurniture</minifiedDef>
     <size>(2,2)</size>
     <altitudeLayer>Building</altitudeLayer>
     <passability>Impassable</passability>
@@ -380,7 +381,7 @@
     <description>A Air Heater for heating Air.</description>
     <costList>
       <Steel>600</Steel>
-      <Component>9</Component>
+      <ComponentIndustrial>9</ComponentIndustrial>
     </costList>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
