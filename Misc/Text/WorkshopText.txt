@@ -1,6 +1,6 @@
 Centralized Air Cooling/Heating System for RimWorld. Build Large Piped Air Climate Systems away from your buildings.
 
-Rimworld Version: B19 (Check Github releases for older versions)
+Rimworld Version: 1.0.0 (Check Github releases for older versions)
 Version: 1.5.0
 
 [url=https://ludeon.com/forums/index.php?topic=34346.0]Forum Link[/url]
