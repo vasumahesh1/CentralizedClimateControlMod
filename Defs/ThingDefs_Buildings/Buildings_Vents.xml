@@ -5,11 +5,15 @@
 	<ThingDef Abstract="True" Name="CentralizedClimateControl_BaseVent" ParentName="BuildingBase">
 		<category>Building</category>
 		<thingClass>Building</thingClass>
+		<minifiedDef>MinifiedThing</minifiedDef>
 		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
 		<selectable>true</selectable>
 		<drawerType>MapMeshAndRealTime</drawerType>
 		<repairEffect>Repair</repairEffect>
 		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<thingCategories>
+			<li>BuildingsClimate</li>
+		</thingCategories>
 		<statBases>
 			<Beauty>-10</Beauty>
 		</statBases>
@@ -75,6 +79,7 @@
 		<statBases>
 			<WorkToBuild>350</WorkToBuild>
 			<MaxHitPoints>75</MaxHitPoints>
+			<Mass>2</Mass>
 			<Flammability>1.0</Flammability>
 		</statBases>
 		<description>A Wall Mounted Air Vent.</description>
@@ -113,6 +118,7 @@
 		<statBases>
 			<WorkToBuild>175</WorkToBuild>
 			<MaxHitPoints>75</MaxHitPoints>
+			<Mass>1</Mass>
 			<Flammability>1.0</Flammability>
 		</statBases>
 		<description>A Wall Mounted Air Vent.</description>
@@ -151,6 +157,7 @@
 		<statBases>
 			<WorkToBuild>1050</WorkToBuild>
 			<MaxHitPoints>100</MaxHitPoints>
+			<Mass>50</Mass>
 			<Flammability>1.0</Flammability>
 		</statBases>
 		<description>A Surround Exhaust.</description>
@@ -191,6 +198,7 @@
 		<statBases>
 			<WorkToBuild>2100</WorkToBuild>
 			<MaxHitPoints>200</MaxHitPoints>
+			<Mass>100</Mass>
 			<Flammability>1.0</Flammability>
 		</statBases>
 		<description>A Surround Exhaust.</description>
@@ -229,6 +237,7 @@
 		<statBases>
 			<WorkToBuild>1600</WorkToBuild>
 			<MaxHitPoints>100</MaxHitPoints>
+			<Mass>50</Mass>
 			<Flammability>1.0</Flammability>
 		</statBases>
 		<description>An Air Vent.</description>

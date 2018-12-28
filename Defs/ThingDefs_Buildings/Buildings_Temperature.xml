@@ -4,12 +4,16 @@
   <ThingDef Abstract="True" Name="CentralizedClimateControlBuilding" ParentName="BuildingBase">
     <category>Building</category>
     <thingClass>Building</thingClass>
+	<minifiedDef>MinifiedThing</minifiedDef>
     <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
     <selectable>true</selectable>
     <drawerType>MapMeshAndRealTime</drawerType>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <repairEffect>Repair</repairEffect>
     <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+	<thingCategories>
+      <li>BuildingsClimate</li>
+    </thingCategories>
     <statBases>
       <Beauty>-10</Beauty>
     </statBases>
@@ -42,6 +46,7 @@
     <statBases>
       <WorkToBuild>1600</WorkToBuild>
       <MaxHitPoints>100</MaxHitPoints>
+	  <Mass>20</Mass>
       <Flammability>1.0</Flammability>
     </statBases>
     <tickerType>Rare</tickerType>
@@ -244,6 +249,7 @@
     <statBases>
       <WorkToBuild>1600</WorkToBuild>
       <MaxHitPoints>100</MaxHitPoints>
+	  <Mass>20</Mass>
       <Flammability>1.0</Flammability>
     </statBases>
     <tickerType>Rare</tickerType>
@@ -310,6 +316,7 @@
     <statBases>
       <WorkToBuild>4800</WorkToBuild>
       <MaxHitPoints>300</MaxHitPoints>
+	  <Mass>100</Mass>
       <Flammability>1.0</Flammability>
     </statBases>
     <tickerType>Rare</tickerType>
@@ -375,6 +382,7 @@
     <statBases>
       <WorkToBuild>4800</WorkToBuild>
       <MaxHitPoints>300</MaxHitPoints>
+	  <Mass>80</Mass>
       <Flammability>1.0</Flammability>
     </statBases>
     <tickerType>Rare</tickerType>
