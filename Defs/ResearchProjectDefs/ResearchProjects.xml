@@ -8,6 +8,7 @@
     <techLevel>Industrial</techLevel>
     <prerequisites>
       <li>Electricity</li>
+      <li>AirConditioning</li>
     </prerequisites>
     <researchViewX>2</researchViewX>
     <researchViewY>5</researchViewY>
@@ -22,6 +23,7 @@
     <prerequisites>
       <li>BasicClimateControl</li>
       <li>Electricity</li>
+      <li>AirConditioning</li>
     </prerequisites>
     <researchViewX>3</researchViewX>
     <researchViewY>5</researchViewY>

@@ -71,7 +71,6 @@
     <designationCategory>CentralClimateControl</designationCategory>
     <designationHotKey>Misc4</designationHotKey>
     <researchPrerequisites>
-      <li>AirConditioning</li>
       <li>BasicClimateControl</li>
     </researchPrerequisites>
     <placeWorkers>
@@ -106,7 +105,6 @@
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <designationHotKey>Misc1</designationHotKey>
     <researchPrerequisites>
-      <li>AirConditioning</li>
       <li>BasicClimateControl</li>
     </researchPrerequisites>
     <placeWorkers>
@@ -274,7 +272,6 @@
     <designationCategory>CentralClimateControl</designationCategory>
     <designationHotKey>Misc4</designationHotKey>
     <researchPrerequisites>
-      <li>AirConditioning</li>
       <li>BasicClimateControl</li>
     </researchPrerequisites>
     <placeWorkers>
@@ -339,7 +336,6 @@
     <designationCategory>CentralClimateControl</designationCategory>
     <designationHotKey>Misc4</designationHotKey>
     <researchPrerequisites>
-      <li>AirConditioning</li>
       <li>IndustrialClimateControl</li>
     </researchPrerequisites>
     <placeWorkers>
@@ -405,7 +401,6 @@
     <designationCategory>CentralClimateControl</designationCategory>
     <designationHotKey>Misc4</designationHotKey>
     <researchPrerequisites>
-      <li>AirConditioning</li>
       <li>IndustrialClimateControl</li>
     </researchPrerequisites>
     <placeWorkers>

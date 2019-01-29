@@ -15,7 +15,6 @@
 		</statBases>
 		<clearBuildingArea>false</clearBuildingArea>
 		<researchPrerequisites>
-			<li>AirConditioning</li>
 			<li>BasicClimateControl</li>
 		</researchPrerequisites>
 		<designationCategory>CentralClimateControl</designationCategory>
