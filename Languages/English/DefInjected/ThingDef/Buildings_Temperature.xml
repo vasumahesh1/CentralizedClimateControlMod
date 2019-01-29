@@ -47,4 +47,10 @@
   <SurroundAirVent_Blueprint.label>Surround Air Vent (Blueprint)</SurroundAirVent_Blueprint.label>
   <SurroundAirVent_Frame.label>Surround Air Vent (Building)</SurroundAirVent_Frame.label>
   <SurroundAirVent_Frame.description>Exhausts the air in all directions in a room from a Pipe Network.</SurroundAirVent_Frame.description>
+
+  <SurroundAirVentWide.label>Wide Surround Air Vent</SurroundAirVentWide.label>
+  <SurroundAirVentWide.description>This device takes air from a Pipe Network and dumps it in the connected room or outside environment.</SurroundAirVentWide.description>
+  <SurroundAirVentWide_Blueprint.label>Wide Surround Air Vent (Blueprint)</SurroundAirVentWide_Blueprint.label>
+  <SurroundAirVentWide_Frame.label>Wide Surround Air Vent (Building)</SurroundAirVentWide_Frame.label>
+  <SurroundAirVentWide_Frame.description>Exhausts the air in all directions in a room from a Pipe Network.</SurroundAirVentWide_Frame.description>
 </LanguageData>
