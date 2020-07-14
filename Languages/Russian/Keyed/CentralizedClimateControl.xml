@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <TargetAirFlow>Airflow</TargetAirFlow>
+
+  <CentralizedClimateControl.PressuredAirStored>Воздух под давлением</CentralizedClimateControl.PressuredAirStored>
+  <CentralizedClimateControl.AirFlowOutput>Воздушный поток: {0} cc/s</CentralizedClimateControl.AirFlowOutput>
+
+  <CentralizedClimateControl.Efficiency>Воздух под давлением</CentralizedClimateControl.Efficiency>
+  <CentralizedClimateControl.AirFlowNetDisconnected>Не соединено с вентилляционной сетью</CentralizedClimateControl.AirFlowNetDisconnected>
+  <CentralizedClimateControl.AirFlowNetConnected>Соединено с вентилляционной сетью</CentralizedClimateControl.AirFlowNetConnected>
+  <CentralizedClimateControl.AirType>Air Carrying: {0}</CentralizedClimateControl.AirType>
+  <CentralizedClimateControl.AirTemperature>Температура воздуха: {0}</CentralizedClimateControl.AirTemperature>
+
+  <CentralizedClimateControl.HotAir>Красный воздуховод</CentralizedClimateControl.HotAir>
+  <CentralizedClimateControl.ColdAir>Синий воздуховод</CentralizedClimateControl.ColdAir>
+  <CentralizedClimateControl.FrozenAir>Бирюзовый воздуховод</CentralizedClimateControl.FrozenAir>
+  <CentralizedClimateControl.TotalNetworkAir>Общий воздушный поток в сети: {0} cc/s</CentralizedClimateControl.TotalNetworkAir>
+
+  <CentralizedClimateControl.Producer.IntakeTemperature>Температура на входе: {0}</CentralizedClimateControl.Producer.IntakeTemperature>
+  <CentralizedClimateControl.Producer.TargetTemperature>Температура на выходе: {0}</CentralizedClimateControl.Producer.TargetTemperature>
+  <CentralizedClimateControl.Producer.ConvertedTemperature>Температура преобразованная: {0}</CentralizedClimateControl.Producer.ConvertedTemperature>
+  <CentralizedClimateControl.Producer.TemperatureArrow>Преобразование: {0} (Вход)  ==>  {1} (Выход)</CentralizedClimateControl.Producer.TemperatureArrow>
+  <CentralizedClimateControl.Producer.ExhaustBlocked>Вытяжное устройство заблокировано</CentralizedClimateControl.Producer.ExhaustBlocked>
+  <CentralizedClimateControl.Producer.IntakeBlocked>Впускное устройство заблокировано</CentralizedClimateControl.Producer.IntakeBlocked>
+
+  <CentralizedClimateControl.Consumer.ConvertedTemperature>Температура преобразованная: {0}</CentralizedClimateControl.Consumer.ConvertedTemperature>
+  <CentralizedClimateControl.Consumer.Disconnected>Вентиллятор не соединён</CentralizedClimateControl.Consumer.Disconnected>
+
+  <CentralizedClimateControl.Producer.IntakeFanPlaceError>Необходимо свободное пространство вокруг впускного вентиллятора</CentralizedClimateControl.Producer.IntakeFanPlaceError>
+  <CentralizedClimateControl.Consumer.AirVentPlaceError>Необходимо свободное пространство перед  вытяжным вентиллятором</CentralizedClimateControl.Consumer.AirVentPlaceError>
+  <CentralizedClimateControl.Consumer.SurroundAirVentPlaceError>Необходимо свободное пространство вокруг кругового вентиллятора</CentralizedClimateControl.Consumer.SurroundAirVentPlaceError>
+  <CentralizedClimateControl.Consumer.AirThermalPlaceError>Необходимо свободное пространство позади устройства воздушного климат-контролля</CentralizedClimateControl.Consumer.AirThermalPlaceError>
+  <CentralizedClimateControl.Consumer.FlowEfficiencyKey>Эффективность потока: {0}</CentralizedClimateControl.Consumer.FlowEfficiencyKey>
+  <CentralizedClimateControl.Consumer.ThermalEfficiencyKey>Тепловая эффективность: {0}</CentralizedClimateControl.Consumer.ThermalEfficiencyKey>
+  <CentralizedClimateControl.Consumer.Closed>Вентиллятор закрыт (рубильник)</CentralizedClimateControl.Consumer.Closed>
+
+  <CentralizedClimateControl.Command.SwitchPipe.Desc>Принудительно подключить к воздуховоду определенного цвета</CentralizedClimateControl.Command.SwitchPipe.Desc>  
+  <CentralizedClimateControl.Command.SwitchPipe.Auto>Авто</CentralizedClimateControl.Command.SwitchPipe.Auto>
+  <CentralizedClimateControl.Command.SwitchPipe.Red>Красный воздуховод</CentralizedClimateControl.Command.SwitchPipe.Red>
+  <CentralizedClimateControl.Command.SwitchPipe.Blue>Синий воздуховод</CentralizedClimateControl.Command.SwitchPipe.Blue>
+  <CentralizedClimateControl.Command.SwitchPipe.Cyan>Бирюзовый воздуховод</CentralizedClimateControl.Command.SwitchPipe.Cyan>
+
+</LanguageData>
